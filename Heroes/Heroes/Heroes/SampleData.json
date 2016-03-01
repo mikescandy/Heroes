@@ -1,0 +1,9 @@
+﻿{
+  "CharacterPage.xaml": {
+      "Character": {
+      "Name": "John",
+        "CharacterClass": "Fighter",
+        "Visible": false
+    }
+  }
+}
