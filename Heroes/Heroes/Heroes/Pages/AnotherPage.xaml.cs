@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Heroes.Pages
+namespace Heroes
 {
-    public partial class test : ContentPage
+    public partial class AnotherPage : ContentPage
     {
-        public test()
+        public AnotherPage()
         {
             InitializeComponent();
         }

@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace Heroes
 {
-    public partial class CharacterPage : ContentPage
+    public partial class Test2 : ContentPage
     {
-        public CharacterPage()
+        public Test2()
         {
-             InitializeComponent();
+            InitializeComponent();
         }
     }
 }
