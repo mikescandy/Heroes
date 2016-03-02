@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Heroes
+﻿namespace Heroes
 {
     public class Character
     {
@@ -19,6 +13,5 @@ namespace Heroes
     {
         Fighter,
         Dwarf
-
     }
 }

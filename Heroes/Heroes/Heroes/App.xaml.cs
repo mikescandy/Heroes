@@ -14,7 +14,8 @@ namespace Heroes
     {
         public App()
         {
-
+            InitializeComponent();
+            var rees = Current.Resources;
             System.Diagnostics.Debug.WriteLine("===============");
             var assembly = typeof(App).GetTypeInfo().Assembly;
             foreach (var res in assembly.GetManifestResourceNames())
@@ -48,13 +49,13 @@ namespace Heroes
         //    MainPage = masterDetailNav;
         //}
 
-        //public void LoadTabbedNav()
-        //{
-        //    var tabbedNavigation = new FreshTabbedNavigationContainer();
-        //    tabbedNavigation.AddTab<ContactListPageModel>("Contacts", "contacts.png", null);
-        //    tabbedNavigation.AddTab<QuoteListPageModel>("Quotes", "document.png", null);
-        //    MainPage = tabbedNavigation;
-        //}
+        public void LoadTabbedNav()
+        {
+            var tabbedNavigation = new FreshTabbedNavigationContainer();
+            tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png", null);
+            tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png", null);
+            MainPage = tabbedNavigation;
+        }
 
         //public void LoadCustomNav()
         //{

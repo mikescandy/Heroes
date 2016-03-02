@@ -22,8 +22,8 @@ namespace Heroes
                     app.LoadBasicNav ();
                 //else if ((string)e.Item == "Master Detail")
                 //    app.LoadMasterDetail ();
-                //else if ((string)e.Item == "Tabbed Navigation")
-                //    app.LoadTabbedNav ();
+                else if ((string)e.Item == "Tabbed Navigation")
+                    app.LoadTabbedNav ();
                 //else if ((string)e.Item == "Custom Navigation")
                 //    app.LoadCustomNav ();
                 //else if ((string)e.Item == "Multiple Navigation")

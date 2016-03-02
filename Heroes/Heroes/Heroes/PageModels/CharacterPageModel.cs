@@ -1,5 +1,4 @@
-﻿using Xamarin.Forms;
-using FreshMvvm;
+﻿using FreshMvvm;
  
 using PropertyChanged;
 
@@ -13,7 +12,6 @@ namespace Heroes
         {
             Character = new Character() { Name = "Pippo", CharacterClass = CharacterClass.Fighter, Experience = 1, Level = 2, Strength = 15 };
         }
-
 
         //public Command ShowQuotes {
         //    get {
