@@ -97,6 +97,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="SampleData.json" />
+    <Content Include="Souvenir.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
