@@ -1,50 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Heroes;assembly=Heroes"
-
-             x:Class="Heroes.CharacterPage"
-BackgroundColor="Maroon"
-              xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls"
-Title="RelativeLayout">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=Heroes" xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" x:Class="Heroes.CharacterPage" BackgroundColor="#EAE9E4" Title="RelativeLayout">
   <ContentPage.Content>
     <ScrollView>
       <RelativeLayout>
-        <StackLayout BackgroundColor="Gray" HeightRequest="100"   Spacing="1"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
-            >
-       <Grid>
-  <Grid.RowDefinitions>
-    <RowDefinition Height="*" />
-    <RowDefinition Height="*" />
-    <RowDefinition Height="*" />
-    
-  </Grid.RowDefinitions>
-
-  <Grid.ColumnDefinitions>
-    <ColumnDefinition Width="*" />
-    <ColumnDefinition Width="*" />
-    <ColumnDefinition Width="3" />
-    <ColumnDefinition Width="*" />
-    <ColumnDefinition Width="*" />
-  </Grid.ColumnDefinitions>
-         
-  <Label Text="Class:" Grid.Row="2" Grid.Column="0" />
-  <Label Text="Magic User" Grid.Row="2" Grid.Column="1" />
-   <Label Text="Level:" Grid.Row="2" Grid.Column="3" />
-  <Label Text="23" Grid.Row="2" Grid.Column="4" />
-         
-  <Label Text="Alignment:" Grid.Row="1" Grid.Column="0" />
-  <Label Text="Neutral" Grid.Row="1" Grid.Column="1" />
-  <Label Text="Experience:" Grid.Row="1" Grid.Column="3" />
-  <Label Text="1234567890" Grid.Row="1" Grid.Column="4" />
-  
-  
-  
-</Grid>
+        <StackLayout Style="{StaticResource HeaderContainer}">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="3"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Class:" Style="{StaticResource CharacterLabel}" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Level:" Style="{StaticResource CharacterLabel}" Grid.Row="0" Grid.Column="3"/>
+            <Label Text="Alignment:" Style="{StaticResource CharacterLabel}" Grid.Row="1" Grid.Column="0"/>
+            <Label Text="Experience:" Style="{StaticResource CharacterLabel}" Grid.Row="1" Grid.Column="3"/>
+            
+            <Label Text="{Binding Character.CharacterClass}" Style="{StaticResource CharacterLabelValue}" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="{Binding Character.Level}" Style="{StaticResource CharacterLabelValue}" Grid.Row="0" Grid.Column="4"/>
+            <Label Text="{Binding Character.Alignment}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="{Binding Character.Experience}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="4"/>
+          </Grid>
         </StackLayout>
-     
-   <controls:Circle x:Name="imageCircleBack"
+        <!--<controls:Circle x:Name="imageCircleBack"
                     FillColor="Maroon"  
                     StrokeColor="Maroon" 
                     StrokeThickness="1"
@@ -59,68 +43,113 @@ Title="RelativeLayout">
                   HeightRequest="60" 
                   WidthRequest="60" 
                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1, Constant=5}" 
-                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>
-     
-  <Label Text="8/15" FontAttributes="Bold" FontSize="18"
-           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1, Constant=5}" 
-                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />
-         <!--<Button BorderRadius="35" x:Name="imageCircleBack"
-            BackgroundColor="Maroon" HeightRequest="70" WidthRequest="70" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}" />
-        <Button BorderRadius="30" BackgroundColor="Red" HeightRequest="60"
-            WidthRequest="60" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />-->
-        <Label Text="User Name" FontAttributes="Bold" FontSize="26"
-            HorizontalTextAlignment="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=140}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
-        <Entry Text="Bio + Hashtags" TextColor="White" BackgroundColor="Maroon"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=180}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
-        <RelativeLayout BackgroundColor="White" RelativeLayout.YConstraint="
-            {ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" HeightRequest="60" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
-          <BoxView BackgroundColor="Black" WidthRequest="50"
-              HeightRequest="50" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=5}" />
-          <BoxView BackgroundColor="Maroon" WidthRequest="50"
-              HeightRequest="50" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=}" />
-          <Label FontSize="14" TextColor="Black" Text="Accent Color"
-              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=20}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=60}" />
-          <Label FontSize="14" TextColor="Black" Text="Primary Color"
-              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=20}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=55}" />
+                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>-->
+        
+        <Button BorderRadius="35" x:Name="imageCircleBack" BackgroundColor="#EAE9E4" HeightRequest="70" WidthRequest="70" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}"/>
+        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="60" WidthRequest="60" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>
+        <Button BorderRadius="35" x:Name="imageCircleBackp" BackgroundColor="#EAE9E4" HeightRequest="50" WidthRequest="50" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -95}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}"/>
+        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="40" Text="-" WidthRequest="40" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBackp, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}"/>
+        <Button BorderRadius="35" x:Name="imageCircleBackm" BackgroundColor="#EAE9E4" HeightRequest="50" WidthRequest="50" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = 45}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}"/>
+        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="40" Text="+" WidthRequest="40" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBackm, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}"/>
+        
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" Spacing="0" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=86}">
+          <Label Text="{Binding Character.HP}" Style="{StaticResource HPLabel}"/>
+          <Label Text="HP" TextColor="#FDFDFD" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center"/>
+        </StackLayout>
+      
+        <Label Text="{Binding Character.Name}" Style="{StaticResource CharacterName}"/>
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Strength}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Strength" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="{Binding Character.ToHit,StringFormat='To Hit: {0}'}" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
         </RelativeLayout>
-        <RelativeLayout Padding="5,0,0,0">
-          <Label FontSize="14" Text="Age:" TextColor="White"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=305}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.25,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
-          <Entry Text="35" TextColor="White" BackgroundColor="Maroon"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=280}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.75,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+        
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Dexterity}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Dexterity" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
         </RelativeLayout>
-        <RelativeLayout  Padding="5,0,0,0">
-          <Label FontSize="14" Text="Interests:" TextColor="White"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=345}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.25,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
-          <Entry Text="Xamarin.Forms" TextColor="White" BackgroundColor="Maroon"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=320}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.75,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+       
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=320}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Constitution}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Constitution" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
         </RelativeLayout>
-        <RelativeLayout  Padding="5,0,0,0">
-          <Label FontSize="14" Text="Ask me about:" TextColor="White"
-            LineBreakMode="WordWrap"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=395}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.25,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
-          <Entry Text="Xamarin, C#, .NET, Mono" TextColor="White"
-            BackgroundColor="Maroon"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=370}"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.75,Constant=0}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+       
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Intelligence}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Intelligence" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
         </RelativeLayout>
+       
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Wisdom}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Wisdom" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
+        </RelativeLayout>
+       
+        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=470}">
+          <StackLayout Style="{StaticResource AttributesSL}">
+            <Label Text="{Binding Character.Charisma}" Style="{StaticResource attributeValue}"/>
+            <Label Text="Charisma" Style="{StaticResource attributeLabel}"/>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black"/>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black"/>
+            </StackLayout>
+          </StackLayout>
+        </RelativeLayout>
+        <!--<RelativeLayout BackgroundColor="White"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}"
+                      HeightRequest="45"
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant=-10}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5}">
+          <StackLayout
+            BackgroundColor="Green"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+            Orientation="Horizontal"
+            HeightRequest="40"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=5}" >
+            <Label Text="9" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Strength" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            <StackLayout Orientation="Vertical">
+              <Label Text="To Hit: 0" FontSize="6" TextColor="Black" ></Label>
+              <Label Text="To Dam: 0" FontSize="6" TextColor="Black" ></Label>
+              <Label Text="Open Doors: 0" FontSize="6" TextColor="Black" ></Label>
+            </StackLayout>
+          </StackLayout>
+        </RelativeLayout>-->
       </RelativeLayout>
     </ScrollView>
   </ContentPage.Content>

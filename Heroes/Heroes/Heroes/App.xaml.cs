@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using FreshMvvm;
+using UsingResxLocalization;
 using Xamarin.Forms;
 
 namespace Heroes
@@ -12,6 +14,19 @@ namespace Heroes
     {
         public App()
         {
+
+            System.Diagnostics.Debug.WriteLine("===============");
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            foreach (var res in assembly.GetManifestResourceNames())
+                System.Diagnostics.Debug.WriteLine("found resource: " + res);
+
+
+            if (Device.OS != TargetPlatform.WinPhone)
+            {
+                DependencyService.Get<ILocalize>().SetLocale();
+                //Resx.AppResources.Culture = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            }
+
             //FreshIOC.Container.Register<IDatabaseService, DatabaseService>();
 
             MainPage = new NavigationPage(new LaunchPage(this));
