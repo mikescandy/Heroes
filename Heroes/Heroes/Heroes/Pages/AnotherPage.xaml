@@ -5,7 +5,7 @@
              x:Class="Heroes.AnotherPage">
   <StackLayout Orientation="Vertical" Padding="20" Spacing="20">
     <StackLayout Orientation="Horizontal" HeightRequest="100" BackgroundColor="Blue"></StackLayout>
-    <Label Text="Test"  HorizontalOptions="Center" Style="{StaticResource labelStyle}" />
+    <Label Text="Test"  HorizontalOptions="Center" Style="{StaticResource LabelStyle}" />
     <Label Text="{Binding Character.Name}"  HorizontalOptions="Center" />
     <Label Text="{Binding Character.CharacterClass}"  HorizontalOptions="Center" IsVisible="{Binding Character.Visible}" />
   </StackLayout>

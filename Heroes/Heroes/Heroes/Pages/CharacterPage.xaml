@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=Heroes" xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" x:Class="Heroes.CharacterPage" BackgroundColor="#EAE9E4" Title="RelativeLayout">
+<ContentPage 
+  xmlns="http://xamarin.com/schemas/2014/forms" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  xmlns:local="clr-namespace:Heroes;assembly=Heroes" 
+  xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=Heroes" 
+  xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" 
+  x:Class="Heroes.CharacterPage" 
+  BackgroundColor="{StaticResource BackgroundColor}">
   <ContentPage.Content>
     <ScrollView>
       <RelativeLayout>
@@ -45,16 +52,17 @@
                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1, Constant=5}" 
                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>-->
         
-        <Button BorderRadius="35" x:Name="imageCircleBack" BackgroundColor="#EAE9E4" HeightRequest="70" WidthRequest="70" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}"/>
-        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="60" WidthRequest="60" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>
-        <Button BorderRadius="35" x:Name="imageCircleBackp" BackgroundColor="#EAE9E4" HeightRequest="50" WidthRequest="50" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -95}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}"/>
-        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="40" Text="-" WidthRequest="40" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBackp, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}"/>
-        <Button BorderRadius="35" x:Name="imageCircleBackm" BackgroundColor="#EAE9E4" HeightRequest="50" WidthRequest="50" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = 45}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}"/>
-        <Button BorderRadius="30" BackgroundColor="#986C3F" HeightRequest="40" Text="+" WidthRequest="40" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBackm, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}"/>
+        <Button x:Name="ImageCircleBack" Style="{StaticResource CentralButtonBackground}"/>
+        <Button x:Name="ImageCircleBackMinus" Style="{StaticResource SmallButtonBackgroundMinus}"/>
+        <Button x:Name="ImageCircleBackPlus" Style="{StaticResource SmallButtonBackgroundPlus}"/>
+
+        <Button Style="{StaticResource CentralButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBack, Property=X, Factor=1,Constant=5}"/>
+        <Button Text="-" Style="{StaticResource SmallButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}"/>
+        <Button Text="+" Style="{StaticResource SmallButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackPlus, Property=X, Factor=1,Constant=5}"/>
         
-        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" Spacing="0" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=86}">
+        <StackLayout Style="{StaticResource HPLabelContainer}">
           <Label Text="{Binding Character.HP}" Style="{StaticResource HPLabel}"/>
-          <Label Text="HP" TextColor="#FDFDFD" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center"/>
+          <Label Text="HP" Style="{StaticResource HPLabelSmall}"/>
         </StackLayout>
       
         <Label Text="{Binding Character.Name}" Style="{StaticResource CharacterName}"/>
@@ -96,7 +104,8 @@
           </StackLayout>
         </RelativeLayout>
        
-        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
+        <RelativeLayout Style="{StaticResource AttributesContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
           <StackLayout Style="{StaticResource AttributesSL}">
             <Label Text="{Binding Character.Intelligence}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Intelligence" Style="{StaticResource AttributeLabel}"/>
@@ -107,7 +116,8 @@
           </StackLayout>
         </RelativeLayout>
        
-        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
+        <RelativeLayout Style="{StaticResource AttributesContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
           <StackLayout Style="{StaticResource AttributesSL}">
             <Label Text="{Binding Character.Wisdom}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Wisdom" Style="{StaticResource AttributeLabel}"/>
@@ -117,7 +127,8 @@
           </StackLayout>
         </RelativeLayout>
        
-        <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=470}">
+        <RelativeLayout Style="{StaticResource AttributesContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=470}">
           <StackLayout Style="{StaticResource AttributesSL}">
             <Label Text="{Binding Character.Charisma}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Charisma" Style="{StaticResource AttributeLabel}"/>
@@ -129,31 +140,36 @@
           </StackLayout>
         </RelativeLayout>
 
-        <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
+        <RelativeLayout Style="{StaticResource SavingThrowContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
           <StackLayout Style="{StaticResource SavingThrowSL}">
             <Label Text="{Binding Character.Breath}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Breath Attacks" Style="{StaticResource SavingThrowLabel}"/>
           </StackLayout>
         </RelativeLayout>
-        <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
+        <RelativeLayout Style="{StaticResource SavingThrowContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
           <StackLayout Style="{StaticResource SavingThrowSL}">
             <Label Text="{Binding Character.Poison}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Poison or Death" Style="{StaticResource SavingThrowLabel}"/>
           </StackLayout>
         </RelativeLayout>
-        <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=320}">
+        <RelativeLayout Style="{StaticResource SavingThrowContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=320}">
           <StackLayout Style="{StaticResource SavingThrowSL}">
             <Label Text="{Binding Character.Petrify}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Petrify or Paralyze" Style="{StaticResource SavingThrowLabel}"/>
           </StackLayout>
         </RelativeLayout>
-        <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
+        <RelativeLayout Style="{StaticResource SavingThrowContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
           <StackLayout Style="{StaticResource SavingThrowSL}">
             <Label Text="{Binding Character.Wands}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Wands" Style="{StaticResource SavingThrowLabel}"/>
           </StackLayout>
         </RelativeLayout>
-        <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
+        <RelativeLayout Style="{StaticResource SavingThrowContainer}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
           <StackLayout Style="{StaticResource SavingThrowSL}">
             <Label Text="{Binding Character.Spells}" Style="{StaticResource AttributeValue}"/>
             <Label Text="Spells or Spell-like Devices" Style="{StaticResource SavingThrowLabel}"/>
