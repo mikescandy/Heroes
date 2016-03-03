@@ -14,5 +14,11 @@ namespace Heroes
         {
              InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+            base.OnAppearing();
+        }
     }
 }

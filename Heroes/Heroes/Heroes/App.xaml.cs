@@ -53,7 +53,7 @@ namespace Heroes
         {
             var tabbedNavigation = new FreshTabbedNavigationContainer();
             tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png", null);
-            tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png", null);
+            tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png", null);
             MainPage = tabbedNavigation;
         }
 
