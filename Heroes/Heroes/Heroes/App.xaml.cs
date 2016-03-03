@@ -24,7 +24,7 @@ namespace Heroes
 
             if (Device.OS != TargetPlatform.WinPhone)
             {
-                DependencyService.Get<ILocalize>().SetLocale();
+               // DependencyService.Get<ILocalize>().SetLocale();
                 //Resx.AppResources.Culture = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
 
