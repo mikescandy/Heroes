@@ -8,6 +8,8 @@ namespace Heroes
     public class CharacterPageModel : FreshBasePageModel
     {
         public Character Character { get; set; }
+
+
         public CharacterPageModel()
         {
             Character = new Character() { Name = "Pippo", CharacterClass = CharacterClass.Fighter, Experience = 1, Level = 2, Strength = 15 };

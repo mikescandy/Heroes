@@ -5566,6 +5566,9 @@ namespace Heroes.Droid
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f070146
+			public const int ActionBarTabStyle = 2131165510;
+			
 			// aapt resource value: 0x7f070081
 			public const int AlertDialog_AppCompat = 2131165313;
 			
@@ -6537,6 +6540,12 @@ namespace Heroes.Droid
 			
 			// aapt resource value: 0x7f070003
 			public const int Widget_MediaRouter_MediaRouteButton = 2131165187;
+			
+			// aapt resource value: 0x7f070145
+			public const int mTabAreaBackground = 2131165509;
+			
+			// aapt resource value: 0x7f070144
+			public const int sMain = 2131165508;
 			
 			static Style()
 			{
