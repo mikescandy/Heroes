@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using FreshMvvm;
-using Heroes.Models;
+using Heroes;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
@@ -19,15 +19,6 @@ namespace Heroes
         }
         public List<AdventuringGear> AdventuringGears { get; set; }
 
-        public Command AddItem
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await CoreMethods.PopPageModel(1, true);
-                });
-            }
-        }
+        public AdventuringGear SelectedAdventuringGear { get; set; }
     }
 }

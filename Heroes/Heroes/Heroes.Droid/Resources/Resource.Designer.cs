@@ -4818,46 +4818,52 @@ namespace Heroes.Droid
 			public const int icon = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int mr_ic_cast_dark = 2130837593;
+			public const int monoandroidsplash = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int mr_ic_cast_light = 2130837594;
+			public const int mr_ic_cast_dark = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837595;
+			public const int mr_ic_cast_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int mr_ic_media_route_connecting_mono_light = 2130837596;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int mr_ic_media_route_mono_dark = 2130837597;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int mr_ic_media_route_mono_light = 2130837598;
+			public const int mr_ic_media_route_mono_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int mr_ic_pause_dark = 2130837599;
+			public const int mr_ic_media_route_mono_light = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int mr_ic_pause_light = 2130837600;
+			public const int mr_ic_pause_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int mr_ic_play_dark = 2130837601;
+			public const int mr_ic_pause_light = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int mr_ic_play_light = 2130837602;
+			public const int mr_ic_play_dark = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int mr_ic_settings_dark = 2130837603;
+			public const int mr_ic_play_light = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int mr_ic_settings_light = 2130837604;
-			
-			// aapt resource value: 0x7f020066
-			public const int notification_template_icon_bg = 2130837606;
+			public const int mr_ic_settings_dark = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int plus = 2130837605;
+			public const int mr_ic_settings_light = 2130837605;
+			
+			// aapt resource value: 0x7f020068
+			public const int notification_template_icon_bg = 2130837608;
+			
+			// aapt resource value: 0x7f020066
+			public const int ok = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int plus = 2130837607;
 			
 			static Drawable()
 			{
@@ -5569,8 +5575,8 @@ namespace Heroes.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f070146
-			public const int ActionBarTabStyle = 2131165510;
+			// aapt resource value: 0x7f070147
+			public const int ActionBarTabStyle = 2131165511;
 			
 			// aapt resource value: 0x7f070081
 			public const int AlertDialog_AppCompat = 2131165313;
@@ -6009,6 +6015,9 @@ namespace Heroes.Droid
 			
 			// aapt resource value: 0x7f070006
 			public const int CardView_Light = 2131165190;
+			
+			// aapt resource value: 0x7f070144
+			public const int Mono_Android_Theme_Splash = 2131165508;
 			
 			// aapt resource value: 0x7f070016
 			public const int Platform_AppCompat = 2131165206;
@@ -6544,11 +6553,11 @@ namespace Heroes.Droid
 			// aapt resource value: 0x7f070003
 			public const int Widget_MediaRouter_MediaRouteButton = 2131165187;
 			
-			// aapt resource value: 0x7f070145
-			public const int mTabAreaBackground = 2131165509;
+			// aapt resource value: 0x7f070146
+			public const int mTabAreaBackground = 2131165510;
 			
-			// aapt resource value: 0x7f070144
-			public const int sMain = 2131165508;
+			// aapt resource value: 0x7f070145
+			public const int sMain = 2131165509;
 			
 			static Style()
 			{

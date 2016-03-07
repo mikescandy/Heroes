@@ -23,15 +23,12 @@ namespace Heroes
             { // BUG: Android doesn't support the icon being null
                 tbi = new ToolbarItem("", "plus", async () =>
                 {
-                    var basePageModel = this.BindingContext as FreshMvvm.FreshBasePageModel;
+                    var basePageModel = this.BindingContext as EquipmentPageModel;
                     if (basePageModel != null)
                     {
-                       
                         {
-                           await basePageModel.CoreMethods.PushPageModel<AddEquipmentPageModel>(null, true); // Pushes a Modal
-                            var p = 5;
-                            p++;
-                        } 
+                            await basePageModel.CoreMethods.PushPageModel<AddEquipmentPageModel>(null, true); // Pushes a Modal
+                        }
                     }
                 }, 0, 0);
             }
@@ -50,6 +47,8 @@ namespace Heroes
             #endregion
 
         }
+
+
 
         protected override void OnAppearing()
         {

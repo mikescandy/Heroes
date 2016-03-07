@@ -5,10 +5,10 @@
              BackgroundColor="{StaticResource BackgroundColor}" >
   <RelativeLayout>
     <Label Text="Equipment" Style="{StaticResource PageTitle}"/>
-    <ListView ItemsSource="{Binding AdventuringGears}" Style="{StaticResource AdventuringGearsList}">
+    <ListView ItemsSource="{Binding AdventuringGears}" SelectedItem="{Binding SelectedAdventuringGear}" Style="{StaticResource AdventuringGearsList}">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <TextCell Text="{Binding Name}" Detail="{Binding Description}" Command="{Binding AddItem}"/>
+          <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>

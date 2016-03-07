@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Heroes.Models;
+using Heroes;
 using SQLite;
 using Xamarin.Forms;
 

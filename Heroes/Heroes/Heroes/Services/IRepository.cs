@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Heroes.Models;
+using Heroes;
 
 namespace Heroes.Services
 {
