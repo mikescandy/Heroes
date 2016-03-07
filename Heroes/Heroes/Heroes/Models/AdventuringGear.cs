@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Heroes.Models;
+using Xamarin.Forms;
 
-namespace Heroes.Services
+namespace Heroes.Models
 {
-    public interface IRepository
+    public class AdventuringGear : Equipment
     {
-        List<AdventuringGear> GetAllAdventuringGear();
     }
 }

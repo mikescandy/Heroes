@@ -26,5 +26,38 @@
       "ToHit": 1,
       "Visible": false
     }
+  },
+
+  "EquipmentPage.xaml": {
+    "AdventuringGears": [
+      {
+        "ID": 1,
+        "Name": "Backpack (empty)",
+        "CostGP": 2,
+        "Weight": 2
+      },
+      {
+        "ID": 2,
+        "Name": "Bedroll",
+        "CostGP": ".1",
+        "Weight": 5
+      }
+    ]
+  },
+  "AddEquipmentPage.xaml": {
+    "AdventuringGears": [
+      {
+        "ID": 1,
+        "Name": "Backpack (empty)",
+        "CostGP": 2,
+        "Weight": 2
+      },
+      {
+        "ID": 2,
+        "Name": "Bedroll",
+        "CostGP": ".1",
+        "Weight": 5
+      }
+    ]
   }
 }

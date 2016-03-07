@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Heroes.Models;
 
-namespace Heroes.Services
+namespace Heroes.Models
 {
-    public interface IRepository
+    public class Armor:Equipment
     {
-        List<AdventuringGear> GetAllAdventuringGear();
+        public int ArmorClass { get; set; }
+
     }
 }

@@ -17,7 +17,7 @@ namespace Heroes
 
         protected override void OnAppearing()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+           // NavigationPage.SetHasNavigationBar(this, false);
             base.OnAppearing();
         }
     }

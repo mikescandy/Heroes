@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using FreshMvvm;
+using Heroes;
+using Heroes.Services;
 using UsingResxLocalization;
 using Xamarin.Forms;
 
@@ -28,7 +30,7 @@ namespace Heroes
                 //Resx.AppResources.Culture = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
 
-            //FreshIOC.Container.Register<IDatabaseService, DatabaseService>();
+            FreshIOC.Container.Register<IRepository, Repository>();
 
             MainPage = new NavigationPage(new LaunchPage(this));
         }
@@ -55,7 +57,7 @@ namespace Heroes
        
 
             tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png");
-            tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
+            tabbedNavigation.AddTab<EquipmentPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
