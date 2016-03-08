@@ -119,6 +119,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Armor.json" />
+    <None Include="Data\Weapons.json" />
     <None Include="packages.config" />
     <None Include="SampleData.json" />
   </ItemGroup>
