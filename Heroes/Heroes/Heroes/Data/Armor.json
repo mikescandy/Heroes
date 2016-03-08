@@ -1,0 +1,13 @@
+﻿Armor Cost AC  Weight 
+"Banded mail",85,4 35
+"Chain mail", 70 , 5 30
+Helmet, 10 , - 5
+"Horse barding", 150 , 5 60
+Leather, 6 , 8 15
+Padded, 4 , 8 10
+"Plate mail", 450 , 3 50
+"Scale mail", 50 , 6 40
+Shield, 10 , 1 less* 10
+"Splint mail", 75 , 4 45
+"Studded leather", 30 , 7 20
+Unarmored, 0 , 9 nil *Using a shield reduces armor class by 1. 
