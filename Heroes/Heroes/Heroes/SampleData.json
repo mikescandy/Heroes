@@ -33,13 +33,13 @@
       {
         "ID": 1,
         "Name": "Backpack (empty)",
-        "CostGP": 2,
+        "Cost": 2,
         "Weight": 2
       },
       {
         "ID": 2,
         "Name": "Bedroll",
-        "CostGP": ".1",
+        "Cost": ".1",
         "Weight": 5
       }
     ]
@@ -49,13 +49,13 @@
       {
         "ID": 1,
         "Name": "Backpack (empty)",
-        "CostGP": 2,
+        "Cost": 2,
         "Weight": 2
       },
       {
         "ID": 2,
         "Name": "Bedroll",
-        "CostGP": ".1",
+        "Cost": ".1",
         "Weight": 5
       }
     ]

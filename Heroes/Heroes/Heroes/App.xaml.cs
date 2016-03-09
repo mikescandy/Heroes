@@ -1,6 +1,8 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using FreshMvvm;
 using Heroes.Services;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Heroes
@@ -28,6 +30,8 @@ namespace Heroes
             MainPage = new NavigationPage(new LaunchPage(this));
         }
 
+       
+
         public void LoadBasicNav()
         {
             var page = FreshPageModelResolver.ResolvePageModel<CharacterPageModel>();
@@ -51,7 +55,7 @@ namespace Heroes
 
             tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png");
             tabbedNavigation.AddTab<EquipmentPageModel>("", "equipment.png");
-            tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
+            tabbedNavigation.AddTab<WeaponPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
 

@@ -51,9 +51,14 @@
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Navigation\CustomImplementedNav.cs" />
+    <Compile Include="PageModels\AddWeaponPageModel.cs" />
     <Compile Include="PageModels\AddEquipmentPageModel.cs" />
     <Compile Include="PageModels\CharacterPageModel.cs" />
+    <Compile Include="PageModels\WeaponPageModel.cs" />
     <Compile Include="PageModels\EquipmentPageModel.cs" />
+    <Compile Include="Pages\AddWeaponPage.xaml.cs">
+      <DependentUpon>AddWeaponPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddEquipmentPage.xaml.cs">
       <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
     </Compile>
@@ -64,6 +69,9 @@
     <Compile Include="Pages\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WeapongPage.xaml.cs">
+      <DependentUpon>WeapongPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EquipmentPage.xaml.cs">
       <DependentUpon>EquipmentPage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +79,7 @@
       <DependentUpon>Test2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceLoader.cs" />
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ISqlLite.cs" />
     <Compile Include="Services\Repository.cs" />
@@ -120,7 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Armor.json" />
-    <None Include="Data\Weapons.json" />
+    <EmbeddedResource Include="Data\Weapons.json" />
     <None Include="packages.config" />
     <None Include="SampleData.json" />
   </ItemGroup>
@@ -163,6 +172,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AddEquipmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\WeapongPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddWeaponPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
