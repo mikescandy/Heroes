@@ -41,8 +41,6 @@ namespace Heroes.Services
                 Wisdom = 14,
                 Charisma = 18,
             });
-            _database.Insert(new AdventuringGear { Cost = 5, Description = "blah blah blah", Name = "Backpack", Weight = 10 });
-            _database.Insert(new AdventuringGear { Cost = 50, Description = "blah blah blah543453", Name = "Silk rope", Weight = 1 });
             LoadData();
         }
 
@@ -82,6 +80,10 @@ namespace Heroes.Services
             var weaponsJson = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "Weapons.json");
             var dynObj = JsonConvert.DeserializeObject<List<Weapon>>(weaponsJson);
             Add(dynObj);
+
+            var adventuringGearResource = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "AdventuringGear.json");
+            var adventuringGears = JsonConvert.DeserializeObject<List<AdventuringGear>>(adventuringGearResource);
+            Add(adventuringGears);
         }
     }
 }

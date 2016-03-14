@@ -5,10 +5,50 @@
              BackgroundColor="{StaticResource BackgroundColor}" >
   <RelativeLayout>
     <Label Text="Equipment" Style="{StaticResource PageTitle}"/>
-    <ListView ItemsSource="{Binding AdventuringGears}" SelectedItem="{Binding SelectedAdventuringGear}" Style="{StaticResource AdventuringGearsList}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+    <ListView ItemsSource="{Binding AdventuringGears}" 
+              SelectedItem="{Binding SelectedAdventuringGear}"
+              Style="{StaticResource AdventuringGearsList}"
+              RowHeight="70" 
+              SeparatorVisibility="Default"
+              SeparatorColor="Aqua">
+      <ListView.ItemTemplate  >
+        <DataTemplate >
+          <ViewCell >
+            <Grid   Padding="0,2,2,2" VerticalOptions="Center" 
+                  RowSpacing="2" ColumnSpacing="3" >
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"  />
+                <RowDefinition Height="20" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="i" BackgroundColor="Maroon"
+                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                     TextColor="White" FontSize="10"
+                      HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                      />
+              <Label Text="{Binding Name}" BackgroundColor="Maroon"
+                     Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                     TextColor="White" FontSize="20"
+                      />
+              <Label Text="{Binding Cost, StringFormat='{0} GP'}"
+                     Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"
+                     TextColor="Black" BackgroundColor="#E3E3E3"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center" />
+              <Label Text="{Binding Weight, StringFormat='{0} lbs'}"
+                     Grid.Row="1" Grid.Column="1" BackgroundColor="#E3E3E3"
+                     TextColor="Black"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center" />
+            </Grid>
+          </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
