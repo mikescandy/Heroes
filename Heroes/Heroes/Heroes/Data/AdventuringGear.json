@@ -1,0 +1,242 @@
+[
+  {
+    "Name": "Backpack (empty)",
+    "Cost": 2,
+    "Weight": 2
+  },
+  {
+    "Name": "Bedroll",
+    "Cost": 1,
+    "Weight": 5
+  },
+  {
+    "Name": "Blanket, winter",
+    "Cost": 5,
+    "Weight": 3
+  },
+  {
+    "Name": "Block and tackle",
+    "Cost": 5,
+    "Weight": 5
+  },
+  {
+    "Name": "Bottle, wine, glass",
+    "Cost": 2,
+    "Weight": 0
+  },
+  {
+    "Name": "Candles (10)",
+    "Cost": 0.1,
+    "Weight": 0
+  },
+  {
+    "Name": "Case, map or scroll",
+    "Cost": 1,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Chain (10 ft)",
+    "Cost": 30,
+    "Weight": 2
+  },
+  {
+    "Name": "Crowbar",
+    "Cost": 2,
+    "Weight": 5
+  },
+  {
+    "Name": "Flask (empty)",
+    "Cost": 0.03,
+    "Weight": 1
+  },
+  {
+    "Name": "Flint and steel",
+    "Cost": 2,
+    "Weight": 0
+  },
+  {
+    "Name": "Garlic (3 cloves)",
+    "Cost": 5,
+    "Weight": 0
+  },
+  {
+    "Name": "Grappling hook",
+    "Cost": 1,
+    "Weight": 4
+  },
+  {
+    "Name": "Hammer",
+    "Cost": 0.5,
+    "Weight": 2
+  },
+  {
+    "Name": "Holy symbol, wooden",
+    "Cost": 1,
+    "Weight": 0
+  },
+  {
+    "Name": "Holy symbol, silver",
+    "Cost": 25,
+    "Weight": 1
+  },
+  {
+    "Name": "Holy water (flask)",
+    "Cost": 25,
+    "Weight": 1
+  },
+  {
+    "Name": "Ink (1 oz Vial)",
+    "Cost": 8,
+    "Weight": 0
+  },
+  {
+    "Name": "Quill pen",
+    "Cost": 0.1,
+    "Weight": 0
+  },
+  {
+    "Name": "Ladder, 10-foot",
+    "Cost": 0.05,
+    "Weight": 20
+  },
+  {
+    "Name": "Lantern",
+    "Cost": 9,
+    "Weight": 3
+  },
+  {
+    "Name": "Lock",
+    "Cost": 20,
+    "Weight": 1
+  },
+  {
+    "Name": "Manacles",
+    "Cost": 15,
+    "Weight": 2
+  },
+  {
+    "Name": "Mirror, small steel",
+    "Cost": 10,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Oil (1-pint flask)",
+    "Cost": 0.1,
+    "Weight": 1
+  },
+  {
+    "Name": "Paper (sheet)",
+    "Cost": 0.4,
+    "Weight": 0
+  },
+  {
+    "Name": "Parchment (sheet)",
+    "Cost": 0.2,
+    "Weight": 0
+  },
+  {
+    "Name": "Pick, miner's",
+    "Cost": 3,
+    "Weight": 10
+  },
+  {
+    "Name": "Pole, 10-foot wooden",
+    "Cost": 0.2,
+    "Weight": 8
+  },
+  {
+    "Name": "Rations, unpreserved (per day)",
+    "Cost": 0.2,
+    "Weight": 1
+  },
+  {
+    "Name": "Rations, trail (per day, preserved)",
+    "Cost": 0.5,
+    "Weight": 1
+  },
+  {
+    "Name": "Rope, hemp (50 ft)",
+    "Cost": 1,
+    "Weight": 10
+  },
+  {
+    "Name": "Rope, silk (50 ft)",
+    "Cost": 10,
+    "Weight": 5
+  },
+  {
+    "Name": "Sack, large (empty)",
+    "Cost": 0.2,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Sack, small (empty)",
+    "Cost": 0.1,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Saddle",
+    "Cost": 25,
+    "Weight": 25
+  },
+  {
+    "Name": "Saddle bag",
+    "Cost": 0.1,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Spade or shovel",
+    "Cost": 2,
+    "Weight": 8
+  },
+  {
+    "Name": "Spell book (blank)",
+    "Cost": 15,
+    "Weight": 3
+  },
+  {
+    "Name": "Spikes, iron (12)",
+    "Cost": 1,
+    "Weight": 8
+  },
+  {
+    "Name": "Spyglass",
+    "Cost": 1,
+    "Weight": 0
+  },
+  {
+    "Name": "Stakes, wooden (3)",
+    "Cost": 0.05,
+    "Weight": 1
+  },
+  {
+    "Name": "Thieves' tools",
+    "Cost": 30,
+    "Weight": 1
+  },
+  {
+    "Name": "Torches (8)",
+    "Cost": 0.3,
+    "Weight": 8
+  },
+  {
+    "Name": "Vial, for ink, potion, or holy water",
+    "Cost": 1,
+    "Weight": 0.1
+  },
+  {
+    "Name": "Waterskin/Wineskin",
+    "Cost": 1,
+    "Weight": 4
+  },
+  {
+    "Name": "Wine (2 pints)",
+    "Cost": 1,
+    "Weight": 0.5
+  },
+  {
+    "Name": "Wolfsbane (fist full)",
+    "Cost": 10,
+    "Weight": 0
+  }
+]
