@@ -2,7 +2,12 @@
 {
     public enum CharacterClass
     {
+        Cleric,
         Fighter,
-        Dwarf
+        Dwarf,
+        Elf,
+        Halflingm,
+        MagicUser,
+        Thieve
     }
 }

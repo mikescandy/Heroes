@@ -1,5 +1,5 @@
 ﻿using FreshMvvm;
- 
+using Heroes.Services;
 using PropertyChanged;
 
 namespace Heroes
@@ -7,12 +7,24 @@ namespace Heroes
     [ImplementPropertyChanged]
     public class CharacterPageModel : FreshBasePageModel
     {
+        private readonly IRepository _repository;
         public Character Character { get; set; }
 
 
-        public CharacterPageModel()
+        public CharacterPageModel(IRepository repository)
         {
-            Character = new Character() { Name = "Pippo", CharacterClass = CharacterClass.Fighter, Experience = 1, Level = 2, Strength = 15 };
+            _repository = repository;
+            Character = _repository.GetLatestCharacter();
+        }
+
+        public override void ReverseInit(object returndData)
+        {
+            var character = returndData as Character;
+            if (character != null)
+            {
+                _repository.Update(character);
+                Character = _repository.Get<Character>(character.ID);
+            }
         }
 
         //public Command ShowQuotes {

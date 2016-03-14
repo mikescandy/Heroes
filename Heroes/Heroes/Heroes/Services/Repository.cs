@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Heroes;
+using Heroes.Models;
 using Newtonsoft.Json;
 using SQLite;
 using Xamarin.Forms;
@@ -24,6 +25,22 @@ namespace Heroes.Services
 
         private void PopulateDatabase()
         {
+            _database.Insert(new Character
+            {
+                Name = "Scypia the Acolyte",
+                CharacterClass = CharacterClass.Cleric,
+                Alignment = Alignment.Neutrality,
+                Level = 1,
+                Experience = 0,
+                MaxHP = 7,
+                CurrentHP = 7,
+                Strength = 9,
+                Dexterity = 9,
+                Constitution = 14,
+                Intelligence = 14,
+                Wisdom = 14,
+                Charisma = 18,
+            });
             _database.Insert(new AdventuringGear { Cost = 5, Description = "blah blah blah", Name = "Backpack", Weight = 10 });
             _database.Insert(new AdventuringGear { Cost = 50, Description = "blah blah blah543453", Name = "Silk rope", Weight = 1 });
             LoadData();
@@ -37,6 +54,21 @@ namespace Heroes.Services
         public List<Weapon> GetAllWeapons()
         {
             return _database.Table<Weapon>().ToList();
+        }
+
+        public T Get<T>(int id) where T : Model, new()
+        {
+            return _database.Get<T>(id);
+        }
+
+        public void Update<T>(T model) where T : Model
+        {
+            _database.Update(model);
+        }
+
+        public Character GetLatestCharacter()
+        {
+            return _database.Table<Character>().OrderByDescending(m => m.ID).FirstOrDefault();
         }
 
 

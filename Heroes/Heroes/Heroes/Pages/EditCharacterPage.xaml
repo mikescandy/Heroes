@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:local="clr-namespace:Heroes;assembly=Heroes"
+  xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=Heroes"
+  xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls"
+  x:Class="Heroes.EditCharacterPage"
+  BackgroundColor="{StaticResource BackgroundColor}">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Orientation="Vertical">
+        <Label Text="Character Name" TextColor="Maroon"></Label>
+        <Entry Text="{Binding Character.Name}"  TextColor="Maroon"></Entry>
+
+        <Label Text="Alignment" TextColor="Maroon"></Label>
+        <local:BindablePicker ItemsSource="{Binding Alignments}"></local:BindablePicker>
+
+        <Label Text="Level" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Level}"></Entry>
+
+        <Label Text="Experience" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Experience}"></Entry>
+
+        <Label Text="MaxHP" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.MaxHP}"></Entry>
+
+
+        <Label Text="Strength" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Strength}"></Entry>
+        <Label Text="Dexterity" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Dexterity}"></Entry>
+        <Label Text="Constitution" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Constitution}"></Entry>
+        <Label Text="Intelligence" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Intelligence}"></Entry>
+        <Label Text="Wisdom" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Wisdom}"></Entry>
+        <Label Text="Charisma" TextColor="Maroon"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Character.Charisma}"></Entry>
+
+
+      </StackLayout>
+    </ScrollView>  
+  </ContentPage.Content>
+</ContentPage>

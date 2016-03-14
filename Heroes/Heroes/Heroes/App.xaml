@@ -195,6 +195,17 @@
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}" />
         <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=5}" />
       </Style>
+
+      <Style x:Key="EntryAttributeValue" TargetType="Entry">
+        <Setter Property="HeightRequest" Value="25" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="MinimumWidthRequest" Value="30" />
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+      </Style>
      
       <Style x:Key="AttributeValue" TargetType="Label">
         <Setter Property="HeightRequest" Value="25" />

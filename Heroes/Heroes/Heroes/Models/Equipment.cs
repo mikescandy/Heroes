@@ -1,11 +1,7 @@
-﻿using SQLite;
-
-namespace Heroes
+﻿namespace Heroes
 {
-    public abstract class Equipment
+    public abstract class Equipment:Model
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
         public string Name { get; set; }
         public double Cost { get; set; }
         public double Weight { get; set; }

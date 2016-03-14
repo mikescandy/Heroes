@@ -53,9 +53,9 @@ namespace Heroes
             var tabbedNavigation = new FreshTabbedNavigationContainer();
        
 
-            tabbedNavigation.AddTab<CharacterPageModel>("", "hero.png");
-            tabbedNavigation.AddTab<EquipmentPageModel>("", "equipment.png");
-            tabbedNavigation.AddTab<WeaponPageModel>("", "equipment.png");
+            tabbedNavigation.AddTab<CharacterPageModel>("", "user.png");
+            tabbedNavigation.AddTab<EquipmentPageModel>("", "bag.png");
+            tabbedNavigation.AddTab<WeaponPageModel>("", "sword.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
             tabbedNavigation.AddTab<CharacterPageModel>("", "equipment.png");
 

@@ -43,17 +43,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="LaunchPage.cs" />
     <Compile Include="Models\AdventuringGear.cs" />
+    <Compile Include="Models\Alignment.cs" />
     <Compile Include="Models\Armor.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharacterClass.cs" />
+    <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Navigation\CustomImplementedNav.cs" />
     <Compile Include="PageModels\AddWeaponPageModel.cs" />
     <Compile Include="PageModels\AddEquipmentPageModel.cs" />
     <Compile Include="PageModels\CharacterPageModel.cs" />
+    <Compile Include="PageModels\EditCharacterPageModel.cs" />
     <Compile Include="PageModels\WeaponPageModel.cs" />
     <Compile Include="PageModels\EquipmentPageModel.cs" />
     <Compile Include="Pages\AddWeaponPage.xaml.cs">
@@ -68,6 +72,9 @@
     </Compile>
     <Compile Include="Pages\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditCharacterPage.xaml.cs">
+      <DependentUpon>EditCharacterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\WeapongPage.xaml.cs">
       <DependentUpon>WeapongPage.xaml</DependentUpon>
@@ -184,6 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AddWeaponPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\EditCharacterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
