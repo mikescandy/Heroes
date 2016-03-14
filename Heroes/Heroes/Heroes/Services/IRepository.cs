@@ -9,6 +9,6 @@ namespace Heroes.Services
         List<Weapon> GetAllWeapons();
         T Get<T>(int id) where T : Model, new() ;
         void Update<T>(T model) where T : Model;
-        Character GetLatestCharacter();
+        T GetLatest<T>() where T : Model, new();
     }
 }

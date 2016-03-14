@@ -52,6 +52,7 @@
     <Compile Include="Models\CharacterClass.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Navigation\CustomImplementedNav.cs" />
     <Compile Include="PageModels\AddWeaponPageModel.cs" />

@@ -19,29 +19,36 @@ namespace Heroes.Services
             _database.CreateTable<Character>();
             _database.CreateTable<AdventuringGear>();
             _database.CreateTable<Weapon>();
+            _database.CreateTable<Settings>();
             PopulateDatabase();
 
         }
 
         private void PopulateDatabase()
         {
-            _database.Insert(new Character
+            var settings = GetLatest<Settings>();
+            if (settings == null)
             {
-                Name = "Scypia the Acolyte",
-                CharacterClass = CharacterClass.Cleric,
-                Alignment = Alignment.Neutrality,
-                Level = 1,
-                Experience = 0,
-                MaxHP = 7,
-                CurrentHP = 7,
-                Strength = 9,
-                Dexterity = 9,
-                Constitution = 14,
-                Intelligence = 14,
-                Wisdom = 14,
-                Charisma = 18,
-            });
-            LoadData();
+                _database.Insert(new Character
+                {
+                    Name = "Scypia the Acolyte",
+                    CharacterClass = CharacterClass.Cleric,
+                    Alignment = Alignment.Neutrality,
+                    Level = 1,
+                    Experience = 0,
+                    MaxHP = 7,
+                    CurrentHP = 7,
+                    Strength = 9,
+                    Dexterity = 9,
+                    Constitution = 14,
+                    Intelligence = 14,
+                    Wisdom = 14,
+                    Charisma = 18,
+                });
+                LoadData();
+                settings = new Settings {FirstRun = true};
+                _database.Insert(settings);
+            }
         }
 
         public List<AdventuringGear> GetAllAdventuringGear()
@@ -64,11 +71,10 @@ namespace Heroes.Services
             _database.Update(model);
         }
 
-        public Character GetLatestCharacter()
+        public T GetLatest<T>() where T : Model, new()
         {
-            return _database.Table<Character>().OrderByDescending(m => m.ID).FirstOrDefault();
+            return _database.Table<T>().OrderByDescending(m => m.ID).FirstOrDefault();
         }
-
 
         public void Add<T>(List<T> data)
         {

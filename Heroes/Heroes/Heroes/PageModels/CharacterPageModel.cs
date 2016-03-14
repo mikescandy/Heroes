@@ -14,7 +14,7 @@ namespace Heroes
         public CharacterPageModel(IRepository repository)
         {
             _repository = repository;
-            Character = _repository.GetLatestCharacter();
+            Character = _repository.GetLatest<Character>();
         }
 
         public override void ReverseInit(object returndData)

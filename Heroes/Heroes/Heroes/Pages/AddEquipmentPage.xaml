@@ -10,6 +10,7 @@
               Style="{StaticResource AdventuringGearsList}"
               RowHeight="70" 
               SeparatorVisibility="Default"
+              
               SeparatorColor="Aqua">
       <ListView.ItemTemplate  >
         <DataTemplate >
