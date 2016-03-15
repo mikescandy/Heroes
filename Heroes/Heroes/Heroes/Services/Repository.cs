@@ -21,34 +21,6 @@ namespace Heroes.Services
             _database.CreateTable<Weapon>();
             _database.CreateTable<Settings>();
             PopulateDatabase();
-
-        }
-
-        private void PopulateDatabase()
-        {
-            var settings = GetLatest<Settings>();
-            if (settings == null)
-            {
-                _database.Insert(new Character
-                {
-                    Name = "Scypia the Acolyte",
-                    CharacterClass = CharacterClass.Cleric,
-                    Alignment = Alignment.Neutrality,
-                    Level = 1,
-                    Experience = 0,
-                    MaxHP = 7,
-                    CurrentHP = 7,
-                    Strength = 9,
-                    Dexterity = 9,
-                    Constitution = 14,
-                    Intelligence = 14,
-                    Wisdom = 14,
-                    Charisma = 18,
-                });
-                LoadData();
-                settings = new Settings {FirstRun = true};
-                _database.Insert(settings);
-            }
         }
 
         public List<AdventuringGear> GetAllAdventuringGear()
@@ -81,12 +53,38 @@ namespace Heroes.Services
             _database.InsertAll(data);
         }
 
+        private void PopulateDatabase()
+        {
+            var settings = GetLatest<Settings>();
+            if (settings == null)
+            {
+                _database.Insert(new Character
+                {
+                    Name = "Scypia the Acolyte",
+                    CharacterClass = CharacterClass.Cleric,
+                    Alignment = Alignment.Neutrality,
+                    Level = 1,
+                    Experience = 0,
+                    MaxHP = 7,
+                    CurrentHP = 7,
+                    Strength = 9,
+                    Dexterity = 9,
+                    Constitution = 14,
+                    Intelligence = 14,
+                    Wisdom = 14,
+                    Charisma = 18,
+                });
+                LoadData();
+                settings = new Settings { FirstRun = true };
+                _database.Insert(settings);
+            }
+        }
+
         private void LoadData()
         {
             var weaponsJson = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "Weapons.json");
             var dynObj = JsonConvert.DeserializeObject<List<Weapon>>(weaponsJson);
             Add(dynObj);
-
             var adventuringGearResource = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "AdventuringGear.json");
             var adventuringGears = JsonConvert.DeserializeObject<List<AdventuringGear>>(adventuringGearResource);
             Add(adventuringGears);
