@@ -38,6 +38,11 @@ namespace Heroes.Services
             return _database.Get<T>(id);
         }
 
+        public List<T> GetMany<T>(List<int> ids) where T : Model, new()
+        {
+            return _database.Table<T>().Where(m => ids.Contains(m.ID)).ToList();
+        }
+
         public void Update<T>(T model) where T : Model
         {
             _database.Update(model);

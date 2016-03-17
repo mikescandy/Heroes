@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 
 namespace Heroes
 {
@@ -9,6 +10,7 @@ namespace Heroes
             InitializeComponent();
             #region toolbar
             ToolbarItem tbi = null;
+            ToolbarItem tbi2 = null;
             if (Device.OS == TargetPlatform.iOS)
             {
                 tbi = new ToolbarItem("+", null, () =>
@@ -26,9 +28,25 @@ namespace Heroes
                     var basePageModel = this.BindingContext as AddEquipmentPageModel;
                     if (basePageModel != null)
                     {
+                        object result;
+                        result = basePageModel.MultiSelect
+                            ? (object) basePageModel.AdventuringGears.Where(m => m.IsSelected).ToList()
+                            : basePageModel.SelectedAdventuringGear;
+                               await basePageModel.CoreMethods.PopPageModel(result, true); // Pushes a Modal
+                        
+                    }
+                }, 0, 0);
 
+                tbi2 = new ToolbarItem("", "multiselect", () =>
+                {
+                    var basePageModel = this.BindingContext as AddEquipmentPageModel;
+
+                    if (basePageModel != null)
+                    {
+                        basePageModel.MultiSelect = !basePageModel.MultiSelect;
+                        foreach (var equipmentViewModel in basePageModel.AdventuringGears)
                         {
-                            await basePageModel.CoreMethods.PopPageModel(basePageModel.SelectedAdventuringGear, true); // Pushes a Modal
+                            equipmentViewModel.CheckboxVisible = basePageModel.MultiSelect;
                         }
                     }
                 }, 0, 0);
@@ -44,6 +62,7 @@ namespace Heroes
                 }, 0, 0);
             }
 
+            ToolbarItems.Add(tbi2);
             ToolbarItems.Add(tbi);
             #endregion
 

@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Heroes.EquipmentPage"
              BackgroundColor="{StaticResource BackgroundColor}">
-  <RelativeLayout>
+  <StackLayout Orientation="Vertical">
     <Label Text="Equipment" Style="{StaticResource PageTitle}"/>
+    <Label Text="{Binding TotalWeight, StringFormat='Total Weight: {0} lbs'}"></Label>
+
     <ListView ItemsSource="{Binding AdventuringGears}" Style="{StaticResource AdventuringGearsList}">
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -12,5 +14,5 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-  </RelativeLayout>
+  </StackLayout>
 </ContentPage>

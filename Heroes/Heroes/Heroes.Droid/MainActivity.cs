@@ -1,11 +1,12 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using XLabs.Forms;
 
 namespace Heroes.Droid
 {
     [Activity(Label = "Heroes", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/sMain" )]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    public class MainActivity : XFormsApplicationDroid
     {
         protected override void OnCreate(Bundle bundle)
         {
