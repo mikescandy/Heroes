@@ -35,7 +35,7 @@
             <Label Text="{Binding Character.Experience}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="4"/>
           </Grid>
         </StackLayout>
-        <!--<controls:Circle x:Name="imageCircleBack"
+         <controls:Circle x:Name="imageCircleBack"
                     FillColor="Maroon"  
                     StrokeColor="Maroon" 
                     StrokeThickness="1"
@@ -50,15 +50,15 @@
                   HeightRequest="60" 
                   WidthRequest="60" 
                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1, Constant=5}" 
-                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>-->
+                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/> 
         
-        <Button x:Name="ImageCircleBack" Style="{StaticResource CentralButtonBackground}"/>
+        <!--<Button x:Name="ImageCircleBack" Style="{StaticResource CentralButtonBackground}"/>
         <Button x:Name="ImageCircleBackMinus" Style="{StaticResource SmallButtonBackgroundMinus}"/>
         <Button x:Name="ImageCircleBackPlus" Style="{StaticResource SmallButtonBackgroundPlus}"/>
 
         <Button Style="{StaticResource CentralButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBack, Property=X, Factor=1,Constant=5}"/>
         <Button Text="-" Style="{StaticResource SmallButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}"/>
-        <Button Text="+" Style="{StaticResource SmallButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackPlus, Property=X, Factor=1,Constant=5}"/>
+        <Button Text="+" Style="{StaticResource SmallButton}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackPlus, Property=X, Factor=1,Constant=5}"/>-->
         
         <StackLayout Style="{StaticResource HPLabelContainer}">
           <Label Text="{Binding Character.HP}" Style="{StaticResource HPLabel}"/>

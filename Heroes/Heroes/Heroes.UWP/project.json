@@ -2,7 +2,7 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "sqlite-net-pcl": "1.1.1",
-    "Xamarin.Forms": "2.0.0.6482",
+    "Xamarin.Forms": "2.1.0.6529",
     "XLabs.Forms": "2.0.5782"
   },
   "frameworks": {
