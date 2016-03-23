@@ -34,9 +34,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+<<<<<<< HEAD
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Gorilla|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\Gorilla\</OutputPath>
+=======
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GorillaPlayerDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\GorillaPlayerDebug\</OutputPath>
+>>>>>>> 79d9fef60a55373b646081dffecb5adc6f21491b
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
