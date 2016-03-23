@@ -13,7 +13,11 @@ namespace Heroes.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+#if _GORILLA_
+            LoadApplication (UXDivers.Gorilla.Droid.Player.CreateApplication(ApplicationContext, new UXDivers.Gorilla.Config("Good Gorilla")));
+#else
             LoadApplication(new App());
+#endif
         }
     }
 }
