@@ -2,6 +2,7 @@
 <Application
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls"
   x:Class="Heroes.App">
   <Application.Resources>
     <ResourceDictionary>
@@ -245,6 +246,56 @@
         <Setter Property="FontSize" Value="6" />
         <Setter Property="TextColor" Value="Black" />
       </Style>
+
+      <Style x:Key="SmallCircle" TargetType="controls:Circle">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}" />
+
+      </Style>
+
+      <Style x:Key="SmallCircleBackground" TargetType="controls:Circle">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}" />
+
+      </Style>
+
+      <Style x:Key="SmallCircleBackgroundMinus" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircleBackground}">
+        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -95}" />
+      </Style>
+
+      <Style x:Key="SmallCircleBackgroundPlus" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircleBackground}">
+        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = 45}" />
+      </Style>
+
+      <Style x:Key="LeftCircle" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircle}">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
+        <Setter Property="HeightRequest" Value="60" />
+        <Setter Property="WidthRequest" Value="60" />
+        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />
+
+      </Style>
+
+      <Style x:Key="CentralCircle" TargetType="controls:Circle">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
+        <Setter Property="HeightRequest" Value="60" />
+        <Setter Property="WidthRequest" Value="60" />
+        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />
+
+      </Style>
+
+      <Style x:Key="CentralCircleBackground" BasedOn="{StaticResource CentralCircle}" TargetType="controls:Circle">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+        <Setter Property="HeightRequest" Value="70" />
+        <Setter Property="WidthRequest" Value="70" />
+        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" />
+        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}" />
+
+      </Style>
+
     </ResourceDictionary>
   </Application.Resources>
 </Application>
