@@ -1,8 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections;
+using Xamarin.Forms;
 
-namespace Heroes
+namespace Core.Controls
 {
     public class BindablePicker : Picker
     {

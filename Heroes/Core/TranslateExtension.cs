@@ -5,7 +5,7 @@ using System.Resources;
 using System.Globalization;
 using System.Reflection;
 
-namespace UsingResxLocalization
+namespace Core
 {
     // You exclude the 'Extension' suffix when using in Xaml markup
     [ContentProperty("Text")]

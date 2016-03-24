@@ -1,5 +1,6 @@
 ﻿using System.Collections.Specialized;
 using System.Linq;
+using Core;
 using FreshMvvm;
 using Heroes.Services;
 using PropertyChanged;

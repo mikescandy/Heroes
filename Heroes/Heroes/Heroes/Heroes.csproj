@@ -34,15 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-<<<<<<< HEAD
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Gorilla|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Gorilla\</OutputPath>
-=======
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GorillaPlayerDebug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\GorillaPlayerDebug\</OutputPath>
->>>>>>> 79d9fef60a55373b646081dffecb5adc6f21491b
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,17 +52,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BindablePicker.cs" />
+    <Compile Include="PageModels\MainTabbedPageModel.cs" />
+    <Compile Include="Pages\MainTabbedPage.xaml.cs">
+      <DependentUpon>MainTabbedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="TrulyObservableCollection.cs" />
     <Compile Include="ViewModel\EquipmentViewModel.cs" />
-    <Compile Include="LaunchPage.cs" />
     <Compile Include="Models\AdventuringGear.cs" />
     <Compile Include="Models\Alignment.cs" />
     <Compile Include="Models\Armor.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharacterClass.cs" />
-    <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Weapon.cs" />
@@ -105,11 +99,8 @@
       <DependentUpon>Test2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceLoader.cs" />
     <Compile Include="Services\IRepository.cs" />
-    <Compile Include="Services\ISqlLite.cs" />
     <Compile Include="Services\Repository.cs" />
-    <Compile Include="TranslateExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -246,6 +237,21 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MainTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{ba4a8b99-ec5a-42d1-8fc0-8a305800655a}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

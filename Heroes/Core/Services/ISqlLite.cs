@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Heroes.Services
+namespace Core.Services
 {
     public interface ISQLite
     {

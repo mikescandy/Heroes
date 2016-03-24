@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Core;
+using Core.Models;
+using Core.Services;
 using Heroes;
 using Heroes.Models;
 using Newtonsoft.Json;

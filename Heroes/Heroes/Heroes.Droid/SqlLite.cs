@@ -1,19 +1,22 @@
-using System.IO;
+using Core.Services;
+
 using Heroes.Droid;
-using Heroes.Services;
+
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SQLite_Android))]
+using System.IO;
+
+[assembly: Dependency(typeof(SqLiteAndroid))]
 namespace Heroes.Droid
 {
-public class SQLite_Android : ISQLite
+public class SqLiteAndroid : ISQLite
     {
-        public SQLite_Android() { }
+        const string SqliteFilename = "Heroes.db3";
+
         public SQLite.SQLiteConnection GetConnection()
         {
-            var sqliteFilename = "Heroes.db3";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
-            var path = Path.Combine(documentsPath, sqliteFilename);
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            var path = Path.Combine(documentsPath, SqliteFilename);
             // Create the connection
             var conn = new SQLite.SQLiteConnection(path);
             // Return the database connection

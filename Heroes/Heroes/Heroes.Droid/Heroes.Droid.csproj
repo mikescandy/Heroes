@@ -216,6 +216,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{BA4A8B99-EC5A-42D1-8FC0-8A305800655A}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Heroes\Heroes.csproj">
       <Project>{CD8A647F-6056-49B0-B093-98150D4E2F94}</Project>
       <Name>Heroes</Name>

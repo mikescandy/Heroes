@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Heroes
+namespace Core.Models
 {
     public abstract class Model
     {

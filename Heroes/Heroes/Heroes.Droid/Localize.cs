@@ -1,12 +1,12 @@
 using System;
 using Xamarin.Forms;
 using System.Threading;
+using Core;
 
 [assembly: Dependency(typeof(UsingResxLocalization.Android.Localize))]
-
 namespace UsingResxLocalization.Android
 {
-    public class Localize : UsingResxLocalization.ILocalize
+    public class Localize : ILocalize
     {
         public System.Globalization.CultureInfo GetCurrentCultureInfo()
         {

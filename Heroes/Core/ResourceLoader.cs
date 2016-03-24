@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Reflection;
 
-    namespace Heroes
+    namespace Core
     {
         /// <summary>
         /// Utility class that can be used to find and load embedded resources into memory.

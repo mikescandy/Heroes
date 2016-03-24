@@ -1,4 +1,6 @@
-﻿namespace Heroes
+﻿using Core.Models;
+
+namespace Heroes
 {
     public abstract class Equipment:Model
     {

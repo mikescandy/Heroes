@@ -1,4 +1,5 @@
-﻿using Heroes.Models;
+﻿using Core.Models;
+using Heroes.Models;
 
 namespace Heroes
 {
