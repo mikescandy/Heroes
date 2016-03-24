@@ -9,16 +9,16 @@ namespace Heroes
 
         {
             var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel>();
-            characterPage.Title = "";
-            characterPage.Icon = "user.png";
+            characterPage.Title = "q";
+            //characterPage.Icon = "user.png";
 
             var equipmentPage = FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>();
-            equipmentPage.Title = "";
-            equipmentPage.Icon = "bag.png";
+            equipmentPage.Title = "q";
+            //equipmentPage.Icon = "bag.png";
 
             var weaponPage = FreshPageModelResolver.ResolvePageModel<WeaponPageModel>();
-            weaponPage.Title = "";
-            weaponPage.Icon = "sword.png";
+            weaponPage.Title = "q";
+            //weaponPage.Icon = "sword.png";
 
             Children.Add(FreshPageModelResolver.ResolvePageModel<CharacterPageModel>());
             Children.Add(FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>());

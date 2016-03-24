@@ -15,9 +15,9 @@ namespace Heroes
             FreshIOC.Container.Register<IRepository, Repository>();
 
             var masterDetailNav = new FreshMasterDetailNavigationContainer();
-            masterDetailNav.Init("Menu");
-            masterDetailNav.AddPage<MainTabbedPageModel>("Main");
+            masterDetailNav.Init("Menu","icon");
             masterDetailNav.AddPage<CharacterPageModel>("Character");
+            masterDetailNav.AddPage<MainTabbedPageModel>("Main");
 
             MainPage = masterDetailNav;
         }

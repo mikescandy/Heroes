@@ -1,10 +1,10 @@
 using System;
-using Xamarin.Forms;
 using System.Threading;
-using Core;
+using Xamarin.Forms;
+using Localize = Core.Droid.Localize;
 
-[assembly: Dependency(typeof(UsingResxLocalization.Android.Localize))]
-namespace UsingResxLocalization.Android
+[assembly: Dependency(typeof(Localize))]
+namespace Core.Droid
 {
     public class Localize : ILocalize
     {

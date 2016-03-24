@@ -1,13 +1,10 @@
+using System.IO;
+using Core.Droid;
 using Core.Services;
-
-using Heroes.Droid;
-
 using Xamarin.Forms;
 
-using System.IO;
-
 [assembly: Dependency(typeof(SqLiteAndroid))]
-namespace Heroes.Droid
+namespace Core.Droid
 {
 public class SqLiteAndroid : ISQLite
     {

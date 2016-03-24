@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Heroes.Droid
+namespace Core.Droid
 {
     internal class Common
     {

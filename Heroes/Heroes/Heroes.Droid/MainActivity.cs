@@ -1,15 +1,19 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using XLabs.Forms;
+using Xamarin.Forms.Platform.Android;
+
 
 namespace Heroes.Droid
 {
-    [Activity(Label = "Heroes", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/sMain" )]
-    public class MainActivity : XFormsApplicationDroid
+    [Activity(Label = "Heroes", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/MyTheme" )]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
+            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
+            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
