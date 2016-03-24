@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class AddWeaponPageModel : FreshBasePageModel 
+    public class AddWeaponPageModel : BasePageModel
     {
         private readonly IRepository _repository;
         public AddWeaponPageModel(IRepository repository)

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Heroes.AddEquipmentPage"
-             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+            
              BackgroundColor="{StaticResource BackgroundColor}" >
   <StackLayout>
     <Label Text="Equipment" Style="{StaticResource PageTitle}"/>
@@ -37,11 +37,11 @@
                       HorizontalTextAlignment="Center"
                      VerticalTextAlignment="Center"
                       />-->
-              <controls:CheckBox
+              <!--<controls:CheckBox
                 Checked="{Binding IsSelected}" IsVisible="{Binding CheckboxVisible}"
                                  HorizontalOptions="FillAndExpand"
                                    Grid.Row="0" Grid.Column="0"
-              TextColor="Green" FontSize="25"/>
+              TextColor="Green" FontSize="25"/>-->
               <StackLayout Orientation="Vertical"  Grid.Row="0" Grid.Column="1" >
                 <Label Text="{Binding Name}"
                     

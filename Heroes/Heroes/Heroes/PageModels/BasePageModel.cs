@@ -9,7 +9,9 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class MainTabbedPageModel : BasePageModel
+    public class BasePageModel: FreshBasePageModel
     {
+        public string Title { get; set; }
+        public string Image { get; set; }
     }
 }

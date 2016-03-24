@@ -5,7 +5,7 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class CharacterPageModel : FreshBasePageModel
+    public class CharacterPageModel : BasePageModel
     {
         private readonly IRepository _repository;
         public Character Character { get; set; }

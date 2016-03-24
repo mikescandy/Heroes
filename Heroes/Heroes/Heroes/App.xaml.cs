@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using FreshMvvm;
+using Heroes.PageModels;
 using Heroes.Services;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -15,11 +16,20 @@ namespace Heroes
             FreshIOC.Container.Register<IRepository, Repository>();
 
             var masterDetailNav = new FreshMasterDetailNavigationContainer();
-            masterDetailNav.Init("Menu","icon");
+            masterDetailNav.Init("Menu", "icon");
             masterDetailNav.AddPage<CharacterPageModel>("Character");
             masterDetailNav.AddPage<MainTabbedPageModel>("Main");
 
-            MainPage = masterDetailNav;
+            var md = new MasterDetailPage();
+            md.Master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
+            //md.Detail = FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>();
+                var t =new TabbedPage();
+            t.Children.Add(new ContentPage {Title = "A"});
+            t.Children.Add(new ContentPage {Title = "b"});
+           
+            md.Detail = t;
+
+            MainPage = md;
         }
 
         protected override void OnStart()

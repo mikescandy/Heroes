@@ -8,7 +8,7 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class AddEquipmentPageModel : FreshBasePageModel
+    public class AddEquipmentPageModel : BasePageModel
     {
         public TrulyObservableCollection<EquipmentViewModel> AdventuringGears { get; set; }
         public EquipmentViewModel SelectedAdventuringGear { get; set; }

@@ -8,7 +8,7 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class WeaponPageModel : FreshBasePageModel
+    public class WeaponPageModel : BasePageModel
     {
         private readonly IRepository _repository;
         public WeaponPageModel(IRepository repository)

@@ -10,7 +10,7 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class EquipmentPageModel : FreshBasePageModel
+    public class EquipmentPageModel : BasePageModel
     {
         public double TotalWeight { get { return AdventuringGears.Sum(m => m.Weight); } }
         private readonly IRepository _repository;
