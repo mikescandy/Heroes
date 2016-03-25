@@ -33,7 +33,7 @@ namespace Heroes
             //FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()
            
             MainPage = new RootPage();
-        }
+			        }
 
         protected override void OnStart()
         {

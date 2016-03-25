@@ -8,32 +8,14 @@ using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
-    public class RootPage : MasterDetailPage
+	public class RootPage : FreshMasterDetailNavigationContainer
     {
         public RootPage()
         {
-
-            Master = new ContentPage
-            {
-                Title = "Master",
-                Content = new StackLayout
-                {
-                    Children =
-                    {
-                        new Label {Text = "Test 1"},
-                        new Label {Text = "Test 2"}
-                    }
-                }
-            };
-           
-			Detail = new NavigationPage(FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()			)
-            {
-                Title = "Master",
-            };
-
-
-
-
+			Init("Menu");
+			AddPage<MainTabbedPageModel>("Main"); 
+			AddPage<EquipmentPageModel>("Eq");
+					
 			InvalidateMeasure();
         }
     }

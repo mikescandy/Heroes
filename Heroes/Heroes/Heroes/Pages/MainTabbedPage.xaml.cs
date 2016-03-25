@@ -3,11 +3,12 @@ using Xamarin.Forms;
 
 namespace Heroes
 {
-    public partial class MainTabbedPage : TabbedPage
+	public partial class MainTabbedPage : NavigationPage
     {
         public MainTabbedPage()
 
         {
+			var tp = new TabbedPage();
             var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel>();
             characterPage.Title = "q";
             characterPage.Icon = "user.png";
@@ -20,9 +21,10 @@ namespace Heroes
             weaponPage.Title = "q";
             weaponPage.Icon = "sword.png";
 
-            Children.Add(FreshPageModelResolver.ResolvePageModel<CharacterPageModel>());
-            Children.Add(FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>());
-            Children.Add(FreshPageModelResolver.ResolvePageModel<WeaponPageModel>());
+            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<CharacterPageModel>());
+            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>());
+            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<WeaponPageModel>());
+			this.PushAsync(tp);
         }
     }
 }
