@@ -15,21 +15,24 @@ namespace Heroes
             InitializeComponent();
             FreshIOC.Container.Register<IRepository, Repository>();
 
-            var masterDetailNav = new FreshMasterDetailNavigationContainer();
-            masterDetailNav.Init("Menu", "icon");
-            masterDetailNav.AddPage<CharacterPageModel>("Character");
-            masterDetailNav.AddPage<MainTabbedPageModel>("Main");
+            //var masterDetailNav = new FreshMasterDetailNavigationContainer();
+            //masterDetailNav.Init("Menu", "icon");
+            //masterDetailNav.AddPage<CharacterPageModel>("Character");
+            //masterDetailNav.AddPage<MainTabbedPageModel>("Main");
 
-            var md = new MasterDetailPage();
-            md.Master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
-            //md.Detail = FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>();
-                var t =new TabbedPage();
-            t.Children.Add(new ContentPage {Title = "A"});
-            t.Children.Add(new ContentPage {Title = "b"});
+            //var md = new MasterDetailPage();
+            //md.Master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
+            ////md.Detail = FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>();
+            //    var t =new TabbedPage();
+            //t.Children.Add(new ContentPage {Title = "A"});
+            //t.Children.Add(new ContentPage {Title = "b"});
+
+            //md.Detail = t;
+
+            //MainPage = md;
+            //FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()
            
-            md.Detail = t;
-
-            MainPage = md;
+            MainPage = new RootPage();
         }
 
         protected override void OnStart()

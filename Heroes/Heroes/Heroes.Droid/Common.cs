@@ -1,4 +1,5 @@
 using System.Linq;
+using Heroes.Droid;
 
 namespace Core.Droid
 {
