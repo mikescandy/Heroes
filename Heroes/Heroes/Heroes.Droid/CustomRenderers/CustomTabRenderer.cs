@@ -122,7 +122,7 @@ protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementC
 			var actionBar = _activity.FindViewById<TabLayout>(Resource.Layout.tabs);
 
 
-            if (actionBar.TabCount > 0)
+			if (actionBar!= null && actionBar.TabCount > 0)
             {
                 //ColorDrawable colorDrawable = new ColorDrawable(global::Android.Graphics.Color.ParseColor(COLOR));
                 //actionBar.SetStackedBackgroundDrawable(colorDrawable);
