@@ -119,7 +119,7 @@ protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementC
 
         protected override void DispatchDraw(Canvas canvas)
         {
-			var actionBar = _activity.FindViewById<TabLayout>(Resource.Layout.tabs);
+			var actionBar = _activity.FindViewById<TabLayout>(Resource.Id.sliding_tabs);
 
 
 			if (actionBar!= null && actionBar.TabCount > 0)
