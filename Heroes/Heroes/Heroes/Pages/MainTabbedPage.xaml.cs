@@ -22,9 +22,9 @@ namespace Heroes
             weaponPage.Title = "q";
             weaponPage.Icon = "sword.png";
 
-            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<CharacterPageModel>());
-            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>());
-            tp.Children.Add(FreshPageModelResolver.ResolvePageModel<WeaponPageModel>());
+            tp.Children.Add(characterPage);
+            tp.Children.Add(equipmentPage);
+            tp.Children.Add(weaponPage);
 			this.PushAsync(tp);
         }
     }
