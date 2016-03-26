@@ -1,15 +1,18 @@
 using System;
 using Android.App;
 using Android.Graphics;
+using Android.Support.Design.Widget;
 using Android.Widget;
+using Core;
 using Core.Droid.CustomRenderers;
+using Heroes.Droid;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms.Platform.Android.AppCompat;
 
-[assembly: ExportRenderer(typeof(TabbedPage), typeof(CustomTabRenderer))]
+[assembly: ExportRenderer(typeof(CustomTabbedPage), typeof(CustomTabRenderer))]
 namespace Core.Droid.CustomRenderers
 {
-    public class CustomTabRenderer : TabbedRenderer
+    public class CustomTabRenderer : TabbedPageRenderer
     {
         private Activity _activity;
         private TabbedPage _tabbedPage;
@@ -30,8 +33,8 @@ namespace Core.Droid.CustomRenderers
         //    tabOne.SetIcon(id);
         //}
 
-        protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)
-        {
+protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<TabbedPage> e)
+		{
             base.OnElementChanged(e);
             _activity = this.Context as Activity;
             _tabbedPage = e.NewElement;
@@ -44,7 +47,7 @@ namespace Core.Droid.CustomRenderers
             //tabOne.SetIcon(id);
         }
 
-        private void ActionBarTabsSetup(ActionBar actionBar)
+        private void ActionBarTabsSetup(TabLayout actionBar)
         {
             try
             {
@@ -52,7 +55,7 @@ namespace Core.Droid.CustomRenderers
                 for (int i = 0; i < actionBar.TabCount; i++)
                 {
                     var tabOne = actionBar.GetTabAt(i);
-                    var id = Common.ResourceIdFromString(_tabbedPage.Children[i].Icon);
+                    var id = Core.Droid.Common.ResourceIdFromString(_tabbedPage.Children[i].Icon);
                     tabOne.SetIcon(id);
                     //Android.App.ActionBar.Tab dashboardTab = actionBar.GetTabAt(i);
                     //if (TabIsEmpty(dashboardTab))
@@ -72,7 +75,7 @@ namespace Core.Droid.CustomRenderers
 
         }
 
-        private bool TabIsEmpty(ActionBar.Tab tab)
+        private bool TabIsEmpty(TabLayout.Tab tab)
         {
             if (tab != null)
                 if (tab.CustomView == null)
@@ -80,7 +83,7 @@ namespace Core.Droid.CustomRenderers
             return false;
         }
 
-        private void TabSetup(ActionBar.Tab tab, int resourceID)
+        private void TabSetup(TabLayout.Tab tab, int resourceID)
         {
             var iv = new ImageView(_activity);
             iv.SetImageResource(resourceID);
@@ -116,7 +119,7 @@ namespace Core.Droid.CustomRenderers
 
         protected override void DispatchDraw(Canvas canvas)
         {
-            var actionBar = _activity.ActionBar;
+			var actionBar = _activity.FindViewById<TabLayout>(Resource.Layout.tabs);
 
 
             if (actionBar.TabCount > 0)

@@ -1,5 +1,5 @@
 using System.Linq;
-using Heroes.Droid;
+using Android.Graphics.Drawables;
 
 namespace Core.Droid
 {
@@ -13,7 +13,7 @@ namespace Core.Droid
                 .Replace(".jpeg", "")
                 .Replace(".gif", "")
                 .Replace(".ico", "");
-            var type = typeof(Resource.Drawable);
+            var type = typeof(Drawable);
             return (from p in type.GetFields()
                     where p.Name.ToLower() == name
                     select (int) p.GetValue(null)).FirstOrDefault();

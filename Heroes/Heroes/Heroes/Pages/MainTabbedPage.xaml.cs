@@ -1,4 +1,5 @@
-﻿using FreshMvvm;
+﻿using Core;
+using FreshMvvm;
 using Xamarin.Forms;
 
 namespace Heroes
@@ -8,7 +9,7 @@ namespace Heroes
         public MainTabbedPage()
 
         {
-			var tp = new TabbedPage();
+			var tp = new CustomTabbedPage();
             var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel>();
             characterPage.Title = "q";
             characterPage.Icon = "user.png";
