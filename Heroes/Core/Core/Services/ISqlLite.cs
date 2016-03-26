@@ -2,7 +2,7 @@
 
 namespace Core.Services
 {
-    public interface ISQLite
+    public interface ISqLite
     {
         SQLiteConnection GetConnection();
     }

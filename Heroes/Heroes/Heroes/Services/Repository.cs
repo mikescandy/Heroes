@@ -18,7 +18,7 @@ namespace Heroes.Services
 
         public Repository()
         {
-            _database = DependencyService.Get<ISQLite>().GetConnection();
+            _database = DependencyService.Get<ISqLite>().GetConnection();
             _database.CreateTable<Character>();
             _database.CreateTable<AdventuringGear>();
             _database.CreateTable<Weapon>();

@@ -6,9 +6,9 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(SqLiteAndroid))]
 namespace Core.Droid
 {
-	public class SqLiteAndroid : ISQLite
+	public class SqLiteAndroid : ISqLite
 	{
-		const string SqliteFilename = "Heroes.db3";
+	    private const string SqliteFilename = "Heroes.db3";
 
 		public SQLite.SQLiteConnection GetConnection()
 		{

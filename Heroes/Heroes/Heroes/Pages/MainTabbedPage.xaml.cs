@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Controls;
 using FreshMvvm;
 using Xamarin.Forms;
 

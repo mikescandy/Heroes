@@ -16,7 +16,7 @@ namespace Core.Droid
             var netLanguage = androidLocale.ToString().Replace("_", "-");
 
             //var netLanguage = androidLanguage.Replace ("_", "-");
-            Console.WriteLine("android:" + androidLocale.ToString());
+            Console.WriteLine("android:" + androidLocale);
             Console.WriteLine("net:" + netLanguage);
 
             Console.WriteLine(Thread.CurrentThread.CurrentCulture);

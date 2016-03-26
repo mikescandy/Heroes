@@ -15,11 +15,10 @@ namespace Heroes.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            ToolbarResource = Resource.Layout.toolbar;
+            TabLayoutResource = Resource.Layout.tabs;
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
-
 #if _GORILLA_
             LoadApplication (UXDivers.Gorilla.Droid.Player.CreateApplication(ApplicationContext, new UXDivers.Gorilla.Config("Good Gorilla")));
 #else
