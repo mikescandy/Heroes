@@ -19,7 +19,8 @@ namespace Core.Pages
 
         protected void ResolveValidatableElements()
         {
-            var properties = this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.GetType() == typeof(ValidatableControl));
+            var properties =
+                this.GetType().GetTypeInfo().DeclaredProperties.Where(m => m.GetType() == typeof (ValidatableControl));
         }
 
 

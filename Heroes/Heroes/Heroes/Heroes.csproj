@@ -62,7 +62,6 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeMenuItem.cs" />
-    <Compile Include="PageModels\BasePageModel.cs" />
     <Compile Include="PageModels\MainTabbedPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />
     <Compile Include="Pages\MainTabbedPage.xaml.cs">
