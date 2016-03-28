@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using Core.Factories;
+using Core.Services;
+using FluentValidation;
 using FreshMvvm;
 using Heroes.PageModels;
 using Heroes.Services;
+using Heroes.Validators;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 
@@ -14,6 +18,10 @@ namespace Heroes
         {
             InitializeComponent();
             FreshIOC.Container.Register<IRepository, Repository>();
+            FreshIOC.Container.Register<IValidatorFactory, FluentValidatorFactory>();
+            FreshIOC.Container.Register<IValidationService, FluentValidationService>();
+            FreshIOC.Container.Register<IValidator<Character>, CharacterValidator>();
+
 
             //var masterDetailNav = new FreshMasterDetailNavigationContainer();
             //masterDetailNav.Init("Menu", "icon");
@@ -31,7 +39,7 @@ namespace Heroes
 
             //MainPage = md;
             //FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()
-           
+
             MainPage = new RootPage();
 			        }
 

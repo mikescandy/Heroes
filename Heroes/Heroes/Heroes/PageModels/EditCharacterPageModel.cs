@@ -24,6 +24,7 @@ namespace Heroes
 
         public override void Init(object initData)
         {
+            base.Init(initData);
             var characterId = (int)initData;
             Character = _repository.Get<Character>(characterId);
         }
