@@ -34,7 +34,7 @@ namespace Heroes
                     if (basePageModel != null)
                     {
                         {
-                            await basePageModel.CoreMethods.PopPageModel(basePageModel.Character, true); // Pushes a Modal
+                            await basePageModel.CoreMethods.PopPageModel(basePageModel, true); // Pushes a Modal
                         }
                     }
                 }, 0, 0);

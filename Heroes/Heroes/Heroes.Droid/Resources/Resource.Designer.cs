@@ -2271,6 +2271,7 @@ namespace Heroes.Droid
 			global::Core.Droid.Resource.Id.tabMode = global::Heroes.Droid.Resource.Id.tabMode;
 			global::Core.Droid.Resource.Id.text = global::Heroes.Droid.Resource.Id.text;
 			global::Core.Droid.Resource.Id.text2 = global::Heroes.Droid.Resource.Id.text2;
+			global::Core.Droid.Resource.Id.textInputLayout = global::Heroes.Droid.Resource.Id.textInputLayout;
 			global::Core.Droid.Resource.Id.textSpacerNoButtons = global::Heroes.Droid.Resource.Id.textSpacerNoButtons;
 			global::Core.Droid.Resource.Id.time = global::Heroes.Droid.Resource.Id.time;
 			global::Core.Droid.Resource.Id.title = global::Heroes.Droid.Resource.Id.title;
@@ -2339,6 +2340,7 @@ namespace Heroes.Droid
 			global::Core.Droid.Resource.Layout.select_dialog_singlechoice_material = global::Heroes.Droid.Resource.Layout.select_dialog_singlechoice_material;
 			global::Core.Droid.Resource.Layout.support_simple_spinner_dropdown_item = global::Heroes.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::Core.Droid.Resource.Layout.tabs = global::Heroes.Droid.Resource.Layout.tabs;
+			global::Core.Droid.Resource.Layout.TextInputLayout = global::Heroes.Droid.Resource.Layout.TextInputLayout;
 			global::Core.Droid.Resource.Layout.toolbar = global::Heroes.Droid.Resource.Layout.toolbar;
 			global::Core.Droid.Resource.String.abc_action_bar_home_description = global::Heroes.Droid.Resource.String.abc_action_bar_home_description;
 			global::Core.Droid.Resource.String.abc_action_bar_home_description_format = global::Heroes.Droid.Resource.String.abc_action_bar_home_description_format;
@@ -6461,64 +6463,61 @@ namespace Heroes.Droid
 			public const int icon = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int monoandroidsplash = 2130837596;
+			public const int mr_ic_cast_dark = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int mr_ic_cast_dark = 2130837597;
+			public const int mr_ic_cast_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int mr_ic_cast_light = 2130837598;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837599;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int mr_ic_media_route_connecting_mono_light = 2130837600;
+			public const int mr_ic_media_route_mono_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int mr_ic_media_route_mono_dark = 2130837601;
+			public const int mr_ic_media_route_mono_light = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int mr_ic_media_route_mono_light = 2130837602;
+			public const int mr_ic_pause_dark = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int mr_ic_pause_dark = 2130837603;
+			public const int mr_ic_pause_light = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int mr_ic_pause_light = 2130837604;
+			public const int mr_ic_play_dark = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int mr_ic_play_dark = 2130837605;
+			public const int mr_ic_play_light = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int mr_ic_play_light = 2130837606;
+			public const int mr_ic_settings_dark = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int mr_ic_settings_dark = 2130837607;
+			public const int mr_ic_settings_light = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int mr_ic_settings_light = 2130837608;
-			
-			// aapt resource value: 0x7f020069
-			public const int multiselect = 2130837609;
-			
-			// aapt resource value: 0x7f02006f
-			public const int notification_template_icon_bg = 2130837615;
-			
-			// aapt resource value: 0x7f02006a
-			public const int ok = 2130837610;
-			
-			// aapt resource value: 0x7f02006b
-			public const int plus = 2130837611;
-			
-			// aapt resource value: 0x7f02006c
-			public const int save = 2130837612;
-			
-			// aapt resource value: 0x7f02006d
-			public const int sword = 2130837613;
+			public const int multiselect = 2130837608;
 			
 			// aapt resource value: 0x7f02006e
-			public const int user = 2130837614;
+			public const int notification_template_icon_bg = 2130837614;
+			
+			// aapt resource value: 0x7f020069
+			public const int ok = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int plus = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int save = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int sword = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int user = 2130837613;
 			
 			static Drawable()
 			{
@@ -6887,6 +6886,9 @@ namespace Heroes.Droid
 			// aapt resource value: 0x7f0b007c
 			public const int text2 = 2131427452;
 			
+			// aapt resource value: 0x7f0b0082
+			public const int textInputLayout = 2131427458;
+			
 			// aapt resource value: 0x7f0b0048
 			public const int textSpacerNoButtons = 2131427400;
 			
@@ -6902,8 +6904,8 @@ namespace Heroes.Droid
 			// aapt resource value: 0x7f0b0044
 			public const int title_template = 2131427396;
 			
-			// aapt resource value: 0x7f0b0082
-			public const int toolbar = 2131427458;
+			// aapt resource value: 0x7f0b0083
+			public const int toolbar = 2131427459;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int top = 2131427376;
@@ -7118,7 +7120,10 @@ namespace Heroes.Droid
 			public const int tabs = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int toolbar = 2130903089;
+			public const int TextInputLayout = 2130903089;
+			
+			// aapt resource value: 0x7f030032
+			public const int toolbar = 2130903090;
 			
 			static Layout()
 			{
@@ -7682,9 +7687,6 @@ namespace Heroes.Droid
 			
 			// aapt resource value: 0x7f070006
 			public const int CardView_Light = 2131165190;
-			
-			// aapt resource value: 0x7f070146
-			public const int Mono_Android_Theme_Splash = 2131165510;
 			
 			// aapt resource value: 0x7f070144
 			public const int MyTheme = 2131165508;

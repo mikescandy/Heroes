@@ -13,10 +13,10 @@ namespace Heroes
         public Character Character { get; set; }
 
 
-        public CharacterPageModel(IRepository repository, IValidationService validationService)
+        public CharacterPageModel(IRepository repository/*, IValidationService validationService*/)
         {
             _repository = repository;
-            _validationService = validationService;
+            //_validationService = validationService;
             Character = _repository.GetLatest<Character>();
         }
 
@@ -30,14 +30,14 @@ namespace Heroes
             }
         }
 
-        public bool IsValid
+       /* public bool IsValid
         {
             get
             {
                 var validationResult = _validationService.Validate(this);
                 return validationResult.IsValid;
             }
-        }
+        }*/
 
         //public Command ShowQuotes {
         //    get {

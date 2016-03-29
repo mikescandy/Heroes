@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
-using Core.Factories;
-using Core.Services;
+using AutoMapper;
+//using Core.Factories;
+//using Core.Services;
 using FluentValidation;
 using FreshMvvm;
+using Heroes.Mappings;
 using Heroes.PageModels;
 using Heroes.Services;
 using Heroes.Validators;
@@ -14,15 +16,16 @@ namespace Heroes
 {
     public partial class App : Application
     {
+        public static IMapper Mapper;
         public App()
         {
             InitializeComponent();
             FreshIOC.Container.Register<IRepository, Repository>();
-            FreshIOC.Container.Register<IValidatorFactory, FluentValidatorFactory>();
-            FreshIOC.Container.Register<IValidationService, FluentValidationService>();
-            FreshIOC.Container.Register<IValidator<Character>, CharacterValidator>();
-
-
+            //FreshIOC.Container.Register<IValidatorFactory, FluentValidatorFactory>();
+            //FreshIOC.Container.Register<IValidationService, FluentValidationService>();
+			FreshIOC.Container.Register<IValidator<EditCharacterPageModel>, CharacterValidator>();
+            var automapperConfiguration = new AutomapperConfig();
+            Mapper = automapperConfiguration.Mapper;
             //var masterDetailNav = new FreshMasterDetailNavigationContainer();
             //masterDetailNav.Init("Menu", "icon");
             //masterDetailNav.AddPage<CharacterPageModel>("Character");

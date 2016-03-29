@@ -7,7 +7,7 @@ using FluentValidation;
 
 namespace Heroes.Validators
 {
-    public class CharacterValidator : AbstractValidator<Character>
+	public class CharacterValidator : AbstractValidator<EditCharacterPageModel>
     {
         public CharacterValidator()
         {

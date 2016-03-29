@@ -11,34 +11,34 @@
     <ScrollView>
       <StackLayout Orientation="Vertical">
         <Label Text="Character Name" TextColor="Maroon"></Label>
-        <Entry Text="{Binding Character.Name}"  TextColor="Maroon"></Entry>
+        <corecontrols:CustomEntry x:Name ="Name" Text="{Binding Name}" ValidationError="{Binding NameValidationError, Mode=TwoWay}" TextColor="Maroon"></corecontrols:CustomEntry>
 
         <Label Text="Alignment" TextColor="Maroon"></Label>
         <corecontrols:BindablePicker ItemsSource="{Binding Alignments}"></corecontrols:BindablePicker>
 
         <Label Text="Level" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Level}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Level}"></Entry>
 
         <Label Text="Experience" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Experience}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Experience}"></Entry>
 
         <Label Text="MaxHP" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.MaxHP}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding MaxHP}"></Entry>
 
 
         <Label Text="Strength" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Strength}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Strength}"></Entry>
         <Label Text="Dexterity" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Dexterity}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Dexterity}"></Entry>
         <Label Text="Constitution" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Constitution}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Constitution}"></Entry>
         <Label Text="Intelligence" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Intelligence}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Intelligence}"></Entry>
         <Label Text="Wisdom" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Wisdom}"></Entry>
+        <Entry TextColor="Maroon" Text="{Binding Wisdom}"></Entry>
         <Label Text="Charisma" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Character.Charisma}"></Entry>
-
+        <Entry TextColor="Maroon" Text="{Binding Charisma}"></Entry>
+        <Label Text="{Binding IsValid}"></Label>
 
       </StackLayout>
     </ScrollView>  

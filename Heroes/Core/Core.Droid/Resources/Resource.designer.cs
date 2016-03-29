@@ -2226,6 +2226,9 @@ namespace Core.Droid
 			// aapt resource value: 0x7f0b007c
 			public static int text2 = 2131427452;
 			
+			// aapt resource value: 0x7f0b0082
+			public static int textInputLayout = 2131427458;
+			
 			// aapt resource value: 0x7f0b0048
 			public static int textSpacerNoButtons = 2131427400;
 			
@@ -2241,8 +2244,8 @@ namespace Core.Droid
 			// aapt resource value: 0x7f0b0044
 			public static int title_template = 2131427396;
 			
-			// aapt resource value: 0x7f0b0082
-			public static int toolbar = 2131427458;
+			// aapt resource value: 0x7f0b0083
+			public static int toolbar = 2131427459;
 			
 			// aapt resource value: 0x7f0b0030
 			public static int top = 2131427376;
@@ -2457,7 +2460,10 @@ namespace Core.Droid
 			public static int tabs = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public static int toolbar = 2130903089;
+			public static int TextInputLayout = 2130903089;
+			
+			// aapt resource value: 0x7f030032
+			public static int toolbar = 2130903090;
 			
 			static Layout()
 			{
