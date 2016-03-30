@@ -28,20 +28,46 @@ namespace Core.Droid.CustomRenderers
 			SetWillNotDraw(false);
 		}
 
+		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
+		{
+			if (_view == null)
+				return;
+			_view.Element.Layout(new Rectangle(0.0, 0.0, ContextExtensions.FromPixels(Context, right - left), ContextExtensions.FromPixels(Context, bottom - top)));
+			_view.UpdateLayout();
+		}
+
 		protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
 		{
-			    double pixels = (double)MeasureSpec.GetSize(widthMeasureSpec);
-			int num = (int)ContextExtensions.FromPixels(Context, pixels);
-				SizeRequest sizeRequest = Element.GetSizeRequest((double)num, double.PositiveInfinity);
-				Element.Layout(new Rectangle(0.0, 0.0, (double)num, sizeRequest.Request.Height));
-			double width = NativeView.Width;
-				int measuredWidth = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, width), MeasureSpecMode.Exactly);
-			double height = NativeView.Height;
-				int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, height), MeasureSpecMode.Exactly);
-				//this.ViewGroup.Measure(widthMeasureSpec, heightMeasureSpec);
-				this.SetMeasuredDimension(measuredWidth, measuredHeight);
-
+			MeasureSpecMode widthMode = MeasureSpec.GetMode(widthMeasureSpec);
+			MeasureSpecMode heightMode = MeasureSpec.GetMode(heightMeasureSpec);
+			int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
+			int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
+			int pxHeight = (int)ContextExtensions.ToPixels(Context, _view.Element.HeightRequest);
+			int pxWidth = (int)ContextExtensions.ToPixels(Context, _view.Element.WidthRequest);
+			var measuredWidth = widthMode != MeasureSpecMode.Exactly ? (widthMode != MeasureSpecMode.AtMost ? pxHeight : Math.Min(pxHeight, widthSize)) : widthSize;
+			var measuredHeight = heightMode != MeasureSpecMode.Exactly ? (heightMode != MeasureSpecMode.AtMost ? pxWidth : Math.Min(pxWidth, heightSize)) : heightSize;
+			SetMeasuredDimension(measuredWidth, measuredHeight);
 		}
+
+
+		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
+		//{
+		//	    double pixels = (double)MeasureSpec.GetSize(widthMeasureSpec);
+		//	int num = (int)ContextExtensions.FromPixels(Context, pixels);
+		//		SizeRequest sizeRequest = Element.GetSizeRequest((double)num, double.PositiveInfinity);
+		//	var hheight = NativeView.Height;
+		//	if (!string.IsNullOrEmpty(NativeView.Error))
+		//		hheight = NativeView.Height + 50;
+		//		Element.Layout(new Rectangle(Element.X, Element.Y, (double)num, hheight));
+		//	double width = NativeView.Width;
+		//		int measuredWidth = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, width), MeasureSpecMode.Exactly);
+		//	double height = NativeView.Height;
+		//		int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, height), MeasureSpecMode.Exactly);
+		//		//this.ViewGroup.Measure(widthMeasureSpec, heightMeasureSpec);
+		//		this.SetMeasuredDimension(measuredWidth, measuredHeight);
+
+
+		//}
 
 		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
 		//{
@@ -55,7 +81,7 @@ namespace Core.Droid.CustomRenderers
 
 		//	//base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
 
-		 
+
 		//	var widthMode = MeasureSpec.GetMode(widthMeasureSpec);
 		//	int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
 		//	var heightMode = MeasureSpec.GetMode(heightMeasureSpec);
