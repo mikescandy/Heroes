@@ -4,7 +4,7 @@ using PropertyChanged;
 
 namespace Core.Controls
 {
-	public class CustomEntry : Entry
+	public class ValidationEntry : Entry
 	{
 		public string ValidationError
 		{
@@ -16,7 +16,7 @@ namespace Core.Controls
 			defaultBindingMode: BindingMode.TwoWay,
 			propertyName: "ValidationError",
 			returnType: typeof(string),
-			declaringType: typeof(CustomEntry),
+			declaringType: typeof(ValidationEntry),
 			defaultValue: "");
 	}
 }

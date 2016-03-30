@@ -49,25 +49,22 @@ namespace Heroes
 			get {
 				var validationResult = _validator.Validate (this);
 				if (validationResult.IsValid) {
-                    //foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.Name.EndsWith("ValidationError")).ToList()) {
-                    //	//property.SetValue(this,string.Empty);
-                    //	//RaisePropertyChanged(property.Name);
-                    //	NameValidationError="";
-                    //}
+                    foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.Name.EndsWith("ValidationError")).ToList()) {
+                    	property.SetValue(this,string.Empty);
+                    	RaisePropertyChanged(property.Name);
+                    	NameValidationError="";
+                    }
                     NameValidationError = "";
                     return true;
 				}
-
-                NameValidationError=validationResult.Errors.FirstOrDefault().ErrorMessage;
-
-                //				foreach (var result in validationResult.Errors) {
-                //					var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty(result.PropertyName + "ValidationError");
-                //					if (validationProperty != null) {
-                ////						validationProperty.SetValue (this, result.ErrorMessage);
-                ////						RaisePropertyChanged (validationProperty.Name);
-                //						NameValidationError=result.ErrorMessage;
-                //					}
-                //				}
+                this.CurrentPage.ForceLayout();
+                				foreach (var result in validationResult.Errors) {
+                					var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty(result.PropertyName + "ValidationError");
+                					if (validationProperty != null) {
+                						validationProperty.SetValue (this, result.ErrorMessage);
+                						RaisePropertyChanged (validationProperty.Name);
+                 					}
+                				}
                 return true;
 			}
 		}

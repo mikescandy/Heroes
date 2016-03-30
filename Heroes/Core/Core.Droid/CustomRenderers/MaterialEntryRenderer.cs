@@ -11,11 +11,10 @@ using Core.Droid.CustomRenderers;
 using Core;
 using Core.Controls;
 
-[assembly: ExportRenderer (typeof(CustomEntry), typeof(MaterialEntryRenderer))]
-
+[assembly: ExportRenderer (typeof(ValidationEntry), typeof(MaterialEntryRenderer))]
 namespace Core.Droid.CustomRenderers
 {
-	public class MaterialEntryRenderer : Xamarin.Forms.Platform.Android.AppCompat.ViewRenderer<CustomEntry, View>
+	public class MaterialEntryRenderer : Xamarin.Forms.Platform.Android.AppCompat.ViewRenderer<ValidationEntry, View>
 	{
 		private TextInputLayout _nativeView;
 
@@ -24,7 +23,7 @@ namespace Core.Droid.CustomRenderers
 		}
 
 
-		protected override void OnElementChanged (ElementChangedEventArgs<CustomEntry> e)
+		protected override void OnElementChanged (ElementChangedEventArgs<ValidationEntry> e)
 		{
 			base.OnElementChanged (e);
 
@@ -64,7 +63,7 @@ namespace Core.Droid.CustomRenderers
 				SetText ();
 			}
 
-			if (e.PropertyName == CustomEntry.ValidationErrorProperty.PropertyName) {
+			if (e.PropertyName == ValidationEntry.ValidationErrorProperty.PropertyName) {
 				SetError ();
 			}
 			Invalidate();
@@ -94,9 +93,6 @@ namespace Core.Droid.CustomRenderers
 				NativeView.ErrorEnabled = true;
 				NativeView.Error = Element.ValidationError;
 			}
-
-			Invalidate();
-
 		}
 
 		private void SetIsPassword ()

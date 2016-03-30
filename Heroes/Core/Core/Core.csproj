@@ -64,7 +64,7 @@
     <Compile Include="Controls\CustomTabbedPage.cs" />
     <Compile Include="Validation\IValidatableControl.cs" />
     <Compile Include="Validation\ValidatableControl.cs" />
-    <Compile Include="Controls\CustomEntry.cs" />
+    <Compile Include="Controls\ValidationEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
