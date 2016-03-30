@@ -18,5 +18,10 @@ namespace Core.Controls
 			returnType: typeof(string),
 			declaringType: typeof(ValidationEntry),
 			defaultValue: "");
+
+		protected override SizeRequest OnSizeRequest(double widthConstraint, double heightConstraint)
+		{
+			return base.OnSizeRequest(widthConstraint, heightConstraint);
+		}
 	}
 }
