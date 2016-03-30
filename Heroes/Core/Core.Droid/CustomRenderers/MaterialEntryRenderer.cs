@@ -2,7 +2,7 @@
 using Android.Support.Design.Widget;
 using Android.Text;
 using Android.Views;
- 
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using TextChangedEventArgs = Android.Text.TextChangedEventArgs;
@@ -10,6 +10,7 @@ using View = Android.Views.View;
 using Core.Droid.CustomRenderers;
 using Core;
 using Core.Controls;
+using System;
 
 [assembly: ExportRenderer (typeof(ValidationEntry), typeof(MaterialEntryRenderer))]
 namespace Core.Droid.CustomRenderers
@@ -22,6 +23,75 @@ namespace Core.Droid.CustomRenderers
 			get { return _nativeView ?? (_nativeView = InitializeNativeView ()); }
 		}
 
+		public MaterialEntryRenderer()
+		{
+			SetWillNotDraw(false);
+		}
+
+		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
+		//{
+		//	//var measuredWidth = ResolveSize(
+		//	//widthMeasureSpec = MeasureSpec.MakeMeasureSpec(measuredWidth,MeasureSpecMode.Exactly);
+		//	//heightMeasureSpec = MeasureSpec.MakeMeasureSpec(measuredHeight, MeasureSpecMode.Exactly);
+
+
+
+
+
+		//	//base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
+
+
+		//	var widthMode = MeasureSpec.GetMode(widthMeasureSpec);
+		//	int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
+		//	var heightMode = MeasureSpec.GetMode(heightMeasureSpec);
+		//	int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
+
+		//	int width;
+		//	int height;
+
+		//	//Measure Width
+		//	if (widthMode == MeasureSpecMode.Exactly)
+		//	{
+		//		//Must be this size
+		//		width = widthSize;
+		//	}
+		//	else if (widthMode == MeasureSpecMode.AtMost)
+		//	{
+		//		//Can't be bigger than...
+		//		width = Math.Min(0, widthSize);
+		//	}
+		//	else {
+		//		//Be whatever you want
+		//		width = 0;
+		//	}
+
+		//	//Measure Height
+		//	if (heightMode == MeasureSpecMode.Exactly)
+		//	{
+		//		//Must be this size
+		//		height = heightSize;
+		//	}
+		//	else if (heightMode == MeasureSpecMode.AtMost)
+		//	{
+		//		//Can't be bigger than...
+		//		height = Math.Min(0, heightSize);
+		//	}
+		//	else {
+		//		//Be whatever you want
+		//		height = 0;
+		//	}
+
+		//	//MUST CALL THIS
+		//	SetMeasuredDimension(width, 120);
+
+
+
+		//}
+
+		//protected override void OnDraw(Android.Graphics.Canvas canvas)
+		//{
+		//	base.OnDraw(canvas);
+		//}
 
 		protected override void OnElementChanged (ElementChangedEventArgs<ValidationEntry> e)
 		{

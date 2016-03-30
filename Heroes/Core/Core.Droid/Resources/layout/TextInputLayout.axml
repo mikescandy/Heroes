@@ -4,7 +4,7 @@
     android:id="@+id/textInputLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:errorEnabled="true">
+    app:errorEnabled="false">
     <android.support.v7.widget.AppCompatEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
