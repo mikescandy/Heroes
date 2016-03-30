@@ -18,7 +18,7 @@ namespace Heroes
 		private readonly IRepository _repository;
 		private readonly CharacterValidator _validator;
 
-		public string Name { get; set; }
+			public string Name { get; set; }
 
 		public string NameValidationError { get; set; }
 
@@ -29,7 +29,6 @@ namespace Heroes
 		public uint Level { get; set; }
 
 		public uint Experience { get; set; }
-
 		 
 		public uint Strength { get; set; }
 
@@ -50,23 +49,26 @@ namespace Heroes
 			get {
 				var validationResult = _validator.Validate (this);
 				if (validationResult.IsValid) {
-					foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.Name.EndsWith("ValidationError")).ToList()) {
-						//property.SetValue(this,string.Empty);
-						//RaisePropertyChanged(property.Name);
-						NameValidationError="";
-					}
-					return true;
+                    //foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.Name.EndsWith("ValidationError")).ToList()) {
+                    //	//property.SetValue(this,string.Empty);
+                    //	//RaisePropertyChanged(property.Name);
+                    //	NameValidationError="";
+                    //}
+                    NameValidationError = "";
+                    return true;
 				}
-					
-				foreach (var result in validationResult.Errors) {
-					var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty(result.PropertyName + "ValidationError");
-					if (validationProperty != null) {
-//						validationProperty.SetValue (this, result.ErrorMessage);
-//						RaisePropertyChanged (validationProperty.Name);
-						NameValidationError=result.ErrorMessage;
-					}
-				}
-				return true;
+
+                NameValidationError=validationResult.Errors.FirstOrDefault().ErrorMessage;
+
+                //				foreach (var result in validationResult.Errors) {
+                //					var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty(result.PropertyName + "ValidationError");
+                //					if (validationProperty != null) {
+                ////						validationProperty.SetValue (this, result.ErrorMessage);
+                ////						RaisePropertyChanged (validationProperty.Name);
+                //						NameValidationError=result.ErrorMessage;
+                //					}
+                //				}
+                return true;
 			}
 		}
 

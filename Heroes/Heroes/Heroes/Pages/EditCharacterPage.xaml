@@ -9,11 +9,12 @@
   BackgroundColor="{StaticResource BackgroundColor}">
   <ContentPage.Content>
     <ScrollView>
-      <StackLayout Orientation="Vertical">
-        <Label Text="Character Name" TextColor="Maroon"></Label>
-        <corecontrols:CustomEntry x:Name ="Name" Text="{Binding Name}" ValidationError="{Binding NameValidationError, Mode=TwoWay}" TextColor="Maroon"></corecontrols:CustomEntry>
+      <StackLayout Orientation="Vertical" HeightRequest="500">
+<!--        <Label Text="Character Name" TextColor="Maroon"></Label>-->
+           <Label Text="{Binding IsValid}"></Label>
+				<corecontrols:CustomEntry x:Name ="Name" Text="{Binding Name}" ValidationError="{Binding NameValidationError, Mode=TwoWay}" Placeholder="Character Name" TextColor="Maroon" MinimumHeightRequest="160"></corecontrols:CustomEntry>
 
-        <Label Text="Alignment" TextColor="Maroon"></Label>
+       <!-- <Label Text="Alignment" TextColor="Maroon"></Label>
         <corecontrols:BindablePicker ItemsSource="{Binding Alignments}"></corecontrols:BindablePicker>
 
         <Label Text="Level" TextColor="Maroon"></Label>
@@ -37,8 +38,8 @@
         <Label Text="Wisdom" TextColor="Maroon"></Label>
         <Entry TextColor="Maroon" Text="{Binding Wisdom}"></Entry>
         <Label Text="Charisma" TextColor="Maroon"></Label>
-        <Entry TextColor="Maroon" Text="{Binding Charisma}"></Entry>
-        <Label Text="{Binding IsValid}"></Label>
+        <Entry TextColor="Maroon" Text="{Binding Charisma}"></Entry>-->
+     
 
       </StackLayout>
     </ScrollView>  

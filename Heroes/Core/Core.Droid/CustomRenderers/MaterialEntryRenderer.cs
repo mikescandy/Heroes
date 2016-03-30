@@ -23,6 +23,7 @@ namespace Core.Droid.CustomRenderers
 			get { return _nativeView ?? (_nativeView = InitializeNativeView ()); }
 		}
 
+
 		protected override void OnElementChanged (ElementChangedEventArgs<CustomEntry> e)
 		{
 			base.OnElementChanged (e);
@@ -66,12 +67,14 @@ namespace Core.Droid.CustomRenderers
 			if (e.PropertyName == CustomEntry.ValidationErrorProperty.PropertyName) {
 				SetError ();
 			}
+			Invalidate();
 		}
 
 		private void EditTextOnTextChanged (object sender, TextChangedEventArgs textChangedEventArgs)
 		{
 			Element.Text = textChangedEventArgs.Text.ToString ();
 			NativeView.EditText.SetSelection (Element.Text.Length);
+
 		}
 
 		private void SetText ()
@@ -83,11 +86,17 @@ namespace Core.Droid.CustomRenderers
 		{
 			if (string.IsNullOrEmpty (Element.ValidationError)) {
 				//NativeView.ErrorEnabled = false;
+				NativeView.ErrorEnabled = false; 
 				NativeView.Error = string.Empty;
+
 			} else {
 				//NativeView.ErrorEnabled = true;
+				NativeView.ErrorEnabled = true;
 				NativeView.Error = Element.ValidationError;
 			}
+
+			Invalidate();
+
 		}
 
 		private void SetIsPassword ()
