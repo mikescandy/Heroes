@@ -18,7 +18,7 @@ namespace Heroes
 		private readonly IRepository _repository;
 		private readonly CharacterValidator _validator;
 
-			public string Name { get; set; }
+		public string Name { get; set; }
 
 		public string NameValidationError { get; set; }
 
@@ -29,7 +29,7 @@ namespace Heroes
 		public uint Level { get; set; }
 
 		public uint Experience { get; set; }
-		 
+
 		public uint Strength { get; set; }
 
 		public uint Dexterity { get; set; }
@@ -44,51 +44,54 @@ namespace Heroes
 
 		public int MaxHP { get; set; }
 
-		[DependsOn ("Name")]
-		public bool IsValid { 
-			get {
-				var validationResult = _validator.Validate (this);
-				if (validationResult.IsValid) {
-                    foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m=>m.Name.EndsWith("ValidationError")).ToList()) {
-                    	property.SetValue(this,string.Empty);
-                    	RaisePropertyChanged(property.Name);
-                    	NameValidationError="";
-                    }
-                    NameValidationError = "";
-                    return true;
+		[DependsOn("Name")]
+		public bool IsValid
+		{
+			get
+			{
+				var validationResult = _validator.Validate(this);
+				if (validationResult.IsValid)
+				{
+					foreach (var property in this.GetType().GetTypeInfo().DeclaredProperties.Where(m => m.Name.EndsWith("ValidationError")).ToList())
+					{
+						property.SetValue(this, string.Empty);
+						RaisePropertyChanged(property.Name);
+					}
+					return true;
 				}
-                this.CurrentPage.ForceLayout();
-                				foreach (var result in validationResult.Errors) {
-                					var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty(result.PropertyName + "ValidationError");
-                					if (validationProperty != null) {
-                						validationProperty.SetValue (this, result.ErrorMessage);
-                						RaisePropertyChanged (validationProperty.Name);
-                 					}
-                				}
-                return true;
+				foreach (var result in validationResult.Errors)
+				{
+					var validationProperty = this.GetType().GetTypeInfo().GetDeclaredProperty(result.PropertyName + "ValidationError");
+					if (validationProperty != null)
+					{
+						validationProperty.SetValue(this, result.ErrorMessage);
+						RaisePropertyChanged(validationProperty.Name);
+					}
+				}
+				return true;
 			}
 		}
 
 		public ObservableCollection<string> Alignments { get; set; }
 
-		public EditCharacterPageModel (IRepository repository)
+		public EditCharacterPageModel(IRepository repository)
 		{
-			Alignments = new ObservableCollection<string> (Enum.GetNames (typeof(Alignment)).ToList ());
+			Alignments = new ObservableCollection<string>(Enum.GetNames(typeof(Alignment)).ToList());
 			_repository = repository;
-			_validator = new CharacterValidator ();
+			_validator = new CharacterValidator();
 		}
 
-		public override void Init (object initData)
+		public override void Init(object initData)
 		{
-			base.Init (initData);
+			base.Init(initData);
 			var characterId = (int)initData;
-			App.Mapper.Map (_repository.Get<Character> (characterId), this);
+			App.Mapper.Map(_repository.Get<Character>(characterId), this);
 			NameValidationError = "aaa";
 		}
 
-		public override void ReverseInit (object returndData)
+		public override void ReverseInit(object returndData)
 		{
-			base.ReverseInit (returndData);
+			base.ReverseInit(returndData);
 		}
 	}
 }
