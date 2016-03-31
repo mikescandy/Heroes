@@ -11,6 +11,7 @@ using Core.Droid.CustomRenderers;
 using Core;
 using Core.Controls;
 using System;
+using Android.Util;
 
 [assembly: ExportRenderer (typeof(ValidationEntry), typeof(MaterialEntryRenderer))]
 namespace Core.Droid.CustomRenderers
@@ -18,6 +19,9 @@ namespace Core.Droid.CustomRenderers
 	public class MaterialEntryRenderer : Xamarin.Forms.Platform.Android.AppCompat.ViewRenderer<ValidationEntry, View>
 	{
 		private TextInputLayout _nativeView;
+		private bool _needsRedraw;
+		private int _oldHeight = -1;
+		private ViewTreeObserver _viewTreeObserver;
 
 		private TextInputLayout NativeView {
 			get { return _nativeView ?? (_nativeView = InitializeNativeView ()); }
@@ -25,29 +29,29 @@ namespace Core.Droid.CustomRenderers
 
 		public MaterialEntryRenderer()
 		{
-			SetWillNotDraw(false);
+			//SetWillNotDraw(false);
 		}
 
-		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
-		{
-			if (_view == null)
-				return;
-			_view.Element.Layout(new Rectangle(0.0, 0.0, ContextExtensions.FromPixels(Context, right - left), ContextExtensions.FromPixels(Context, bottom - top)));
-			_view.UpdateLayout();
-		}
-
-		protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
-		{
-			MeasureSpecMode widthMode = MeasureSpec.GetMode(widthMeasureSpec);
-			MeasureSpecMode heightMode = MeasureSpec.GetMode(heightMeasureSpec);
-			int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
-			int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
-			int pxHeight = (int)ContextExtensions.ToPixels(Context, _view.Element.HeightRequest);
-			int pxWidth = (int)ContextExtensions.ToPixels(Context, _view.Element.WidthRequest);
-			var measuredWidth = widthMode != MeasureSpecMode.Exactly ? (widthMode != MeasureSpecMode.AtMost ? pxHeight : Math.Min(pxHeight, widthSize)) : widthSize;
-			var measuredHeight = heightMode != MeasureSpecMode.Exactly ? (heightMode != MeasureSpecMode.AtMost ? pxWidth : Math.Min(pxWidth, heightSize)) : heightSize;
-			SetMeasuredDimension(measuredWidth, measuredHeight);
-		}
+//		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
+//		{
+//			if (_view == null)
+//				return;
+//			_view.Element.Layout(new Rectangle(0.0, 0.0, ContextExtensions.FromPixels(Context, right - left), ContextExtensions.FromPixels(Context, bottom - top)));
+//			_view.UpdateLayout();
+//		}
+//
+//		protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
+//		{
+//			MeasureSpecMode widthMode = MeasureSpec.GetMode(widthMeasureSpec);
+//			MeasureSpecMode heightMode = MeasureSpec.GetMode(heightMeasureSpec);
+//			int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
+//			int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
+//			int pxHeight = (int)ContextExtensions.ToPixels(Context, _view.Element.HeightRequest);
+//			int pxWidth = (int)ContextExtensions.ToPixels(Context, _view.Element.WidthRequest);
+//			var measuredWidth = widthMode != MeasureSpecMode.Exactly ? (widthMode != MeasureSpecMode.AtMost ? pxHeight : Math.Min(pxHeight, widthSize)) : widthSize;
+//			var measuredHeight = heightMode != MeasureSpecMode.Exactly ? (heightMode != MeasureSpecMode.AtMost ? pxWidth : Math.Min(pxWidth, heightSize)) : heightSize;
+//			SetMeasuredDimension(measuredWidth, measuredHeight);
+//		}
 
 
 		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
@@ -141,7 +145,8 @@ namespace Core.Droid.CustomRenderers
 			if (e.OldElement == null) {
 				var ctrl = CreateNativeControl ();
 				SetNativeControl (ctrl);
-
+				_viewTreeObserver = NativeView.ViewTreeObserver;
+				_viewTreeObserver.PreDraw += ResizeWebView;
 				SetText ();
 				SetHintText ();
 				SetBackgroundColor ();
@@ -177,7 +182,7 @@ namespace Core.Droid.CustomRenderers
 			if (e.PropertyName == ValidationEntry.ValidationErrorProperty.PropertyName) {
 				SetError ();
 			}
-			Invalidate();
+
 		}
 
 		private void EditTextOnTextChanged (object sender, TextChangedEventArgs textChangedEventArgs)
@@ -185,6 +190,44 @@ namespace Core.Droid.CustomRenderers
 			Element.Text = textChangedEventArgs.Text.ToString ();
 			NativeView.EditText.SetSelection (Element.Text.Length);
 
+		}
+
+		private async void ResizeWebView(object sender, EventArgs e)
+		{
+			
+			var newContentHeight = NativeView.MeasuredHeight;
+
+			int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, newContentHeight), MeasureSpecMode.Exactly);
+			float px = newContentHeight /Context.Resources.DisplayMetrics.Density;
+
+			Console.WriteLine ("dens: "+Context.Resources.DisplayMetrics.Density );
+			Console.WriteLine ("ele: "+Element.Height);
+			Console.WriteLine ("eled: "+Element.HeightRequest);
+			Console.WriteLine ("new: "+NativeView.Height);
+			Console.WriteLine ("new px: "+px);
+			Console.WriteLine ("meas: "+measuredHeight);
+				
+
+			if (!_needsRedraw || Element == null) return;
+
+			//NativeView.Invalidate ();
+			if (newContentHeight == _oldHeight || newContentHeight == 0) return;
+			var height = newContentHeight / Context.Resources.DisplayMetrics.Density;
+			height = NativeView.ErrorEnabled ? 82 : 58;
+			var bounds = new Rectangle(Element.Bounds.X, Element.Bounds.Y, Element.Bounds.Width, height);
+			await Element.LayoutTo(bounds, 250,Easing.SinIn);
+			Element.HeightRequest = height;
+			// todo: FIX ME
+			// not sure why there's the odd case where the height is 8.
+			if (newContentHeight == 8)
+			{
+				//_webView.Reload();
+				_oldHeight = -1;
+				return;
+			}
+
+			_oldHeight = (int)height;
+			_needsRedraw = false;
 		}
 
 		private void SetText ()
@@ -204,6 +247,7 @@ namespace Core.Droid.CustomRenderers
 				NativeView.ErrorEnabled = true;
 				NativeView.Error = Element.ValidationError;
 			}
+			_needsRedraw = true;
 		}
 
 		private void SetIsPassword ()

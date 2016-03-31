@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.Droid", "Heroes\Heroes.Droid\Heroes.Droid.csproj", "{0254BC48-1877-423D-9853-02BE4C44C655}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7B40190B-5FA5-4708-B459-B967831C7592} = {7B40190B-5FA5-4708-B459-B967831C7592}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.iOS", "Heroes\Heroes.iOS\Heroes.iOS.csproj", "{74480E02-3ED4-45AF-898C-23F05C4EA848}"
 EndProject
