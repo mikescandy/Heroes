@@ -18,30 +18,31 @@ namespace Core.Droid.CustomRenderers
 	public class MaterialEntryRenderer : Xamarin.Forms.Platform.Android.AppCompat.ViewRenderer<ValidationEntry, View>
 	{
 		private TextInputLayout _nativeView;
-
+		private ViewTreeObserver _viewTreeObserver;
+		private bool _needsRedraw; 
+	private int _oldHeight = -1;
 		private TextInputLayout NativeView {
 			get { return _nativeView ?? (_nativeView = InitializeNativeView ()); }
 		}
 
 		public MaterialEntryRenderer()
 		{
-			SetWillNotDraw(false);
+			//SetWillNotDraw(false);
 		}
 
-		protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
-		{
-			    double pixels = (double)MeasureSpec.GetSize(widthMeasureSpec);
-			int num = (int)ContextExtensions.FromPixels(Context, pixels);
-				SizeRequest sizeRequest = Element.GetSizeRequest((double)num, double.PositiveInfinity);
-				Element.Layout(new Rectangle(0.0, 0.0, (double)num, sizeRequest.Request.Height));
-			double width = NativeView.Width;
-				int measuredWidth = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, width), MeasureSpecMode.Exactly);
-			double height = NativeView.Height;
-				int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, height), MeasureSpecMode.Exactly);
-				//this.ViewGroup.Measure(widthMeasureSpec, heightMeasureSpec);
-				this.SetMeasuredDimension(measuredWidth, measuredHeight);
-
-		}
+		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
+		//{
+		//	    double pixels = (double)MeasureSpec.GetSize(widthMeasureSpec);
+		//	int num = (int)ContextExtensions.FromPixels(Context, pixels);
+		//		SizeRequest sizeRequest = Element.GetSizeRequest((double)num, double.PositiveInfinity);
+		//		//Element.Layout(new Rectangle(0.0, 0.0, (double)num, sizeRequest.Request.Height));
+		//	double width = NativeView.Width;
+		//		int measuredWidth = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, width), MeasureSpecMode.Exactly);
+		//	double height = NativeView.Height;
+		//		int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, height), MeasureSpecMode.Exactly);
+		//	//this.ViewGroup.Measure(widthMeasureSpec, heightMeasureSpec);
+		//	base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
+		//}
 
 		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
 		//{
@@ -108,6 +109,12 @@ namespace Core.Droid.CustomRenderers
 		//	base.OnDraw(canvas);
 		//}
 
+		protected override void OnLayout(bool changed, int l, int t, int r, int b)
+		{
+			Console.WriteLine(string.Format("OnLayout height {0}",b-t));
+			base.OnLayout(changed, l, t, r, b);
+		}
+
 		protected override void OnElementChanged (ElementChangedEventArgs<ValidationEntry> e)
 		{
 			base.OnElementChanged (e);
@@ -115,6 +122,9 @@ namespace Core.Droid.CustomRenderers
 			if (e.OldElement == null) {
 				var ctrl = CreateNativeControl ();
 				SetNativeControl (ctrl);
+
+				_viewTreeObserver = ctrl.ViewTreeObserver;
+				_viewTreeObserver.PreDraw += ResizeWebView; //idea && impl from fmg-xamarin-forms
 
 				SetText ();
 				SetHintText ();
@@ -148,10 +158,10 @@ namespace Core.Droid.CustomRenderers
 				SetText ();
 			}
 
-			if (e.PropertyName == ValidationEntry.ValidationErrorProperty.PropertyName) {
-				SetError ();
+			if (e.PropertyName == ValidationEntry.ValidationErrorProperty.PropertyName)
+			{
+				SetError();
 			}
-			Invalidate();
 		}
 
 		private void EditTextOnTextChanged (object sender, TextChangedEventArgs textChangedEventArgs)
@@ -178,6 +188,38 @@ namespace Core.Droid.CustomRenderers
 				NativeView.ErrorEnabled = true;
 				NativeView.Error = Element.ValidationError;
 			}
+			//Element.HeightRequest = 0;
+			_needsRedraw = true;
+			//var newHeight = NativeView.Height;
+			//var bounds = new Rectangle(Element.Bounds.X, Element.Bounds.Y, Element.Bounds.Width, newHeight);
+		}
+
+		private async void ResizeWebView(object sender, EventArgs e)
+		{
+			if (!_needsRedraw || Element == null) return;
+			Console.WriteLine(string.Format("ResizeWebView height {0}", NativeView.Height));
+			//var newContentHeight = NativeView.MeasuredHeight;
+			NativeView.Measure(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+			int width = NativeView.MeasuredWidth;
+			int height = NativeView.MeasuredHeight;
+			if (height == _oldHeight || height == 0) return;
+
+			//var bounds = new Rectangle(Element.Bounds.X, Element.Bounds.Y, Element.Width, height-20);
+			_needsRedraw = false;
+			//await Element.LayoutTo(bounds);
+			Element.HeightRequest = height;
+
+			// todo: FIX ME
+			// not sure why there's the odd case where the height is 8.
+			//if (newContentHeight == 8)
+			//{
+			//	_webView.Reload();
+			//	_oldHeight = -1;
+			//	return;
+			//}
+			_needsRedraw = false;
+			 _oldHeight = height;
+			Console.WriteLine(string.Format("ResizeWebView updated height {0}", NativeView.Height));
 		}
 
 		private void SetIsPassword ()
