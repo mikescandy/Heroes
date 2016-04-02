@@ -17,6 +17,7 @@
 					ValidationError="{Binding NameValidationError, Mode=TwoWay}" 
 					Placeholder="Character Name" 
 					TextColor="Maroon" 
+
 					></corecontrols:ValidationEntry>
 
       <Label Text="Alignment" TextColor="Maroon"></Label>
