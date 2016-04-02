@@ -12,6 +12,9 @@ using Core;
 using Core.Controls;
 using System;
 using Android.Util;
+using Android.Support.V7.Widget;
+using Android.Graphics;
+using Android.Content.Res;
 
 [assembly: ExportRenderer (typeof(ValidationEntry), typeof(MaterialEntryRenderer))]
 namespace Core.Droid.CustomRenderers
@@ -29,114 +32,8 @@ namespace Core.Droid.CustomRenderers
 
 		public MaterialEntryRenderer()
 		{
-			//SetWillNotDraw(false);
+			SetWillNotDraw(false);
 		}
-
-//		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
-//		{
-//			if (_view == null)
-//				return;
-//			_view.Element.Layout(new Rectangle(0.0, 0.0, ContextExtensions.FromPixels(Context, right - left), ContextExtensions.FromPixels(Context, bottom - top)));
-//			_view.UpdateLayout();
-//		}
-//
-//		protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
-//		{
-//			MeasureSpecMode widthMode = MeasureSpec.GetMode(widthMeasureSpec);
-//			MeasureSpecMode heightMode = MeasureSpec.GetMode(heightMeasureSpec);
-//			int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
-//			int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
-//			int pxHeight = (int)ContextExtensions.ToPixels(Context, _view.Element.HeightRequest);
-//			int pxWidth = (int)ContextExtensions.ToPixels(Context, _view.Element.WidthRequest);
-//			var measuredWidth = widthMode != MeasureSpecMode.Exactly ? (widthMode != MeasureSpecMode.AtMost ? pxHeight : Math.Min(pxHeight, widthSize)) : widthSize;
-//			var measuredHeight = heightMode != MeasureSpecMode.Exactly ? (heightMode != MeasureSpecMode.AtMost ? pxWidth : Math.Min(pxWidth, heightSize)) : heightSize;
-//			SetMeasuredDimension(measuredWidth, measuredHeight);
-//		}
-
-
-		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
-		//{
-		//	    double pixels = (double)MeasureSpec.GetSize(widthMeasureSpec);
-		//	int num = (int)ContextExtensions.FromPixels(Context, pixels);
-		//		SizeRequest sizeRequest = Element.GetSizeRequest((double)num, double.PositiveInfinity);
-		//	var hheight = NativeView.Height;
-		//	if (!string.IsNullOrEmpty(NativeView.Error))
-		//		hheight = NativeView.Height + 50;
-		//		Element.Layout(new Rectangle(Element.X, Element.Y, (double)num, hheight));
-		//	double width = NativeView.Width;
-		//		int measuredWidth = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, width), MeasureSpecMode.Exactly);
-		//	double height = NativeView.Height;
-		//		int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, height), MeasureSpecMode.Exactly);
-		//		//this.ViewGroup.Measure(widthMeasureSpec, heightMeasureSpec);
-		//		this.SetMeasuredDimension(measuredWidth, measuredHeight);
-
-
-		//}
-
-		//protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
-		//{
-		//	//var measuredWidth = ResolveSize(
-		//	//widthMeasureSpec = MeasureSpec.MakeMeasureSpec(measuredWidth,MeasureSpecMode.Exactly);
-		//	//heightMeasureSpec = MeasureSpec.MakeMeasureSpec(measuredHeight, MeasureSpecMode.Exactly);
-
-
-
-
-
-		//	//base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
-
-
-		//	var widthMode = MeasureSpec.GetMode(widthMeasureSpec);
-		//	int widthSize = MeasureSpec.GetSize(widthMeasureSpec);
-		//	var heightMode = MeasureSpec.GetMode(heightMeasureSpec);
-		//	int heightSize = MeasureSpec.GetSize(heightMeasureSpec);
-
-		//	int width;
-		//	int height;
-
-		//	//Measure Width
-		//	if (widthMode == MeasureSpecMode.Exactly)
-		//	{
-		//		//Must be this size
-		//		width = widthSize;
-		//	}
-		//	else if (widthMode == MeasureSpecMode.AtMost)
-		//	{
-		//		//Can't be bigger than...
-		//		width = Math.Min(0, widthSize);
-		//	}
-		//	else {
-		//		//Be whatever you want
-		//		width = 0;
-		//	}
-
-		//	//Measure Height
-		//	if (heightMode == MeasureSpecMode.Exactly)
-		//	{
-		//		//Must be this size
-		//		height = heightSize;
-		//	}
-		//	else if (heightMode == MeasureSpecMode.AtMost)
-		//	{
-		//		//Can't be bigger than...
-		//		height = Math.Min(0, heightSize);
-		//	}
-		//	else {
-		//		//Be whatever you want
-		//		height = 0;
-		//	}
-
-		//	//MUST CALL THIS
-		//	SetMeasuredDimension(width, 120);
-
-
-
-		//}
-
-		//protected override void OnDraw(Android.Graphics.Canvas canvas)
-		//{
-		//	base.OnDraw(canvas);
-		//}
 
 		protected override void OnElementChanged (ElementChangedEventArgs<ValidationEntry> e)
 		{
@@ -147,6 +44,10 @@ namespace Core.Droid.CustomRenderers
 				SetNativeControl (ctrl);
 				_viewTreeObserver = NativeView.ViewTreeObserver;
 				_viewTreeObserver.PreDraw += ResizeWebView;
+				NativeView.LayoutChange += (object sender, LayoutChangeEventArgs ee) => {
+					Console.WriteLine ("Layout change: "+ (ee.Bottom-ee.Top));
+				};
+				 
 				SetText ();
 				SetHintText ();
 				SetBackgroundColor ();
@@ -158,7 +59,7 @@ namespace Core.Droid.CustomRenderers
 		protected override void OnElementPropertyChanged (object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged (sender, e);
-
+			Console.WriteLine (string.Format("{0}",e.PropertyName));
 			if (e.PropertyName == Entry.PlaceholderProperty.PropertyName) {
 				SetHintText ();
 			}
@@ -194,37 +95,48 @@ namespace Core.Droid.CustomRenderers
 
 		private async void ResizeWebView(object sender, EventArgs e)
 		{
-			
+			if (!_needsRedraw || Element == null) return;
+
 			var newContentHeight = NativeView.MeasuredHeight;
 
 			int measuredHeight = MeasureSpec.MakeMeasureSpec((int)ContextExtensions.ToPixels(Context, newContentHeight), MeasureSpecMode.Exactly);
 			float px = newContentHeight /Context.Resources.DisplayMetrics.Density;
 
 			Console.WriteLine ("dens: "+Context.Resources.DisplayMetrics.Density );
-			Console.WriteLine ("ele: "+Element.Height);
-			Console.WriteLine ("eled: "+Element.HeightRequest);
-			Console.WriteLine ("new: "+NativeView.Height);
-			Console.WriteLine ("new px: "+px);
-			Console.WriteLine ("meas: "+measuredHeight);
-				
 
-			if (!_needsRedraw || Element == null) return;
+			var textSize = 0;
+			for (var i = 0; i < NativeView.ChildCount; i++) {
+				if (i == 0) {
+					var c = NativeView.GetChildAt (0) as Android.Support.V7.Widget.AppCompatEditText;
+					if (c != null) {
+						textSize += (int)c.TextSize+c.PaddingTop+c.PaddingBottom;
+					}
+				}
+				if (i == 1) {
+					var c = NativeView.GetChildAt (1) as 	Android.Widget.TextView;
+					if (c != null) {
+						textSize += (int)c.TextSize+c.PaddingTop+c.PaddingBottom;
+
+					}
+				}
+			}
+			Console.WriteLine ("textSize: "+textSize);
+			var height = (int)(textSize * Context.Resources.DisplayMetrics.Density);
 
 			//NativeView.Invalidate ();
-			if (newContentHeight == _oldHeight || newContentHeight == 0) return;
-			var height = newContentHeight / Context.Resources.DisplayMetrics.Density;
-			height = NativeView.ErrorEnabled ? 82 : 58;
+			if (height == _oldHeight || newContentHeight == 0) return;
+		
 			var bounds = new Rectangle(Element.Bounds.X, Element.Bounds.Y, Element.Bounds.Width, height);
-			await Element.LayoutTo(bounds, 250,Easing.SinIn);
+			await Element.LayoutTo(bounds, 250);
 			Element.HeightRequest = height;
 			// todo: FIX ME
 			// not sure why there's the odd case where the height is 8.
-			if (newContentHeight == 8)
-			{
-				//_webView.Reload();
-				_oldHeight = -1;
-				return;
-			}
+//			if (newContentHeight == 8)
+//			{
+//				//_webView.Reload();
+//				_oldHeight = -1;
+//				return;
+//			}
 
 			_oldHeight = (int)height;
 			_needsRedraw = false;
@@ -237,6 +149,10 @@ namespace Core.Droid.CustomRenderers
 
 		private void SetError ()
 		{
+			NativeView.Invalidate ();
+			NativeView.ForceLayout ();
+
+			NativeView.RequestLayout ();
 			if (string.IsNullOrEmpty (Element.ValidationError)) {
 				//NativeView.ErrorEnabled = false;
 				NativeView.ErrorEnabled = false; 
@@ -269,7 +185,7 @@ namespace Core.Droid.CustomRenderers
 
 		private void SetTextColor ()
 		{
-			if (Element.TextColor == Color.Default) {
+			if (Element.TextColor == Xamarin.Forms.Color.Default) {
 				NativeView.EditText.SetTextColor (NativeView.EditText.TextColors);
 			} else {
 				NativeView.EditText.SetTextColor (Element.TextColor.ToAndroid ());
