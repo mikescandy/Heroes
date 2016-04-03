@@ -1,11 +1,16 @@
 ﻿using Core.Models;
 using Heroes.Models;
+using SQLiteNetExtensions.Attributes;
 
 namespace Heroes
 {
     public class Character:Model
     {
-        public string Name { get; set; }
+		[ForeignKey(typeof(Party))]  
+		public int PartyId { get; set; }
+		[ManyToOne]
+		public Party Party { get; set; }
+		public string Name { get; set; }
         public CharacterClass CharacterClass { get; set; }
         public Alignment Alignment { get; set; }
         public uint Level { get; set; }

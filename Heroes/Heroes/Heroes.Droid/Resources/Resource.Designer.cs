@@ -2343,6 +2343,8 @@ namespace Heroes.Droid
 			global::Core.Droid.Resource.Layout.tabs = global::Heroes.Droid.Resource.Layout.tabs;
 			global::Core.Droid.Resource.Layout.TextInputLayout = global::Heroes.Droid.Resource.Layout.TextInputLayout;
 			global::Core.Droid.Resource.Layout.toolbar = global::Heroes.Droid.Resource.Layout.toolbar;
+			global::Core.Droid.Resource.String.ApplicationName = global::Heroes.Droid.Resource.String.ApplicationName;
+			global::Core.Droid.Resource.String.Hello = global::Heroes.Droid.Resource.String.Hello;
 			global::Core.Droid.Resource.String.abc_action_bar_home_description = global::Heroes.Droid.Resource.String.abc_action_bar_home_description;
 			global::Core.Droid.Resource.String.abc_action_bar_home_description_format = global::Heroes.Droid.Resource.String.abc_action_bar_home_description_format;
 			global::Core.Droid.Resource.String.abc_action_bar_home_subtitle_description_format = global::Heroes.Droid.Resource.String.abc_action_bar_home_subtitle_description_format;
@@ -3113,6 +3115,8 @@ namespace Heroes.Droid
 			global::Core.Droid.Resource.Styleable.ViewStubCompat_android_id = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::Core.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::Core.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Heroes.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Heroes.Droid.Resource.String.Hello;
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Animation.abc_fade_in = global::Heroes.Droid.Resource.Animation.abc_fade_in;
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Animation.abc_fade_out = global::Heroes.Droid.Resource.Animation.abc_fade_out;
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Animation.abc_grow_fade_in_from_bottom = global::Heroes.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -6502,23 +6506,29 @@ namespace Heroes.Droid
 			// aapt resource value: 0x7f020068
 			public const int multiselect = 2130837608;
 			
-			// aapt resource value: 0x7f02006e
-			public const int notification_template_icon_bg = 2130837614;
+			// aapt resource value: 0x7f020070
+			public const int notification_template_icon_bg = 2130837616;
 			
 			// aapt resource value: 0x7f020069
 			public const int ok = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int plus = 2130837610;
+			public const int paper = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int save = 2130837611;
+			public const int people = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int sword = 2130837612;
+			public const int plus = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int user = 2130837613;
+			public const int save = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int sword = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int user = 2130837615;
 			
 			static Drawable()
 			{

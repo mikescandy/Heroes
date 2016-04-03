@@ -9,6 +9,7 @@ using Heroes.Models;
 using Newtonsoft.Json;
 using SQLite;
 using Xamarin.Forms;
+using SQLite.Net;
 
 namespace Heroes.Services
 {

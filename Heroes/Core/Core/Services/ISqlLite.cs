@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLite.Net;
 
 namespace Core.Services
 {
