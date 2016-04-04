@@ -14,7 +14,7 @@ namespace Heroes
 	{
 		private readonly IRepository _repository;
 
-		public ObservableCollection<HomePageViewModel> Items {get; set;}
+		public ObservableCollection<HomePageViewModel> Items { get; set; }
 
 		public HomePageModel (IRepository repository)
 		{
@@ -26,23 +26,21 @@ namespace Heroes
 			base.Init (initData);
 			var parties = _repository.GetAll<Party> ();
 			var characters = _repository.GetAllCharactersNotInParties ();
-			var items = new List<HomePageViewModel> ();
-			var items2 = new List<HomePageViewModel> ();
-			App.Mapper.Map (parties, items);
-			App.Mapper.Map (characters, items2);
-			items =items.Union(items2).OrderByDescending (m => m.TimeStamp).ToList();
+			var items = App.Mapper.Map <List<HomePageViewModel>> (parties);
+			var items2 = App.Mapper.Map <List<HomePageViewModel>> (characters);
+			items = items.Union (items2).OrderByDescending (m => m.TimeStamp).ToList ();
 			items.Add (GetAddItem ());
 			Items = new ObservableCollection<HomePageViewModel> (items);
 		}
 
-		private HomePageViewModel GetAddItem()
+		private HomePageViewModel GetAddItem ()
 		{
 			return new HomePageViewModel {
-				Image="plus.png",
-				IsAdd=true,
-				IsReal=false,
-				Name="Add new",
-				ItemType=ItemType.None
+				Image = "plus.png",
+				IsAdd = true,
+				IsReal = false,
+				Name = "Add new",
+				ItemType = ItemType.None
 			};
 		}
 	}
