@@ -9,6 +9,6 @@ namespace Heroes
 	{
 		public string Name {get; set;}
 		[OneToMany(CascadeOperations = CascadeOperation.All)]      // One to many relationship with Valuation
-		public List<Character> Valuations { get; set; }
+		public List<Character> Characters { get; set; }
 	}
 }

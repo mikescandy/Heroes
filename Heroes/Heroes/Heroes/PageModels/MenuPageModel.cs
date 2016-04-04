@@ -22,7 +22,7 @@ namespace Heroes.PageModels
             Image = "";
             MenuItems=new ObservableCollection<HomeMenuItem>(new List<HomeMenuItem>
             {
-                new HomeMenuItem { Icon="", Title = "Main", TargetViewModel = typeof(MainTabbedPageModel)},
+				new HomeMenuItem { Icon="", Title = "Home", TargetViewModel = typeof(HomePageModel)},
                 new HomeMenuItem { Icon="", Title = "Character", TargetViewModel = typeof(CharacterPageModel)},
             });
         }
