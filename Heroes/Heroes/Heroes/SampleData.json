@@ -73,25 +73,40 @@
 		"Items": [{
 			"ID": 1,
 			"Name": "Gandalf the Wizard",
-			"Type": "Character",
+			"LineOne": "Character",
+			"LineTwo": "Character",
+			"LineThree": "Character",
 			"Image": "user.png",
 			"IsReal": true,
 			"IsAdd": false
 		}, {
 			"ID": 2,
 			"Name": "Fellowship of the Ring",
-			"Type": "Party",
+			"LineOne": "Character",
+			"LineTwo": "Character",
+			"LineThree": "Character",
 			"Image": "people.png",
 			"IsReal": true,
 			"IsAdd": false
 		}, {
 			"ID": 3,
 			"Name": "Amici miei",
-			"Type": "Party",
+			"LineOne": "Character",
+			"LineTwo": "Character",
+			"LineThree": "Character",
 			"Image": "people.png",
 			"IsReal": true,
 			"IsAdd": false
-		}, {
+		},  {
+			"ID": 3,
+			"Name": "Fellowship of the Ring",
+			"LineOne": "Character",
+			"LineTwo": "Character",
+			"LineThree": "Character",
+			"Image": "people.png",
+			"IsReal": true,
+			"IsAdd": false
+		},{
 			"ID": -1,
 			"Name": "Add new",
 			"Type": "None",

@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Mappings\AutomapperConfig.cs" />
     <Compile Include="Models\HomeMenuItem.cs" />
+    <Compile Include="PageModels\HomeViewModel.cs" />
     <Compile Include="PageModels\MainTabbedPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />
     <Compile Include="Pages\MainTabbedPage.xaml.cs">
