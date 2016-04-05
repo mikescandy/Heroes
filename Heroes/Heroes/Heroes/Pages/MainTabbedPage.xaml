@@ -1,12 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<core:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:freshMvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm"
-             x:Class="Heroes.MainTabbedPage"
-             xmlns:local="clr-namespace:Heroes;assembly=Heroes"
-             xmlns:core="clr-namespace:Core.Controls;assembly=Core"
-             BackgroundColor="{StaticResource BackgroundColor}"
-             ChildrenList="{Binding TabPageList}"
-             >
-
-</core:CustomTabbedPage>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<controls:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:freshMvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm" x:Class="Heroes.MainTabbedPage" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:controls="clr-namespace:Core.Controls;assembly=Core" BackgroundColor="{StaticResource BackgroundColor}" ChildrenList="{Binding TabPageList}">
+</controls:CustomTabbedPage>

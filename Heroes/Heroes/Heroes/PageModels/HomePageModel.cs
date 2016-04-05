@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Core.Pages;
 
 namespace Heroes
 {
@@ -19,47 +20,45 @@ namespace Heroes
 
         public ICommand SelectItem { set; get; }
 
-		public HomePageViewModel SelectedItem {	get; set; }
+        public HomePageViewModel SelectedItem {	get; set; }
 
-        public HomePageModel(IRepository repository)
+        public HomePageModel (IRepository repository)
         {
             _repository = repository;
         }
 
-        public override void Init(object initData)
+        public override void Init (object initData)
         {
-            base.Init(initData);
-			SelectItem = new Command(async () =>
-				{
-					switch (SelectedItem.ItemType)
-					{
-					case ItemType.Party:
-						break;
-					case ItemType.Character:
-						await CoreMethods.PushPageModel<MainTabbedPageModel>(SelectedItem.ID);
-						break;
-					case ItemType.None:
-						break;
-					default:
-						throw new ArgumentOutOfRangeException();
-					}
-				});
+            base.Init (initData);
+            SelectItem = new Command (async () => {
+                switch (SelectedItem.ItemType)
+                {
+                case ItemType.Party:
+                    break;
+                case ItemType.Character:
+                    await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
+                    break;
+                case ItemType.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException ();
+                }
+            });
             
-			var parties = _repository.GetAll<Party>();
-            var characters = _repository.GetAllCharactersNotInParties();
+            var parties = _repository.GetAll<Party> ();
+            var characters = _repository.GetAllCharactersNotInParties ();
 
-			var items = App.Mapper.Map<List<HomePageViewModel>>(parties);
-            var items2 = App.Mapper.Map<List<HomePageViewModel>>(characters);
+            var items = App.Mapper.Map<List<HomePageViewModel>> (parties);
+            var items2 = App.Mapper.Map<List<HomePageViewModel>> (characters);
             
-			items = items.Union(items2).OrderByDescending(m => m.TimeStamp).ToList();
-            items.Add(GetAddItem());
-            Items = new ObservableCollection<HomePageViewModel>(items);
+            items = items.Union (items2).OrderByDescending (m => m.TimeStamp).ToList ();
+            items.Add (GetAddItem ());
+            Items = new ObservableCollection<HomePageViewModel> (items);
         }
 
-        private HomePageViewModel GetAddItem()
+        private HomePageViewModel GetAddItem ()
         {
-            return new HomePageViewModel
-            {
+            return new HomePageViewModel {
                 Image = "plus.png",
                 IsAdd = true,
                 IsReal = false,

@@ -8,35 +8,36 @@ using PropertyChanged;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Core;
+using Core.Pages;
 
 namespace Heroes
 {
     [ImplementPropertyChanged]
     public class MainTabbedPageModel : BasePageModel
     {
-		public ObservableCollection<Page> TabPageList { get; set; }
+        public ObservableCollection<Page> TabPageList { get; set; }
 
-		public override void Init (object initData)
-		{
-			base.Init (initData);
+        public override void Init (object initData)
+        {
+            base.Init (initData);
 
-			var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel>(initData);
-			characterPage.Title = "q";
-			characterPage.Icon = "user.png";
+            var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel> (initData);
+            characterPage.Title = "q";
+            characterPage.Icon = "user.png";
 
-			var equipmentPage = FreshPageModelResolver.ResolvePageModel<EquipmentPageModel>(initData);
-			equipmentPage.Title = "q";
-			equipmentPage.Icon = "bag.png";
+            var equipmentPage = FreshPageModelResolver.ResolvePageModel<EquipmentPageModel> (initData);
+            equipmentPage.Title = "q";
+            equipmentPage.Icon = "bag.png";
 
-			var weaponPage = FreshPageModelResolver.ResolvePageModel<WeaponPageModel>(initData);
-			weaponPage.Title = "q";
-			weaponPage.Icon = "sword.png";
+            var weaponPage = FreshPageModelResolver.ResolvePageModel<WeaponPageModel> (initData);
+            weaponPage.Title = "q";
+            weaponPage.Icon = "sword.png";
 
-			var pageList = new List<Page> { 
-				characterPage,equipmentPage,weaponPage
-			};
+            var pageList = new List<Page> { 
+                characterPage, equipmentPage, weaponPage
+            };
 
-			TabPageList = new ObservableCollection<Page> (pageList);
-		}
+            TabPageList = new ObservableCollection<Page> (pageList);
+        }
     }
 }

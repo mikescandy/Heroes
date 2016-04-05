@@ -4,6 +4,7 @@ using Heroes;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
+using Core.Pages;
 
 namespace Heroes
 {
@@ -11,12 +12,14 @@ namespace Heroes
     public class AddWeaponPageModel : BasePageModel
     {
         private readonly IRepository _repository;
-        public AddWeaponPageModel(IRepository repository)
+
+        public AddWeaponPageModel (IRepository repository)
         {
             _repository = repository;
-            Weapons = _repository.GetAllWeapons();
+            Weapons = _repository.GetAllWeapons ();
 
         }
+
         public List<Weapon> Weapons { get; set; }
 
         public Weapon SelectedWeapon { get; set; }

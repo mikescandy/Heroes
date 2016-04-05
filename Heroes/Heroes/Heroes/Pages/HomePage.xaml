@@ -1,79 +1,57 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-xmlns="http://xamarin.com/schemas/2014/forms" 
-xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
- xmlns:local="clr-namespace:Heroes;assembly=Heroes"
-   xmlns:core="clr-namespace:Core;assembly=Core" 
-x:Class="Heroes.HomePage">
-<ContentPage.Resources>
-		<ResourceDictionary>
-			<core:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />
-		</ResourceDictionary>
-	</ContentPage.Resources>
-  <ContentPage.Content>
-    <ListView x:Name="listView" ItemsSource="{Binding Items}" RowHeight="150" BackgroundColor="{DynamicResource BackgroundColor}" SelectedItem="{Binding SelectedItem}">
-    <ListView.Behaviors>
-  		<core:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectItem}" Converter="{StaticResource ItemTappedConverter}" />
-    </ListView.Behaviors>
-      <ListView.ItemTemplate  >
-        <DataTemplate >
-          <ViewCell >
-            <RelativeLayout Padding="4,4,4,2">
-              <Image Source="Paper.png" Aspect="Fill" />
-              <Grid BackgroundColor="#22666666"   ColumnSpacing="2" RowSpacing="2" 
-               IsVisible="{Binding IsReal}"
-              RelativeLayout.WidthConstraint="{ConstraintExpression
-            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
-               VerticalOptions="Center"
-                Padding="10"
-                HorizontalOptions="FillAndExpand">
-                <Grid.RowDefinitions >
-                 
-                  <RowDefinition Height="3*" />
-                  <RowDefinition Height="2*" />
-                  <RowDefinition Height="2*" />
-                  <RowDefinition Height="2*" />
-                  
-                  <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="30" />
-                  
-                </Grid.ColumnDefinitions>
-                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0"  TextColor="Maroon" FontFamily="Bold" FontSize="22" />
-                <Label Text="{Binding LineOne}" Grid.Row="1" Grid.Column="0" FontSize="14" TextColor="Gray" />
-                <Label Text="{Binding LineTwo}" Grid.Row="2" Grid.Column="0" FontSize="14" TextColor="Gray" />
-                <Label Text="{Binding LineThree}" Grid.Row="3" Grid.Column="0" FontSize="14" TextColor="Gray" />
-                <Image Source="{Binding Image}" Aspect="AspectFit" Grid.Row="4" Grid.Column="1" VerticalOptions="Start"/>
-              </Grid>
-
-              <Grid BackgroundColor="#22666666"
-              IsVisible="{Binding IsAdd}"
-                    RelativeLayout.WidthConstraint="{ConstraintExpression
-            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
-               VerticalOptions="Center"
-               Padding="10"
-               HorizontalOptions="StartAndExpand">
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                  <RowDefinition Height="*" />
-                  <RowDefinition Height="*" />
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="4*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Image Source="{Binding Image}" Grid.Row="1" Grid.Column="1" />
-                <Label Text="{Binding Name}" Grid.Row="2" Grid.Column="1" TextColor="White" FontSize="22" HorizontalOptions="CenterAndExpand"/>
-              </Grid>
-
-            </RelativeLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:converters="clr-namespace:Core.Converters;assembly=Core" x:Class="Heroes.HomePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView x:Name="listView" ItemsSource="{Binding Items}" RowHeight="150" BackgroundColor="{DynamicResource BackgroundColor}" SelectedItem="{Binding SelectedItem}">
+            <ListView.Behaviors>
+                <converters:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectItem}" Converter="{StaticResource ItemTappedConverter}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <RelativeLayout Padding="4,4,4,2">
+                            <Image Source="Paper.png" Aspect="Fill" />
+                            <Grid BackgroundColor="#22666666" ColumnSpacing="2" RowSpacing="2" IsVisible="{Binding IsReal}" RelativeLayout.WidthConstraint="{ConstraintExpression&#xD;&#xA;            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}" VerticalOptions="Center" Padding="10" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*" />
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" TextColor="Maroon" FontFamily="Bold" FontSize="22" />
+                                <Label Text="{Binding LineOne}" Grid.Row="1" Grid.Column="0" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding LineTwo}" Grid.Row="2" Grid.Column="0" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding LineThree}" Grid.Row="3" Grid.Column="0" FontSize="14" TextColor="Gray" />
+                                <Image Source="{Binding Image}" Aspect="AspectFit" Grid.Row="4" Grid.Column="1" VerticalOptions="Start" />
+                            </Grid>
+                            <Grid BackgroundColor="#22666666" IsVisible="{Binding IsAdd}" RelativeLayout.WidthConstraint="{ConstraintExpression&#xD;&#xA;            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}" VerticalOptions="Center" Padding="10" HorizontalOptions="StartAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Image}" Grid.Row="1" Grid.Column="1" />
+                                <Label Text="{Binding Name}" Grid.Row="2" Grid.Column="1" TextColor="White" FontSize="22" HorizontalOptions="CenterAndExpand" />
+                            </Grid>
+                        </RelativeLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>

@@ -39,14 +39,14 @@ namespace Core.Controls
             set { SetValue (SelectedItemProperty, value); }
         }
 
-        private static void OnItemsSourceChanged (BindableObject bindable, IEnumerable oldvalue, IEnumerable newvalue)
+        private static void OnItemsSourceChanged (BindableObject bindable, object oldvalue, object newvalue)
         {
             var picker = bindable as BindablePicker;
             picker.Items.Clear ();
             if (newvalue != null)
             {
                 // now it works like "subscribe once" but you can improve
-                foreach (var item in newvalue)
+                foreach (var item in (IEnumerable)newvalue)
                 {
                     picker.Items.Add (item.ToString ());
                 }
