@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
-using Core.Models;
-using Heroes;
-using System.Linq.Expressions;
-using System;
-using Core;
 using Core.Services;
+using Heroes;
 
 namespace Heroes.Services
 {
