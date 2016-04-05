@@ -12,11 +12,9 @@ namespace Heroes
         private readonly IRepository _repository;
         public Character Character { get; set; }
 
-
         public CharacterPageModel(IRepository repository)
         {
             _repository = repository;
-            Character = _repository.GetLatest<Character>();
         }
 
 		public override void Init (object initData)
@@ -42,4 +40,3 @@ namespace Heroes
         }
     }
 }
-

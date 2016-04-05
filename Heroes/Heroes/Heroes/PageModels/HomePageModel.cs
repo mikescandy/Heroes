@@ -24,8 +24,6 @@ namespace Heroes
         public HomePageModel(IRepository repository)
         {
             _repository = repository;
-
-           
         }
 
         public override void Init(object initData)
@@ -68,5 +66,3 @@ namespace Heroes
         }
     }
 }
-
-

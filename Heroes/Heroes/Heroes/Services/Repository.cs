@@ -50,17 +50,17 @@ namespace Heroes.Services
             return _database.Get<T>(id);
         }
 
-        public List<T> GetMany<T>(List<int> ids) where T : Model, new()
+		public IList<T> GetMany<T>(IList<int> ids) where T : Model, new()
         {
             return _database.Table<T>().Where(m => ids.Contains(m.ID)).ToList();
         }
 
-		public List<T> GetAll<T> () where T : Model, new()
+		public IList<T> GetAll<T> () where T : Model, new()
 		{
 			return _database.GetAllWithChildren<T> ().ToList ();
 		}
 
-		public List<T> GetAll<T> (System.Linq.Expressions.Expression<System.Func<T, bool>> predicate) where T : Model, new()
+		public IList<T> GetAll<T> (System.Linq.Expressions.Expression<System.Func<T, bool>> predicate) where T : Model, new()
 		{
 			return _database.Table<T> ().Where(predicate).ToList ();
 		}
@@ -76,7 +76,7 @@ namespace Heroes.Services
             return _database.Table<T>().OrderByDescending(m => m.ID).FirstOrDefault();
         }
 
-		public void Add<T>(List<T> data) where T : Model, new()
+		public void Add<T>(IList<T> data) where T : Model, new()
         {
 			foreach (var item in data) {
 				item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
@@ -145,10 +145,10 @@ namespace Heroes.Services
         private void LoadData()
         {
             var weaponsJson = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "Weapons.json");
-            var dynObj = JsonConvert.DeserializeObject<List<Weapon>>(weaponsJson);
+            var dynObj = JsonConvert.DeserializeObject<IList<Weapon>>(weaponsJson);
             Add(dynObj);
             var adventuringGearResource = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "AdventuringGear.json");
-            var adventuringGears = JsonConvert.DeserializeObject<List<AdventuringGear>>(adventuringGearResource);
+            var adventuringGears = JsonConvert.DeserializeObject<IList<AdventuringGear>>(adventuringGearResource);
             Add(adventuringGears);
         }
     }

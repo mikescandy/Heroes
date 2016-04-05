@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<NavigationPage xmlns="http://xamarin.com/schemas/2014/forms"
+<core:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:freshMvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm"
              x:Class="Heroes.MainTabbedPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             xmlns:local="clr-namespace:Heroes;assembly=Heroes"
+             xmlns:core="clr-namespace:Core.Controls;assembly=Core"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             ChildrenList="{Binding TabPageList}"
+             >
 
-</NavigationPage>
+</core:CustomTabbedPage>
