@@ -1,23 +1,25 @@
+using System;
 using System.IO;
 using Core.Droid;
 using Core.Services;
-using Xamarin.Forms;
+using SQLite.Net;
 using SQLite.Net.Platform.XamarinAndroid;
+using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SqLiteAndroid))]
+[assembly: Dependency(typeof(SQLiteAndroid))]
 namespace Core.Droid
 {
-    public class SqLiteAndroid : ISqLite
+    public class SQLiteAndroid : ISqLite
     {
         private const string SqliteFilename = "Heroes.db3";
 
-        public SQLite.Net.SQLiteConnection GetConnection()
+        public SQLiteConnection GetConnection()
         {
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // Documents folder
             var path = Path.Combine(documentsPath, SqliteFilename);
             // Create the connection
 
-            var conn = new SQLite.Net.SQLiteConnection(new SQLitePlatformAndroid(), path);
+            var conn = new SQLiteConnection(new SQLitePlatformAndroid(), path);
             // Return the database connection
             return conn;
         }

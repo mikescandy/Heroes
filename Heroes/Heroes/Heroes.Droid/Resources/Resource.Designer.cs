@@ -4651,6 +4651,7 @@ namespace Heroes.Droid
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Styleable.ViewStubCompat_android_id = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::UXDivers.Gorilla.Sdk.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::Heroes.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Heroes.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
