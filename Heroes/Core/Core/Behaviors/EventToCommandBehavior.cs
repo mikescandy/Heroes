@@ -1,125 +1,145 @@
-﻿/// <summary>
-/// The MIT License (MIT)
-/// Copyright (c) 2016 David Britch
-/// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-/// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-/// https://blog.xamarin.com/turn-events-into-commands-with-behaviors/
-/// https://github.com/davidbritch/xamarin-forms/tree/master/ItemSelectedBehavior
-/// </summary>
+﻿// The MIT License (MIT)
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// https://blog.xamarin.com/turn-events-into-commands-with-behaviors/
+// https://github.com/davidbritch/xamarin-forms/tree/master/ItemSelectedBehavior
+// <copyright file="EventToCommandBehavior.cs" company="David Britch">Copyright (c) 2016 David Britch</copyright>
+
 using System;
 using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Core
+namespace Core.Behaviors
 {
-	public class EventToCommandBehavior : BehaviorBase<View>
-	{
-		Delegate eventHandler;
+    public class EventToCommandBehavior : BehaviorBase<View>
+    {
+        public static readonly BindableProperty EventNameProperty = BindableProperty.Create ("EventName", typeof(string), typeof(EventToCommandBehavior), null, propertyChanged: OnEventNameChanged);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create ("Command", typeof(ICommand), typeof(EventToCommandBehavior), null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create ("CommandParameter", typeof(object), typeof(EventToCommandBehavior), null);
+        public static readonly BindableProperty InputConverterProperty = BindableProperty.Create ("Converter", typeof(IValueConverter), typeof(EventToCommandBehavior), null);
 
-		public static readonly BindableProperty EventNameProperty = BindableProperty.Create ("EventName", typeof(string), typeof(EventToCommandBehavior), null, propertyChanged: OnEventNameChanged);
-		public static readonly BindableProperty CommandProperty = BindableProperty.Create ("Command", typeof(ICommand), typeof(EventToCommandBehavior), null);
-		public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create ("CommandParameter", typeof(object), typeof(EventToCommandBehavior), null);
-		public static readonly BindableProperty InputConverterProperty = BindableProperty.Create ("Converter", typeof(IValueConverter), typeof(EventToCommandBehavior), null);
+        private Delegate eventHandler;
 
-		public string EventName {
-			get { return (string)GetValue (EventNameProperty); }
-			set { SetValue (EventNameProperty, value); }
-		}
+        public string EventName
+        {
+            get { return (string)GetValue (EventNameProperty); }
+            set { SetValue (EventNameProperty, value); }
+        }
 
-		public ICommand Command {
-			get { return (ICommand)GetValue (CommandProperty); }
-			set { SetValue (CommandProperty, value); }
-		}
+        public ICommand Command
+        {
+            get { return (ICommand)GetValue (CommandProperty); }
+            set { SetValue (CommandProperty, value); }
+        }
 
-		public object CommandParameter {
-			get { return GetValue (CommandParameterProperty); }
-			set { SetValue (CommandParameterProperty, value); }
-		}
+        public object CommandParameter
+        {
+            get { return GetValue (CommandParameterProperty); }
+            set { SetValue (CommandParameterProperty, value); }
+        }
 
-		public IValueConverter Converter {
-			get { return (IValueConverter)GetValue (InputConverterProperty); }
-			set { SetValue (InputConverterProperty, value); }
-		}
+        public IValueConverter Converter
+        {
+            get { return (IValueConverter)GetValue (InputConverterProperty); }
+            set { SetValue (InputConverterProperty, value); }
+        }
 
-		protected override void OnAttachedTo (View bindable)
-		{
-			base.OnAttachedTo (bindable);
-			RegisterEvent (EventName);
-		}
+        /// <inheritdoc />
+        protected override void OnAttachedTo (View bindable)
+        {
+            base.OnAttachedTo (bindable);
+            RegisterEvent (EventName);
+        }
 
-		protected override void OnDetachingFrom (View bindable)
-		{
-			base.OnDetachingFrom (bindable);
-			DeregisterEvent (EventName);
-		}
+        /// <inheritdoc />
+        protected override void OnDetachingFrom (View bindable)
+        {
+            base.OnDetachingFrom (bindable);
+            DeregisterEvent (EventName);
+        }
 
-		void RegisterEvent (string name)
-		{
-			if (string.IsNullOrWhiteSpace (name)) {
-				return;
-			}
+        private static void OnEventNameChanged (BindableObject bindable, object oldValue, object newValue)
+        {
+            var behavior = (EventToCommandBehavior)bindable;
+            if (behavior.AssociatedObject == null)
+            {
+                return;
+            }
 
-			EventInfo eventInfo = AssociatedObject.GetType ().GetRuntimeEvent (name);
-			if (eventInfo == null) {
-				throw new ArgumentException (string.Format ("EventToCommandBehavior: Can't register the '{0}' event.", EventName));
-			}
-			MethodInfo methodInfo = typeof(EventToCommandBehavior).GetTypeInfo ().GetDeclaredMethod ("OnEvent");
-			eventHandler = methodInfo.CreateDelegate (eventInfo.EventHandlerType, this);
-			eventInfo.AddEventHandler (AssociatedObject, eventHandler);
-		}
+            string oldEventName = (string)oldValue;
+            string newEventName = (string)newValue;
 
-		void DeregisterEvent (string name)
-		{
-			if (string.IsNullOrWhiteSpace (name)) {
-				return;
-			}
+            behavior.DeregisterEvent (oldEventName);
+            behavior.RegisterEvent (newEventName);
+        }
 
-			if (eventHandler == null) {
-				return;
-			}
-			EventInfo eventInfo = AssociatedObject.GetType ().GetRuntimeEvent (name);
-			if (eventInfo == null) {
-				throw new ArgumentException (string.Format ("EventToCommandBehavior: Can't de-register the '{0}' event.", EventName));
-			}
-			eventInfo.RemoveEventHandler (AssociatedObject, eventHandler);
-			eventHandler = null;
-		}
+        private void RegisterEvent (string name)
+        {
+            if (string.IsNullOrWhiteSpace (name))
+            {
+                return;
+            }
 
-		void OnEvent (object sender, object eventArgs)
-		{
-			if (Command == null) {
-				return;
-			}
+            EventInfo eventInfo = AssociatedObject.GetType ().GetRuntimeEvent (name);
+            if (eventInfo == null)
+            {
+                throw new ArgumentException (string.Format ("EventToCommandBehavior: Can't register the '{0}' event.", EventName));
+            }
 
-			object resolvedParameter;
-			if (CommandParameter != null) {
-				resolvedParameter = CommandParameter;
-			} else if (Converter != null) {
-				resolvedParameter = Converter.Convert (eventArgs, typeof(object), null, null);
-			} else {
-				resolvedParameter = eventArgs;
-			}		
+            MethodInfo methodInfo = typeof(EventToCommandBehavior).GetTypeInfo ().GetDeclaredMethod ("OnEvent");
+            eventHandler = methodInfo.CreateDelegate (eventInfo.EventHandlerType, this);
+            eventInfo.AddEventHandler (AssociatedObject, eventHandler);
+        }
 
-			if (Command.CanExecute (resolvedParameter)) {
-				Command.Execute (resolvedParameter);
-			}
-		}
+        private void DeregisterEvent (string name)
+        {
+            if (string.IsNullOrWhiteSpace (name))
+            {
+                return;
+            }
 
-		static void OnEventNameChanged (BindableObject bindable, object oldValue, object newValue)
-		{
-			var behavior = (EventToCommandBehavior)bindable;
-			if (behavior.AssociatedObject == null) {
-				return;
-			}
+            if (eventHandler == null)
+            {
+                return;
+            }
 
-			string oldEventName = (string)oldValue;
-			string newEventName = (string)newValue;
+            EventInfo eventInfo = AssociatedObject.GetType ().GetRuntimeEvent (name);
+            if (eventInfo == null)
+            {
+                throw new ArgumentException (string.Format ("EventToCommandBehavior: Can't de-register the '{0}' event.", EventName));
+            }
 
-			behavior.DeregisterEvent (oldEventName);
-			behavior.RegisterEvent (newEventName);
-		}
-	}
+            eventInfo.RemoveEventHandler (AssociatedObject, eventHandler);
+            eventHandler = null;
+        }
+
+        private void OnEvent (object sender, object eventArgs)
+        {
+            if (Command == null)
+            {
+                return;
+            }
+
+            object resolvedParameter;
+            if (CommandParameter != null)
+            {
+                resolvedParameter = CommandParameter;
+            }
+            else if (Converter != null)
+            {
+                resolvedParameter = Converter.Convert (eventArgs, typeof(object), null, null);
+            }
+            else
+            {
+                resolvedParameter = eventArgs;
+            }
+
+            if (Command.CanExecute (resolvedParameter))
+            {
+                Command.Execute (resolvedParameter);
+            }
+        }
+    }
 }
-

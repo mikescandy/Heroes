@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Core.Validation
 {
@@ -15,13 +10,12 @@ namespace Core.Validation
 
         Label Message { get; set; }
 
-        void SetMessage(string message);
+        void SetMessage (string message);
 
-        void SetMessageColor(Color color);
+        void SetMessageColor (Color color);
 
-        void Clear();
+        void Clear ();
 
         bool HasError { get; set; }
     }
-
 }

@@ -1,5 +1,4 @@
-﻿using SQLite;
-using SQLite.Net.Attributes;
+﻿using SQLite.Net.Attributes;
 
 namespace Core.Models
 {
@@ -7,7 +6,9 @@ namespace Core.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-		public double DateCreated { get; set;}
-		public double DateUpdated { get; set;}
+
+        public double DateCreated { get; set; }
+
+        public double DateUpdated { get; set; }
     }
 }

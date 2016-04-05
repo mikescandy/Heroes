@@ -1,10 +1,9 @@
-﻿using SQLite;
-using SQLite.Net;
+﻿using SQLite.Net;
 
 namespace Core.Services
 {
     public interface ISqLite
     {
-        SQLiteConnection GetConnection();
+        SQLiteConnection GetConnection ();
     }
 }

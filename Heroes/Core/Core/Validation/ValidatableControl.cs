@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Core.Validation
 {
@@ -17,36 +12,29 @@ namespace Core.Validation
 
         public bool HasError { get; set; }
 
-        public ValidatableControl(string propertyName)
+        public ValidatableControl (string propertyName)
         {
-
             Identifier = propertyName;
-
-            Entry = new Entry();
-
+            Entry = new Entry ();
             Message = new Label { IsVisible = false };
 
-
-            var stackLayout = new StackLayout()
-            {
+            var stackLayout = new StackLayout {
                 Orientation = StackOrientation.Vertical,
-                Children =
-                {
+                Children = {
                     Entry,
                     Message
                 }
             };
 
-
-            this.Content = stackLayout;
+            Content = stackLayout;
         }
 
-        public void SetEntryTextBinding(string propertyName)
+        public void SetEntryTextBinding (string propertyName)
         {
-            Entry.SetBinding(Entry.TextProperty, propertyName);
+            Entry.SetBinding (Entry.TextProperty, propertyName);
         }
 
-        public void SetMessage(string message)
+        public void SetMessage (string message)
         {
             Message.Text = message;
 
@@ -55,19 +43,16 @@ namespace Core.Validation
             Message.IsVisible = true;
         }
 
-        public void SetMessageColor(Color color)
+        public void SetMessageColor (Color color)
         {
             Message.TextColor = color;
         }
 
-        public void Clear()
+        public void Clear ()
         {
             HasError = false;
-
-            Message.Text = "";
-
+            Message.Text = string.Empty;
             Message.TextColor = Color.Default;
         }
     }
-
 }

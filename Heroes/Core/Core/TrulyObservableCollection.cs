@@ -7,20 +7,20 @@ namespace Core
 {
     public sealed class TrulyObservableCollection<T> : ObservableCollection<T> where T : INotifyPropertyChanged
     {
-        public TrulyObservableCollection()
+        public TrulyObservableCollection ()
         {
             CollectionChanged += FullObservableCollectionCollectionChanged;
         }
 
-        public TrulyObservableCollection(IEnumerable<T> pItems) : this()
+        public TrulyObservableCollection (IEnumerable<T> items) : this ()
         {
-            foreach (var item in pItems)
+            foreach (var item in items)
             {
-                this.Add(item);
+                this.Add (item);
             }
         }
 
-        private void FullObservableCollectionCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void FullObservableCollectionCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
@@ -29,6 +29,7 @@ namespace Core
                     ((INotifyPropertyChanged)item).PropertyChanged += ItemPropertyChanged;
                 }
             }
+
             if (e.OldItems != null)
             {
                 foreach (var item in e.OldItems)
@@ -38,10 +39,10 @@ namespace Core
             }
         }
 
-        private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void ItemPropertyChanged (object sender, PropertyChangedEventArgs e)
         {
-            var args = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, sender, sender, IndexOf((T)sender));
-            OnCollectionChanged(args);
+            var args = new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Replace, sender, sender, IndexOf ((T)sender));
+            OnCollectionChanged (args);
         }
     }
 }

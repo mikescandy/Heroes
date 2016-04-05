@@ -1,40 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Core.Behaviors
 {
     public class MinMaxNumericValidationBehavior : Behavior<Entry>
     {
         public double Min { get; set; }
+
         public double Max { get; set; }
+
         public bool IsValid { get; set; }
 
-        public MinMaxNumericValidationBehavior()
+        public MinMaxNumericValidationBehavior ()
         {
             Min = double.MinValue;
             Max = double.MaxValue;
         }
 
-        protected override void OnAttachedTo(Entry entry)
+        /// <inheritdoc />
+        protected override void OnAttachedTo (Entry bindable)
         {
-            entry.TextChanged += OnEntryTextChanged;
-            base.OnAttachedTo(entry);
+            bindable.TextChanged += OnEntryTextChanged;
+            base.OnAttachedTo (bindable);
         }
 
-        protected override void OnDetachingFrom(Entry entry)
+        /// <inheritdoc />
+        protected override void OnDetachingFrom (Entry bindable)
         {
-            entry.TextChanged -= OnEntryTextChanged;
-            base.OnDetachingFrom(entry);
+            bindable.TextChanged -= OnEntryTextChanged;
+            base.OnDetachingFrom (bindable);
         }
 
-        void OnEntryTextChanged(object sender, TextChangedEventArgs args)
+        private void OnEntryTextChanged (object sender, TextChangedEventArgs args)
         {
             double result;
-            IsValid = Double.TryParse(args.NewTextValue, out result);
+            IsValid = double.TryParse (args.NewTextValue, out result);
             ((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
         }
     }

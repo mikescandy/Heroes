@@ -5,17 +5,17 @@ namespace Core.Services
 {
     public class FluentValidationService : IValidationService
     {
-        private readonly IValidatorFactory _validatorFactory;
+        private readonly IValidatorFactory validatorFactory;
 
-        public FluentValidationService(IValidatorFactory validatorFactory)
+        public FluentValidationService (IValidatorFactory validatorFactory)
         {
-            _validatorFactory = validatorFactory;
+            this.validatorFactory = validatorFactory;
         }
 
-        public ValidationResult Validate<T>(T entity) where T : class
+        public ValidationResult Validate<T> (T entity) where T : class
         {
-            var validator = _validatorFactory.GetValidator(entity.GetType());
-            var result = validator.Validate(entity);
+            var validator = validatorFactory.GetValidator (entity.GetType ());
+            var result = validator.Validate (entity);
             return result;
         }
     }

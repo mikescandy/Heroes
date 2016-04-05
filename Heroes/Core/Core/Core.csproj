@@ -70,9 +70,10 @@
     <Compile Include="Controls\ValidationEntry.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\BehaviorBase.cs" />
-    <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
-    <Compile Include="Converters\TappedItemEventArgsToSelectedItemConverter.cs" />
     <Compile Include="Services\IGenericRepository.cs" />
+    <Compile Include="Localize.cs" />
+    <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="Converters\ItemTappedEventArgsToSelectedItemConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, PublicKeyToken=null">

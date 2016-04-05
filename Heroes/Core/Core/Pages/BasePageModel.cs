@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Pages;
-using FluentValidation.Internal;
+﻿using Core.Pages;
 using FreshMvvm;
 using PropertyChanged;
 
-namespace Heroes
+namespace Core.Pages
 {
     [ImplementPropertyChanged]
-    public abstract class BasePageModel: FreshBasePageModel, IBasePageModel
+    public abstract class BasePageModel : FreshBasePageModel, IBasePageModel
     {
         public string Title { get; set; }
+
         public string Image { get; set; }
     }
 }
