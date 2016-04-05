@@ -26,7 +26,9 @@ namespace Core.Factories
                 // Obtain instance of validator. If not registered, SimpleIoc will throw exception (although documentation said it will return null)
                 validator = this.CreateInstance(typeof(IValidator<>).MakeGenericType(type));
             }
+			#pragma warning disable 0168
             catch (Exception exception)
+			#pragma warning restore 0168
             {
                 // Get base type and try to find validator for base type (used for polymorphic classes)
                 var baseType = type.GetTypeInfo().BaseType;

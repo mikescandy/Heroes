@@ -1,7 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Heroes.HomePage">
+<ContentPage 
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+ xmlns:local="clr-namespace:Heroes;assembly=Heroes"
+   xmlns:core="clr-namespace:Core;assembly=Core" 
+x:Class="Heroes.HomePage">
+<ContentPage.Resources>
+		<ResourceDictionary>
+			<core:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
   <ContentPage.Content>
-    <ListView x:Name="listView" ItemsSource="{Binding Items}" RowHeight="150" BackgroundColor="{DynamicResource BackgroundColor}" ItemSelected="{Binding SelectItem}">
+    <ListView x:Name="listView" ItemsSource="{Binding Items}" RowHeight="150" BackgroundColor="{DynamicResource BackgroundColor}" SelectedItem="{Binding SelectedItem}">
+    <ListView.Behaviors>
+  		<core:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectItem}" Converter="{StaticResource ItemTappedConverter}" />
+    </ListView.Behaviors>
       <ListView.ItemTemplate  >
         <DataTemplate >
           <ViewCell >

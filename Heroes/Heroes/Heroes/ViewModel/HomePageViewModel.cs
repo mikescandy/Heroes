@@ -25,10 +25,5 @@ namespace Heroes
 		public bool IsAdd { get; set; }
 
 		public double TimeStamp { get; set;}
-
-		public HomePageViewModel ()
-		{
-		}
 	}
 }
-

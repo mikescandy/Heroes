@@ -17,32 +17,35 @@ namespace Heroes
 
         public ObservableCollection<HomePageViewModel> Items { get; set; }
 
-        public Command<HomePageViewModel> SelectItem { protected set; get; }
+        public ICommand SelectItem { set; get; }
+
+		public HomePageViewModel SelectedItem {	get; set; }
 
         public HomePageModel(IRepository repository)
         {
             _repository = repository;
 
-            SelectItem = new Command<HomePageViewModel>(async (item) =>
-              {
-                  switch (item.ItemType)
-                  {
-                      case ItemType.Party:
-                          break;
-                      case ItemType.Character:
-                          await CoreMethods.PushPageModel<CharacterPageModel>(item);
-                          break;
-                      case ItemType.None:
-                          break;
-                      default:
-                          throw new ArgumentOutOfRangeException();
-                  }
-              });
+           
         }
 
         public override void Init(object initData)
         {
             base.Init(initData);
+			SelectItem = new Command(async () =>
+				{
+					switch (SelectedItem.ItemType)
+					{
+					case ItemType.Party:
+						break;
+					case ItemType.Character:
+						await CoreMethods.PushPageModel<MainTabbedPageModel>(SelectedItem.ID);
+						break;
+					case ItemType.None:
+						break;
+					default:
+						throw new ArgumentOutOfRangeException();
+					}
+				});
             var parties = _repository.GetAll<Party>();
             var characters = _repository.GetAllCharactersNotInParties();
             var items = App.Mapper.Map<List<HomePageViewModel>>(parties);

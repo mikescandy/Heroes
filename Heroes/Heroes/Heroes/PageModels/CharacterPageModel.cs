@@ -2,6 +2,7 @@
 using FreshMvvm;
 using Heroes.Services;
 using PropertyChanged;
+using System;
 
 namespace Heroes
 {
@@ -9,16 +10,26 @@ namespace Heroes
     public class CharacterPageModel : BasePageModel
     {
         private readonly IRepository _repository;
-        private readonly IValidationService _validationService;
         public Character Character { get; set; }
 
 
-        public CharacterPageModel(IRepository repository/*, IValidationService validationService*/)
+        public CharacterPageModel(IRepository repository)
         {
             _repository = repository;
-            //_validationService = validationService;
             Character = _repository.GetLatest<Character>();
         }
+
+		public override void Init (object initData)
+		{
+			try {
+				var characterId = (int)initData;
+				if (characterId > 0) {
+					Character = _repository.Get<Character> (characterId);
+				}
+			} catch (InvalidCastException ex) {
+				
+			}
+		}
 
         public override void ReverseInit(object returndData)
         {
@@ -29,31 +40,6 @@ namespace Heroes
                 Character = _repository.Get<Character>(character.ID);
             }
         }
-
-       /* public bool IsValid
-        {
-            get
-            {
-                var validationResult = _validationService.Validate(this);
-                return validationResult.IsValid;
-            }
-        }*/
-
-        //public Command ShowQuotes {
-        //    get {
-        //        return new Command (async () => {
-        //            await CoreMethods.PushPageModel<QuoteListPageModel> ();
-        //        });
-        //    }
-        //}
-
-        //public Command ShowContacts {
-        //    get {
-        //        return new Command (async () => {
-        //            await CoreMethods.PushPageModel<ContactListPageModel> ();
-        //        });
-        //    }
-        //}
     }
 }
 

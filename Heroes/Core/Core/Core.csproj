@@ -65,6 +65,11 @@
     <Compile Include="Validation\IValidatableControl.cs" />
     <Compile Include="Validation\ValidatableControl.cs" />
     <Compile Include="Controls\ValidationEntry.cs" />
+    <Compile Include="Behaviors\EventToCommandBehavior.cs" />
+    <Compile Include="Behaviors\BehaviorBase.cs" />
+    <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="Converters\TappedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="Services\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, PublicKeyToken=null">
@@ -118,4 +123,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Fody.1.30.0-beta01\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fody.1.30.0-beta01\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
   </Target>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
 </Project>
