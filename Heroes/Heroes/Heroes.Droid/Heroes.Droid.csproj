@@ -77,10 +77,6 @@
     </JavaOptions>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Controls.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.Essentials.Controls.1.2-beta\lib\MonoAndroid\Controls.Droid.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -136,10 +132,6 @@
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6529\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Essentials.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.Essentials.Controls.1.2-beta\lib\MonoAndroid\Xamarin.Forms.Essentials.Controls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Xamarin.Forms.Platform.Android">
       <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6529\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
@@ -172,6 +164,12 @@
     </Reference>
     <Reference Include="UXDivers.Gorilla.SDK.Droid">
       <HintPath>..\..\packages\UXDivers.GorillaPlayer.SDK.0.8.3.4\lib\MonoAndroid10\UXDivers.Gorilla.SDK.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Controls.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Essentials.Controls.1.2-beta\lib\MonoAndroid\Controls.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Essentials.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Essentials.Controls.1.2-beta\lib\MonoAndroid\Xamarin.Forms.Essentials.Controls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -79,7 +79,6 @@
     <Compile Include="Validators\CharacterValidator.cs" />
     <Compile Include="ViewModel\EquipmentViewModel.cs" />
     <Compile Include="Models\AdventuringGear.cs" />
-    <Compile Include="Models\Alignment.cs" />
     <Compile Include="Models\Armor.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharacterClass.cs" />
@@ -122,6 +121,7 @@
     <Compile Include="PageModels\HomePageModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Data\Alignment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">

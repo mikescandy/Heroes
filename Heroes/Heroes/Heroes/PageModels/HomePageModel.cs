@@ -44,11 +44,14 @@ namespace Heroes
 						throw new ArgumentOutOfRangeException();
 					}
 				});
-            var parties = _repository.GetAll<Party>();
+            
+			var parties = _repository.GetAll<Party>();
             var characters = _repository.GetAllCharactersNotInParties();
-            var items = App.Mapper.Map<List<HomePageViewModel>>(parties);
+
+			var items = App.Mapper.Map<List<HomePageViewModel>>(parties);
             var items2 = App.Mapper.Map<List<HomePageViewModel>>(characters);
-            items = items.Union(items2).OrderByDescending(m => m.TimeStamp).ToList();
+            
+			items = items.Union(items2).OrderByDescending(m => m.TimeStamp).ToList();
             items.Add(GetAddItem());
             Items = new ObservableCollection<HomePageViewModel>(items);
         }
