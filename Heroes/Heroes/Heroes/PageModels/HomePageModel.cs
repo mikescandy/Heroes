@@ -39,6 +39,7 @@ namespace Heroes
                     await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
                     break;
                 case ItemType.None:
+                    await CoreMethods.PushPageModel<AddCharacterPageModel> (SelectedItem.ID);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException ();

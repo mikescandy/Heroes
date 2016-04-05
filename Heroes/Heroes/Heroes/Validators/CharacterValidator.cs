@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
+using Heroes.PageModels;
 
 namespace Heroes.Validators
 {
-	public class CharacterValidator : AbstractValidator<EditCharacterPageModel>
+    public class CharacterValidator : AbstractValidator<BaseCharacterPageModel>
     {
-        public CharacterValidator()
+        public CharacterValidator ()
         {
-            RuleFor(character => character.Name).NotEmpty().WithMessage("Enter the character name");
+            RuleFor (character => character.Name).NotEmpty ().WithMessage ("Enter the character name");
         }
     }
 }
