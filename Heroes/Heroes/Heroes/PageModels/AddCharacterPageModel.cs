@@ -34,8 +34,8 @@ namespace Heroes
                     Wisdom = Wisdom
                 };
                 Repository.Add (character);
-                await CoreMethods.PopPageModel ();
-                await CoreMethods.PushPageModel<CharacterPageModel> (character.ID);
+               
+                await CoreMethods.PopPageModel (character.ID, true);
             });
         }
     }

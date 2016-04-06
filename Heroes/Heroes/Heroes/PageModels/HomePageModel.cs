@@ -8,6 +8,7 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
+using Heroes.PageModels;
 
 namespace Heroes
 {
@@ -46,15 +47,37 @@ namespace Heroes
                 }
             });
             
+            var items = GetHomePageItems ();
+            Items = new ObservableCollection<HomePageViewModel> (items);
+        }
+
+        public override async void ReverseInit (object returndData)
+        {
+            var items = GetHomePageItems ();
+            Items = new ObservableCollection<HomePageViewModel> (items);
+
+            try
+            {
+                var id = (int)returndData;
+                await CoreMethods.PushPageModel<MainTabbedPageModel> (id);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        private List<HomePageViewModel> GetHomePageItems ()
+        {
             var parties = _repository.GetAll<Party> ();
             var characters = _repository.GetAllCharactersNotInParties ();
 
             var items = App.Mapper.Map<List<HomePageViewModel>> (parties);
             var items2 = App.Mapper.Map<List<HomePageViewModel>> (characters);
-            
+
             items = items.Union (items2).OrderByDescending (m => m.TimeStamp).ToList ();
             items.Add (GetAddItem ());
-            Items = new ObservableCollection<HomePageViewModel> (items);
+            return items;
         }
 
         private HomePageViewModel GetAddItem ()
