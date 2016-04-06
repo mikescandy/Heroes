@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Pages;
 using Heroes.Models;
 using PropertyChanged;
 using Xamarin.Forms;
-using Core.Pages;
 
 namespace Heroes.PageModels
 {

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" xmlns:corecontrols="clr-namespace:Core.Controls;assembly=Core" x:Class="Heroes.EditCharacterPage" BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Icon="cancel.png" Command="{Binding CancelCommand}" />
         <ToolbarItem Text="Save" Icon="save.png" Command="{Binding SaveCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

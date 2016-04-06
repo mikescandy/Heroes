@@ -1,9 +1,8 @@
-﻿using Core.Services;
-using FreshMvvm;
+﻿using System;
+using Core.Pages;
+using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
-using System;
-using Core.Pages;
 
 namespace Heroes
 {

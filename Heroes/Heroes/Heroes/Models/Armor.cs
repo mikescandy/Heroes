@@ -1,6 +1,6 @@
-﻿namespace Heroes
+﻿namespace Heroes.Models
 {
-    public class Armor:Equipment
+    public class Armor : Equipment
     {
         public int ArmorClass { get; set; }
     }

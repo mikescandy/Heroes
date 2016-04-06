@@ -1,109 +1,106 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Core;
 using Core.Models;
 using Core.Services;
-using Heroes;
 using Heroes.Models;
 using Newtonsoft.Json;
-using SQLite;
 using Xamarin.Forms;
 using SQLite.Net;
-using System;
 using SQLiteNetExtensions.Extensions;
 
 namespace Heroes.Services
 {
-	public class Repository : IRepository
+    public class Repository : IRepository
     {
         private readonly SQLiteConnection _database;
 
-        public Repository()
+        public Repository ()
         {
-            _database = DependencyService.Get<ISqLite>().GetConnection();
-			_database.CreateTable<Party>();
-            _database.CreateTable<Character>();
-            _database.CreateTable<AdventuringGear>();
-            _database.CreateTable<Weapon>();
-            _database.CreateTable<Settings>();
-            PopulateDatabase();
+            _database = DependencyService.Get<ISqLite> ().GetConnection ();
+            _database.CreateTable<Party> ();
+            _database.CreateTable<Character> ();
+            _database.CreateTable<AdventuringGear> ();
+            _database.CreateTable<Weapon> ();
+            _database.CreateTable<Settings> ();
+            PopulateDatabase ();
         }
 
-        public List<AdventuringGear> GetAllAdventuringGear()
+        public List<AdventuringGear> GetAllAdventuringGear ()
         {
-            return _database.Table<AdventuringGear>().ToList();
+            return _database.Table<AdventuringGear> ().ToList ();
         }
 
-        public List<Weapon> GetAllWeapons()
+        public List<Weapon> GetAllWeapons ()
         {
-            return _database.Table<Weapon>().ToList();
+            return _database.Table<Weapon> ().ToList ();
         }
 
-		public List<Character> GetAllCharactersNotInParties ()
-		{
-			return _database.GetAllWithChildren<Character> (m=>m.PartyId==0).ToList ();
-		}
-
-        public T Get<T>(int id) where T : Model, new()
+        public List<Character> GetAllCharactersNotInParties ()
         {
-            return _database.Get<T>(id);
+            return _database.GetAllWithChildren<Character> (m => m.PartyId == 0).ToList ();
         }
 
-		public IList<T> GetMany<T>(IList<int> ids) where T : Model, new()
+        public T Get<T> (int id) where T : Model, new()
         {
-            return _database.Table<T>().Where(m => ids.Contains(m.ID)).ToList();
+            return _database.Get<T> (id);
         }
 
-		public IList<T> GetAll<T> () where T : Model, new()
-		{
-			return _database.GetAllWithChildren<T> ().ToList ();
-		}
-
-		public IList<T> GetAll<T> (System.Linq.Expressions.Expression<System.Func<T, bool>> predicate) where T : Model, new()
-		{
-			return _database.Table<T> ().Where(predicate).ToList ();
-		}
-
-        public void Update<T>(T model) where T : Model
+        public IList<T> GetMany<T> (IList<int> ids) where T : Model, new()
         {
-			model.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            _database.Update(model);
+            return _database.Table<T> ().Where (m => ids.Contains (m.ID)).ToList ();
         }
 
-        public T GetLatest<T>() where T : Model, new()
+        public IList<T> GetAll<T> () where T : Model, new()
         {
-            return _database.Table<T>().OrderByDescending(m => m.ID).FirstOrDefault();
+            return _database.GetAllWithChildren<T> ().ToList ();
         }
 
-		public void Add<T>(IList<T> data) where T : Model, new()
+        public IList<T> GetAll<T> (System.Linq.Expressions.Expression<System.Func<T, bool>> predicate) where T : Model, new()
         {
-			foreach (var item in data) {
-				item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
-				item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-			}	
-
-			_database.InsertAll(data);
+            return _database.Table<T> ().Where (predicate).ToList ();
         }
 
-		public void Add<T> (T item) where T : Model, new()
-		{
-			item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
-			item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-			_database.Insert (item);
-		}
-
-        private void PopulateDatabase()
+        public void Update<T> (T model) where T : Model
         {
-            var settings = GetLatest<Settings>();
+            model.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
+            _database.Update (model);
+        }
+
+        public T GetLatest<T> () where T : Model, new()
+        {
+            return _database.Table<T> ().OrderByDescending (m => m.ID).FirstOrDefault ();
+        }
+
+        public void Add<T> (IList<T> data) where T : Model, new()
+        {
+            foreach (var item in data)
+            {
+                item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
+                item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
+            }	
+
+            _database.InsertAll (data);
+        }
+
+        public void Add<T> (T item) where T : Model, new()
+        {
+            item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
+            item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
+            _database.Insert (item);
+        }
+
+        private void PopulateDatabase ()
+        {
+            var settings = GetLatest<Settings> ();
             if (settings == null)
             {
-				var id = _database.Insert(new Party
-					{
-						Name = "Fellowship of the ring",
-					});
-				_database.Insert(new Character
-                {
+                var id = _database.Insert (new Party {
+                    Name = "Fellowship of the ring",
+                });
+                _database.Insert (new Character {
                     Name = "Scypia the Acolyte",
                     CharacterClass = CharacterClass.Cleric,
                     Alignment = Alignment.Neutrality,
@@ -117,39 +114,38 @@ namespace Heroes.Services
                     Intelligence = 14,
                     Wisdom = 14,
                     Charisma = 18,
-					PartyId=id
+                    PartyId = id
                 });
-				_database.Insert(new Character
-					{
-						Name = "Scypia the Acolyte",
-						CharacterClass = CharacterClass.Cleric,
-						Alignment = Alignment.Neutrality,
-						Level = 1,
-						Experience = 0,
-						MaxHP = 7,
-						CurrentHP = 7,
-						Strength = 9,
-						Dexterity = 9,
-						Constitution = 14,
-						Intelligence = 14,
-						Wisdom = 14,
-						Charisma = 18,
-					});
+                _database.Insert (new Character {
+                    Name = "Scypia the Acolyte",
+                    CharacterClass = CharacterClass.Cleric,
+                    Alignment = Alignment.Neutrality,
+                    Level = 1,
+                    Experience = 0,
+                    MaxHP = 7,
+                    CurrentHP = 7,
+                    Strength = 9,
+                    Dexterity = 9,
+                    Constitution = 14,
+                    Intelligence = 14,
+                    Wisdom = 14,
+                    Charisma = 18,
+                });
 				
-                LoadData();
+                LoadData ();
                 settings = new Settings { FirstRun = true };
-                _database.Insert(settings);
+                _database.Insert (settings);
             }
         }
 
-        private void LoadData()
+        private void LoadData ()
         {
-            var weaponsJson = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "Weapons.json");
-            var dynObj = JsonConvert.DeserializeObject<IList<Weapon>>(weaponsJson);
-            Add(dynObj);
-            var adventuringGearResource = ResourceLoader.GetEmbeddedResourceString(GetType().GetTypeInfo().Assembly, "AdventuringGear.json");
-            var adventuringGears = JsonConvert.DeserializeObject<IList<AdventuringGear>>(adventuringGearResource);
-            Add(adventuringGears);
+            var weaponsJson = ResourceLoader.GetEmbeddedResourceString (GetType ().GetTypeInfo ().Assembly, "Weapons.json");
+            var dynObj = JsonConvert.DeserializeObject<IList<Weapon>> (weaponsJson);
+            Add (dynObj);
+            var adventuringGearResource = ResourceLoader.GetEmbeddedResourceString (GetType ().GetTypeInfo ().Assembly, "AdventuringGear.json");
+            var adventuringGears = JsonConvert.DeserializeObject<IList<AdventuringGear>> (adventuringGearResource);
+            Add (adventuringGears);
         }
     }
 }

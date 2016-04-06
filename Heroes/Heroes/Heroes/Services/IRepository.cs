@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Services;
-using Heroes;
+using Heroes.Models;
 
 namespace Heroes.Services
 {

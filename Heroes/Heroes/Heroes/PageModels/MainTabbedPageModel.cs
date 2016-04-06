@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Core.Pages;
 using FreshMvvm;
 using PropertyChanged;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
-using Core;
-using Core.Pages;
 
 namespace Heroes
 {

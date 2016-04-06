@@ -121,12 +121,12 @@
     <Compile Include="PageModels\HomePageModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="Models\ItemType.cs" />
-    <Compile Include="Data\Alignment.cs" />
     <Compile Include="PageModels\AddCharacterPageModel.cs" />
     <Compile Include="PageModels\BaseCharacterPageModel.cs" />
     <Compile Include="Pages\AddCharacterPage.xaml.cs">
       <DependentUpon>AddCharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alignment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
@@ -174,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\AdventuringGear.json" />
-    <None Include="app.config" />
     <None Include="Data\Armor.json" />
     <EmbeddedResource Include="Data\Weapons.json" />
     <None Include="Gorilla.json" />

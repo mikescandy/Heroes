@@ -1,4 +1,5 @@
-﻿using Heroes.PageModels;
+﻿using Heroes.Models;
+using Heroes.PageModels;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
@@ -33,6 +34,7 @@ namespace Heroes
                     Wisdom = Wisdom
                 };
                 Repository.Add (character);
+                await CoreMethods.PopPageModel ();
                 await CoreMethods.PushPageModel<CharacterPageModel> (character.ID);
             });
         }

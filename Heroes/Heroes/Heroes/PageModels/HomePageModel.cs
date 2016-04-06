@@ -1,13 +1,13 @@
 ﻿using System;
-
-using Xamarin.Forms;
-using PropertyChanged;
-using Heroes.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Input;
 using Core.Pages;
+using Heroes.Models;
+using Heroes.Services;
+using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Heroes
 {
@@ -39,7 +39,7 @@ namespace Heroes
                     await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
                     break;
                 case ItemType.None:
-                    await CoreMethods.PushPageModel<AddCharacterPageModel> (SelectedItem.ID);
+                    await CoreMethods.PushPageModel<AddCharacterPageModel> (SelectedItem.ID, true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException ();

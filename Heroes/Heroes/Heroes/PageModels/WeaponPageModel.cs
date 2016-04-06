@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using FreshMvvm;
-using Heroes;
+﻿using System.Collections.ObjectModel;
+using Core.Pages;
+using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
-using Core.Pages;
 
 namespace Heroes
 {

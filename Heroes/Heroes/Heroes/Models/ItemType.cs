@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Heroes
+﻿namespace Heroes.Models
 {
-	public enum ItemType
-	{
-		Party,
-		Character,
-		None
-	}
+    public enum ItemType
+    {
+        Party,
+        Character,
+        None
+    }
 }
-

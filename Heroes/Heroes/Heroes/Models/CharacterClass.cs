@@ -1,4 +1,4 @@
-﻿namespace Heroes
+﻿namespace Heroes.Models
 {
     public enum CharacterClass
     {

@@ -1,27 +1,24 @@
 ﻿using System.Collections.Generic;
-using FreshMvvm;
-using Heroes;
+using Core.Pages;
+using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
-using Xamarin.Forms;
-using Core.Pages;
 
 namespace Heroes
 {
     [ImplementPropertyChanged]
     public class AddWeaponPageModel : BasePageModel
     {
+        public List<Weapon> Weapons { get; set; }
+
+        public Weapon SelectedWeapon { get; set; }
+
         private readonly IRepository _repository;
 
         public AddWeaponPageModel (IRepository repository)
         {
             _repository = repository;
             Weapons = _repository.GetAllWeapons ();
-
         }
-
-        public List<Weapon> Weapons { get; set; }
-
-        public Weapon SelectedWeapon { get; set; }
     }
 }

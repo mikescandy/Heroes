@@ -1,15 +1,14 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Core.Models;
 using SQLiteNetExtensions.Attributes;
-using System.Collections.Generic;
 
-namespace Heroes
+namespace Heroes.Models
 {
-	public class Party : Model
-	{
-		public string Name {get; set;}
+    public class Party : Model
+    {
+        public string Name { get; set; }
 
-		[OneToMany(CascadeOperations = CascadeOperation.All)]      // One to many relationship with Valuation
-		public List<Character> Characters { get; set; }
-	}
+        [OneToMany (CascadeOperations = CascadeOperation.All)]      // One to many relationship with Valuation
+        public List<Character> Characters { get; set; }
+    }
 }

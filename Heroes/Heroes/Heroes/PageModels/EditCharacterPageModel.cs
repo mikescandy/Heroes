@@ -1,5 +1,6 @@
 ﻿using System;
 using Heroes;
+using Heroes.Models;
 using Heroes.PageModels;
 using Heroes.Services;
 using PropertyChanged;
