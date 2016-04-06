@@ -124,6 +124,9 @@
     <Compile Include="Data\Alignment.cs" />
     <Compile Include="PageModels\AddCharacterPageModel.cs" />
     <Compile Include="PageModels\BaseCharacterPageModel.cs" />
+    <Compile Include="Pages\EditCharacterPage.xaml %28copy%29.cs">
+      <DependentUpon>AddCharacterPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
@@ -178,6 +181,10 @@
     <None Include="packages.config" />
     <None Include="SampleData.json" />
     <EmbeddedResource Include="Pages\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddCharacterPage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

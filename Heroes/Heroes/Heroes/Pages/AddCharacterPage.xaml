@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes;assembly=Heroes" xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" xmlns:corecontrols="clr-namespace:Core.Controls;assembly=Core" x:Class="Heroes.AddCharacterPage" BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Icon="cancel.png" Command="{Binding CancelCommand}" />
+        <ToolbarItem Text="Save" Icon="save.png" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Label Text="{Binding IsValid}">
+                </Label>
+                <corecontrols:ValidationEntry x:Name="Name" Text="{Binding Name}" ValidationError="{Binding NameValidationError, Mode=TwoWay}" Placeholder="Character Name" TextColor="Maroon">
+                </corecontrols:ValidationEntry>
+                <Label Text="Alignment" TextColor="Maroon">
+                </Label>
+                <corecontrols:BindablePicker ItemsSource="{Binding Alignments}">
+                </corecontrols:BindablePicker>
+                <Label Text="Level" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Level}">
+                </Entry>
+                <Label Text="Experience" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Experience}">
+                </Entry>
+                <Label Text="MaxHP" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding MaxHP}">
+                </Entry>
+                <Label Text="Strength" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Strength}">
+                </Entry>
+                <Label Text="Dexterity" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Dexterity}">
+                </Entry>
+                <Label Text="Constitution" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Constitution}">
+                </Entry>
+                <Label Text="Intelligence" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Intelligence}">
+                </Entry>
+                <Label Text="Wisdom" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Wisdom}">
+                </Entry>
+                <Label Text="Charisma" TextColor="Maroon">
+                </Label>
+                <Entry TextColor="Maroon" Text="{Binding Charisma}">
+                </Entry>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
