@@ -124,7 +124,7 @@
     <Compile Include="Data\Alignment.cs" />
     <Compile Include="PageModels\AddCharacterPageModel.cs" />
     <Compile Include="PageModels\BaseCharacterPageModel.cs" />
-    <Compile Include="Pages\EditCharacterPage.xaml %28copy%29.cs">
+    <Compile Include="Pages\AddCharacterPage.xaml.cs">
       <DependentUpon>AddCharacterPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
