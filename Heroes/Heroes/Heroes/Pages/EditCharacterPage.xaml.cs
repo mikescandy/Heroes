@@ -6,7 +6,7 @@ namespace Heroes
     {
         public EditCharacterPage ()
         {
-            InitializeComponent ();
+       InitializeComponent ();
         }
     }
 }

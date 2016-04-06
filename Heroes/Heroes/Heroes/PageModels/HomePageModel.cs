@@ -21,7 +21,7 @@ namespace Heroes
 
         public ICommand SelectItem { set; get; }
 
-        public HomePageViewModel SelectedItem {	get; set; }
+        public HomePageViewModel SelectedItem {    get; set; }
 
         public HomePageModel (IRepository repository)
         {

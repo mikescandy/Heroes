@@ -23,7 +23,7 @@ namespace Heroes
             FreshIOC.Container.Register<IRepository, Repository>();
             //FreshIOC.Container.Register<IValidatorFactory, FluentValidatorFactory>();
             //FreshIOC.Container.Register<IValidationService, FluentValidationService>();
-			FreshIOC.Container.Register<IValidator<EditCharacterPageModel>, CharacterValidator>();
+            FreshIOC.Container.Register<IValidator<EditCharacterPageModel>, CharacterValidator>();
             var automapperConfiguration = new AutomapperConfig();
             Mapper = automapperConfiguration.Mapper;
             //var masterDetailNav = new FreshMasterDetailNavigationContainer();
@@ -44,7 +44,7 @@ namespace Heroes
             //FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()
 
             MainPage = new RootPage();
-			        }
+                    }
 
         protected override void OnStart()
         {

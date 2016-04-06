@@ -1,8 +1,8 @@
 {
-	"knownAssemblies":[
-		{
-			"name": "Xamarin.Forms.Essentials.Controls",
-			"types": null
-		}
-	]
+    "knownAssemblies":[
+        {
+            "name": "Xamarin.Forms.Essentials.Controls",
+            "types": null
+        }
+    ]
 }

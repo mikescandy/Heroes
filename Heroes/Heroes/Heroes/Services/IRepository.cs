@@ -4,7 +4,7 @@ using Heroes.Models;
 
 namespace Heroes.Services
 {
-    public interface IRepository:IGenericRepository
+    public interface IRepository : IGenericRepository
     {
         List<AdventuringGear> GetAllAdventuringGear ();
 

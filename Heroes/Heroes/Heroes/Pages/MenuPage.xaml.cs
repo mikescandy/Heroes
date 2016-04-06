@@ -12,7 +12,7 @@ namespace Heroes.Pages
     {
         public MenuPage()
         {
-            InitializeComponent();
+       InitializeComponent();
         }
     }
 }

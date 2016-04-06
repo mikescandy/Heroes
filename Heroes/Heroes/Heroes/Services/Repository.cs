@@ -7,71 +7,71 @@ using Core.Models;
 using Core.Services;
 using Heroes.Models;
 using Newtonsoft.Json;
-using Xamarin.Forms;
 using SQLite.Net;
 using SQLiteNetExtensions.Extensions;
+using Xamarin.Forms;
 
 namespace Heroes.Services
 {
     public class Repository : IRepository
     {
-        private readonly SQLiteConnection _database;
+        private readonly SQLiteConnection database;
 
         public Repository ()
         {
-            _database = DependencyService.Get<ISqLite> ().GetConnection ();
-            _database.CreateTable<Party> ();
-            _database.CreateTable<Character> ();
-            _database.CreateTable<AdventuringGear> ();
-            _database.CreateTable<Weapon> ();
-            _database.CreateTable<Settings> ();
+            database = DependencyService.Get<ISqLite> ().GetConnection ();
+            database.CreateTable<Party> ();
+            database.CreateTable<Character> ();
+            database.CreateTable<AdventuringGear> ();
+            database.CreateTable<Weapon> ();
+            database.CreateTable<Settings> ();
             PopulateDatabase ();
         }
 
         public List<AdventuringGear> GetAllAdventuringGear ()
         {
-            return _database.Table<AdventuringGear> ().ToList ();
+            return database.Table<AdventuringGear> ().ToList ();
         }
 
         public List<Weapon> GetAllWeapons ()
         {
-            return _database.Table<Weapon> ().ToList ();
+            return database.Table<Weapon> ().ToList ();
         }
 
         public List<Character> GetAllCharactersNotInParties ()
         {
-            return _database.GetAllWithChildren<Character> (m => m.PartyId == 0).ToList ();
+            return database.GetAllWithChildren<Character> (m => m.PartyId == 0).ToList ();
         }
 
         public T Get<T> (int id) where T : Model, new()
         {
-            return _database.Get<T> (id);
+            return database.Get<T> (id);
         }
 
         public IList<T> GetMany<T> (IList<int> ids) where T : Model, new()
         {
-            return _database.Table<T> ().Where (m => ids.Contains (m.ID)).ToList ();
+            return database.Table<T> ().Where (m => ids.Contains (m.ID)).ToList ();
         }
 
         public IList<T> GetAll<T> () where T : Model, new()
         {
-            return _database.GetAllWithChildren<T> ().ToList ();
+            return database.GetAllWithChildren<T> ().ToList ();
         }
 
         public IList<T> GetAll<T> (System.Linq.Expressions.Expression<System.Func<T, bool>> predicate) where T : Model, new()
         {
-            return _database.Table<T> ().Where (predicate).ToList ();
+            return database.Table<T> ().Where (predicate).ToList ();
         }
 
         public void Update<T> (T model) where T : Model
         {
             model.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            _database.Update (model);
+            database.Update (model);
         }
 
         public T GetLatest<T> () where T : Model, new()
         {
-            return _database.Table<T> ().OrderByDescending (m => m.ID).FirstOrDefault ();
+            return database.Table<T> ().OrderByDescending (m => m.ID).FirstOrDefault ();
         }
 
         public void Add<T> (IList<T> data) where T : Model, new()
@@ -80,16 +80,16 @@ namespace Heroes.Services
             {
                 item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
                 item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            }	
+            }
 
-            _database.InsertAll (data);
+            database.InsertAll (data);
         }
 
         public void Add<T> (T item) where T : Model, new()
         {
             item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
             item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            _database.Insert (item);
+            database.Insert (item);
         }
 
         private void PopulateDatabase ()
@@ -97,10 +97,10 @@ namespace Heroes.Services
             var settings = GetLatest<Settings> ();
             if (settings == null)
             {
-                var id = _database.Insert (new Party {
+                var id = database.Insert (new Party {
                     Name = "Fellowship of the ring",
                 });
-                _database.Insert (new Character {
+                database.Insert (new Character {
                     Name = "Scypia the Acolyte",
                     CharacterClass = CharacterClass.Cleric,
                     Alignment = Alignment.Neutrality,
@@ -116,7 +116,7 @@ namespace Heroes.Services
                     Charisma = 18,
                     PartyId = id
                 });
-                _database.Insert (new Character {
+                database.Insert (new Character {
                     Name = "Scypia the Acolyte",
                     CharacterClass = CharacterClass.Cleric,
                     Alignment = Alignment.Neutrality,
@@ -131,10 +131,10 @@ namespace Heroes.Services
                     Wisdom = 14,
                     Charisma = 18,
                 });
-				
+
                 LoadData ();
                 settings = new Settings { FirstRun = true };
-                _database.Insert (settings);
+                database.Insert (settings);
             }
         }
 

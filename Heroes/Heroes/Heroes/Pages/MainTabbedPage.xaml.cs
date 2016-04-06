@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace Heroes
 {
-	public partial class MainTabbedPage : CustomTabbedPage
+    public partial class MainTabbedPage : CustomTabbedPage
     {
-		public MainTabbedPage ()
-		{
-			InitializeComponent ();
-		}
+        public MainTabbedPage ()
+        {
+            InitializeComponent ();
+        }
     }
 }

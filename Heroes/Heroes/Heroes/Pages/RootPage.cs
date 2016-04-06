@@ -8,15 +8,15 @@ using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
-	public class RootPage : FreshMasterDetailNavigationContainer
+    public class RootPage : FreshMasterDetailNavigationContainer
     {
         public RootPage()
         {
-			Init("Menu");
-			AddPage<HomePageModel>("Home"); 
-			AddPage<EquipmentPageModel>("Eq");
-					
-			InvalidateMeasure();
+            Init("Menu");
+            AddPage<HomePageModel>("Home"); 
+            AddPage<EquipmentPageModel>("Eq");
+                    
+            InvalidateMeasure();
         }
     }
 }
