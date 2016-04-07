@@ -127,6 +127,10 @@
       <DependentUpon>AddCharacterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Alignment.cs" />
+    <Compile Include="PageModels\ChoosePartyCharacterPageModel.cs" />
+    <Compile Include="Pages\ChoosePartyCharacterPageModel.xaml.cs">
+      <DependentUpon>ChoosePartyCharacterPageModel.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
@@ -184,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\AddCharacterPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ChoosePartyCharacterPageModel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
