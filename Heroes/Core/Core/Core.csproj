@@ -74,6 +74,8 @@
     <Compile Include="Localize.cs" />
     <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
     <Compile Include="Converters\ItemTappedEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="MVVMCommand.cs" />
+    <Compile Include="TypeInfoAllMemberExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, PublicKeyToken=null">

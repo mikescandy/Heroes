@@ -3,6 +3,7 @@ using Heroes.PageModels;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
+using Core;
 
 namespace Heroes.PageModels
 {
@@ -17,11 +18,9 @@ namespace Heroes.PageModels
         {
             base.Init (initData);
 
-            CancelCommand = new Command (async () => {
-                await CoreMethods.PopPageModel (null, true);
-            });
+            CancelCommand = new Command (async () => await CoreMethods.PopPageModel (null, true));
 
-            SaveCommand = new Command (async () => {
+            SaveCommand = new MVVMCommand (async _ => {
                 var character = new Character {
                     Alignment = Alignment,
                     CharacterClass = CharacterClass,
@@ -36,7 +35,7 @@ namespace Heroes.PageModels
                 Repository.Add (character);
                
                 await CoreMethods.PopPageModel (character.ID, true);
-            });
+            }, _ => IsValid);
         }
     }
 }

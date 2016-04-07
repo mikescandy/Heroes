@@ -6,8 +6,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
-                <Label Text="{Binding IsValid}">
-                </Label>
                 <corecontrols:ValidationEntry x:Name="Name" Text="{Binding Name}" ValidationError="{Binding NameValidationError, Mode=TwoWay}" Placeholder="Character Name" TextColor="Maroon">
                 </corecontrols:ValidationEntry>
                 <Label Text="Alignment" TextColor="Maroon">

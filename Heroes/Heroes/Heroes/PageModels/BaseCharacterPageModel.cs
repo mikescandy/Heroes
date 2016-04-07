@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Input;
+using Core;
 using Core.Pages;
 using Heroes.Models;
 using Heroes.Services;
@@ -11,11 +12,13 @@ using PropertyChanged;
 
 namespace Heroes.PageModels
 {
+    [ImplementPropertyChanged]
     public abstract class BaseCharacterPageModel : BasePageModel
     {
         protected readonly IRepository Repository;
         protected readonly CharacterValidator Validator;
 
+        [AlsoNotifyFor ("IsValid")]
         public string Name { get; set; }
 
         public string NameValidationError { get; set; }
@@ -48,7 +51,6 @@ namespace Heroes.PageModels
 
         public ICommand CancelCommand { get; set; }
 
-        [DependsOn ("Name")]
         public bool IsValid
         {
             get {
@@ -66,7 +68,7 @@ namespace Heroes.PageModels
 
                 foreach (var result in validationResult.Errors)
                 {
-                    var validationProperty = this.GetType ().GetTypeInfo ().GetDeclaredProperty (result.PropertyName + "ValidationError");
+                    var validationProperty = this.GetType ().GetTypeInfo ().GetAllProperties ().FirstOrDefault (m => m.Name == result.PropertyName + "ValidationError");
                     if (validationProperty != null)
                     {
                         validationProperty.SetValue (this, result.ErrorMessage);
@@ -74,7 +76,7 @@ namespace Heroes.PageModels
                     }
                 }
 
-                return true;
+                return false;
             }
         }
 
