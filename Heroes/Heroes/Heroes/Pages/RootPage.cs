@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FreshMvvm;
-using Xamarin.Forms;
+﻿using FreshMvvm;
+using Heroes.PageModels;
 
-namespace Heroes.PageModels
+namespace Heroes.Pages
 {
     public class RootPage : FreshMasterDetailNavigationContainer
     {
-        public RootPage()
+        public RootPage ()
         {
-            Init("Menu");
-            AddPage<HomePageModel>("Home"); 
-            AddPage<EquipmentPageModel>("Eq");
-                    
-            InvalidateMeasure();
+            Init ("Menu");
+            AddPage<HomePageModel> ("Home"); 
+            AddPage<EquipmentPageModel> ("Eq");
+            InvalidateMeasure ();
         }
     }
 }

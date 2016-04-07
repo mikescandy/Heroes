@@ -6,7 +6,7 @@ using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class EditCharacterPageModel : BaseCharacterPageModel
@@ -28,11 +28,6 @@ namespace Heroes
             SaveCommand = new Command (async () => {
                 await CoreMethods.PopPageModel (this, true);
             });
-        }
-
-        public override void ReverseInit (object returndData)
-        {
-            base.ReverseInit (returndData);
         }
     }
 }

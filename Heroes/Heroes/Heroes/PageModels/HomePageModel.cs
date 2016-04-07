@@ -5,27 +5,27 @@ using System.Linq;
 using System.Windows.Input;
 using Core.Pages;
 using Heroes.Models;
+using Heroes.PageModels;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
-using Heroes.PageModels;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class HomePageModel : BasePageModel
     {
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public ObservableCollection<HomePageViewModel> Items { get; set; }
 
-        public ICommand SelectItem { set; get; }
+        public ICommand SelectItem { get; set; }
 
-        public HomePageViewModel SelectedItem {    get; set; }
+        public HomePageViewModel SelectedItem { get; set; }
 
         public HomePageModel (IRepository repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public override void Init (object initData)
@@ -63,14 +63,13 @@ namespace Heroes
             }
             catch (Exception ex)
             {
-                
             }
         }
 
         private List<HomePageViewModel> GetHomePageItems ()
         {
-            var parties = _repository.GetAll<Party> ();
-            var characters = _repository.GetAllCharactersNotInParties ();
+            var parties = repository.GetAll<Party> ();
+            var characters = repository.GetAllCharactersNotInParties ();
 
             var items = App.Mapper.Map<List<HomePageViewModel>> (parties);
             var items2 = App.Mapper.Map<List<HomePageViewModel>> (characters);

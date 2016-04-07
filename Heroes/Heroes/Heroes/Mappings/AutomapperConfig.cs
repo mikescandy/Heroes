@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Heroes.Models;
+using Heroes.PageModels;
 
 namespace Heroes.Mappings
 {

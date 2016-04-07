@@ -4,7 +4,7 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class AddWeaponPageModel : BasePageModel

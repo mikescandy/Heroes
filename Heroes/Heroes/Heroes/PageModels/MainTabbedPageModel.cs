@@ -5,7 +5,7 @@ using FreshMvvm;
 using PropertyChanged;
 using Xamarin.Forms;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class MainTabbedPageModel : BasePageModel

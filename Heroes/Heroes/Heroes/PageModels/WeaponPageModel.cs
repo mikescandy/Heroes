@@ -4,17 +4,16 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class WeaponPageModel : BasePageModel
     {
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public WeaponPageModel (IRepository repository)
         {
-            _repository = repository;
-            
+            this.repository = repository;
         }
 
         public override void Init (object initData)

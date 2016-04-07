@@ -1,9 +1,6 @@
-﻿using Core;
-using Core.Controls;
-using FreshMvvm;
-using Xamarin.Forms;
+﻿using Core.Controls;
 
-namespace Heroes
+namespace Heroes.Pages
 {
     public partial class MainTabbedPage : CustomTabbedPage
     {

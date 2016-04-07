@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Xamarin.Forms;
 
-using Xamarin.Forms;
-
-namespace Heroes
+namespace Heroes.Pages
 {
     public partial class HomePage : ContentPage
     {
@@ -13,4 +10,3 @@ namespace Heroes
         }
     }
 }
-

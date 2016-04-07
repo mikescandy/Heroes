@@ -1,16 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        x:Class="Heroes.AddWeaponPage"
-        BackgroundColor="{StaticResource BackgroundColor}" >
-  <RelativeLayout>
-    <Label Text="Equipment" Style="{StaticResource PageTitle}"/>
-    <ListView ItemsSource="{Binding Weapons}" SelectedItem="{Binding SelectedWeapon}" Style="{StaticResource AdventuringGearsList}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-     <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </RelativeLayout>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Heroes.Pages.AddWeaponPage" BackgroundColor="{StaticResource BackgroundColor}">
+    <RelativeLayout>
+        <Label Text="Equipment" Style="{StaticResource PageTitle}" />
+        <ListView ItemsSource="{Binding Weapons}" SelectedItem="{Binding SelectedWeapon}" Style="{StaticResource AdventuringGearsList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </RelativeLayout>
 </ContentPage>

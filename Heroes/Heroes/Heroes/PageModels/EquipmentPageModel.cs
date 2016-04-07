@@ -8,19 +8,23 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class EquipmentPageModel : BasePageModel
     {
-        public double TotalWeight { get { return AdventuringGears.Sum (m => m.Weight); } }
+        public double TotalWeight
+        { 
+            get { 
+                return AdventuringGears.Sum (m => m.Weight);
+            } 
+        }
 
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public EquipmentPageModel (IRepository repository)
         {
-            _repository = repository;
-
+            this.repository = repository;
         }
 
         public override void Init (object initData)
@@ -36,22 +40,22 @@ namespace Heroes
             var item = returndData as EquipmentViewModel;
             if (item != null)
             {
-                AdventuringGears.Add (_repository.Get<AdventuringGear> (item.ID));
+                AdventuringGears.Add (repository.Get<AdventuringGear> (item.ID));
             }
             else
             {
                 var items = returndData as List<EquipmentViewModel>;
 
-
                 if (items != null)
                 {
-                    var gears = _repository.GetMany<AdventuringGear> (items.Select (m => m.ID).ToList ());
+                    var gears = repository.GetMany<AdventuringGear> (items.Select (m => m.ID).ToList ());
                     foreach (var adventuringGear in gears)
                     {
                         AdventuringGears.Add (adventuringGear);
                     }
                 }
             }
+
             base.ReverseInit (returndData);
         }
 

@@ -4,18 +4,18 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class CharacterPageModel : BasePageModel
     {
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public Character Character { get; set; }
 
         public CharacterPageModel (IRepository repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public override void Init (object initData)
@@ -25,12 +25,11 @@ namespace Heroes
                 var characterId = (int)initData;
                 if (characterId > 0)
                 {
-                    Character = _repository.Get<Character> (characterId);
+                    Character = repository.Get<Character> (characterId);
                 }
             }
             catch (InvalidCastException ex)
             {
-                
             }
         }
 
@@ -39,8 +38,8 @@ namespace Heroes
             var character = returndData as Character;
             if (character != null)
             {
-                _repository.Update (character);
-                Character = _repository.Get<Character> (character.ID);
+                repository.Update (character);
+                Character = repository.Get<Character> (character.ID);
             }
         }
     }

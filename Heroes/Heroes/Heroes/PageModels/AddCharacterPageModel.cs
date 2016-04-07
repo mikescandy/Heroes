@@ -4,7 +4,7 @@ using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class AddCharacterPageModel : BaseCharacterPageModel

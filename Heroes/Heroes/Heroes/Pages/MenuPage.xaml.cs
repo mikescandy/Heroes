@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Heroes.Pages
 {
     public partial class MenuPage : ContentPage
     {
-        public MenuPage()
+        public MenuPage ()
         {
-       InitializeComponent();
+            InitializeComponent ();
         }
     }
 }

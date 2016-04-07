@@ -1,11 +1,11 @@
 ﻿using System.Collections.Specialized;
 using System.Linq;
 using Core;
+using Core.Pages;
 using Heroes.Services;
 using PropertyChanged;
-using Core.Pages;
 
-namespace Heroes
+namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class AddEquipmentPageModel : BasePageModel
@@ -16,16 +16,26 @@ namespace Heroes
 
         public bool MultiSelect { get; set; }
 
-        public double TotalCost { get { return AdventuringGears.Where (m => m.IsSelected).Sum (m => m.Cost); } }
+        public double TotalCost
+        { 
+            get { 
+                return AdventuringGears.Where (m => m.IsSelected).Sum (m => m.Cost); 
+            }
+        }
 
-        public double TotalWeight { get { return AdventuringGears.Where (m => m.IsSelected).Sum (m => m.Weight); } }
+        public double TotalWeight
+        { 
+            get {
+                return AdventuringGears.Where (m => m.IsSelected).Sum (m => m.Weight); 
+            } 
+        }
 
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public AddEquipmentPageModel (IRepository repository)
         {
-            _repository = repository;
-            var adventuringGears = _repository.GetAllAdventuringGear ();
+            this.repository = repository;
+            var adventuringGears = this.repository.GetAllAdventuringGear ();
             AdventuringGears = new TrulyObservableCollection<EquipmentViewModel> (adventuringGears.Select (m => new EquipmentViewModel (m)).ToList ());
             AdventuringGears.CollectionChanged += AdventuringGearsOnCollectionChanged;
         }

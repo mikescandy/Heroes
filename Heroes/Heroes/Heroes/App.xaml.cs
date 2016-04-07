@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using AutoMapper;
-//using Core.Factories;
-//using Core.Services;
+﻿using AutoMapper;
 using FluentValidation;
 using FreshMvvm;
 using Heroes.Mappings;
 using Heroes.PageModels;
+using Heroes.Pages;
 using Heroes.Services;
 using Heroes.Validators;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Heroes
@@ -17,14 +13,15 @@ namespace Heroes
     public partial class App : Application
     {
         public static IMapper Mapper;
-        public App()
+
+        public App ()
         {
-            InitializeComponent();
-            FreshIOC.Container.Register<IRepository, Repository>();
+            InitializeComponent ();
+            FreshIOC.Container.Register<IRepository, Repository> ();
             //FreshIOC.Container.Register<IValidatorFactory, FluentValidatorFactory>();
             //FreshIOC.Container.Register<IValidationService, FluentValidationService>();
-            FreshIOC.Container.Register<IValidator<EditCharacterPageModel>, CharacterValidator>();
-            var automapperConfiguration = new AutomapperConfig();
+            FreshIOC.Container.Register<IValidator<EditCharacterPageModel>, CharacterValidator> ();
+            var automapperConfiguration = new AutomapperConfig ();
             Mapper = automapperConfiguration.Mapper;
             //var masterDetailNav = new FreshMasterDetailNavigationContainer();
             //masterDetailNav.Init("Menu", "icon");
@@ -43,20 +40,20 @@ namespace Heroes
             //MainPage = md;
             //FreshPageModelResolver.ResolvePageModel<MainTabbedPageModel>()
 
-            MainPage = new RootPage();
-                    }
+            MainPage = new RootPage ();
+        }
 
-        protected override void OnStart()
+        protected override void OnStart ()
         {
             // Handle when your app starts
         }
 
-        protected override void OnSleep()
+        protected override void OnSleep ()
         {
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
+        protected override void OnResume ()
         {
             // Handle when your app resumes
         }
