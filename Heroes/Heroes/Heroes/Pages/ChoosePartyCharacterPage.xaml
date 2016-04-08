@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes.Pages;assembly=Heroes" xmlns:converters="clr-namespace:Core.Converters;assembly=Core" xmlns:behaviors="clr-namespace:Core.Behaviors;assembly=Core" x:Class="Heroes.Pages.ChoosePartyCharacterPage">
+<local:TransientPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes.Pages;assembly=Heroes" xmlns:converters="clr-namespace:Core.Converters;assembly=Core" xmlns:behaviors="clr-namespace:Core.Behaviors;assembly=Core" x:Class="Heroes.Pages.ChoosePartyCharacterPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />
@@ -32,4 +32,4 @@
             </StackLayout>
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</local:TransientPage>

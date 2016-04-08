@@ -18,7 +18,7 @@ namespace Heroes.PageModels
         {
             base.Init (initData);
 
-            CancelCommand = new Command (async () => await CoreMethods.PopPageModel (null, true));
+            CancelCommand = new Command (async () => await CoreMethods.PopPageModel ());
 
             SaveCommand = new MVVMCommand (
                 async _ => {
@@ -36,7 +36,6 @@ namespace Heroes.PageModels
                     Repository.Add (character);
                
                     await CoreMethods.PushPageModel <MainTabbedPageModel> (character.ID);
-                    RemoveFromStack ();
                 }, 
                 _ => IsValid);
         }

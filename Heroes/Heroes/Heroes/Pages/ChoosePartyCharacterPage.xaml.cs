@@ -2,7 +2,7 @@
 
 namespace Heroes.Pages
 {
-    public partial class ChoosePartyCharacterPage : ContentPage
+    public partial class ChoosePartyCharacterPage : TransientPage
     {
         public ChoosePartyCharacterPage ()
         {

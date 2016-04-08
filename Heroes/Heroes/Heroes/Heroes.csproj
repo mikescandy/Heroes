@@ -131,6 +131,7 @@
     <Compile Include="Pages\ChoosePartyCharacterPage.xaml.cs">
       <DependentUpon>ChoosePartyCharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TransientPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">

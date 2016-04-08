@@ -1,8 +1,6 @@
-﻿using Xamarin.Forms;
-
-namespace Heroes.Pages
+﻿namespace Heroes.Pages
 {
-    public partial class AddCharacterPage : ContentPage
+    public partial class AddCharacterPage : TransientPage
     {
         public AddCharacterPage ()
         {

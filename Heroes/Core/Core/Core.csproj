@@ -76,7 +76,6 @@
     <Compile Include="Converters\ItemTappedEventArgsToSelectedItemConverter.cs" />
     <Compile Include="MVVMCommand.cs" />
     <Compile Include="TypeInfoAllMemberExtensions.cs" />
-    <Compile Include="Navigation\NavigationObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, PublicKeyToken=null">
@@ -131,6 +130,5 @@
   </Target>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Navigation\" />
   </ItemGroup>
 </Project>

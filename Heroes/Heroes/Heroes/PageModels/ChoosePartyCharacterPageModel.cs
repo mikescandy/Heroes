@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using Core.Navigation;
 using Core.Pages;
 using Xamarin.Forms;
 
@@ -19,22 +18,11 @@ namespace Heroes.PageModels
 
         public override void Init (object initData)
         {
-            CancelCommand = new Command (async () => await CoreMethods.PopPageModel (null, true));
+            CancelCommand = new Command (async () => await CoreMethods.PopPageModel ());
            
-            ChoosePartyCommand = new Command (
-                async () => await CoreMethods.PopPageModel (new NavigationObject {
-                    DestinationViewModel = typeof(AddCharacterPageModel),
-                    Modal = true
-                }, true));
+            ChoosePartyCommand = new Command (async () => await CoreMethods.PushPageModel<AddCharacterPageModel> ());
 
-            ChooseCharacterCommand = new Command (
-                async () => {
-                    
-                    await CoreMethods.PopPageModel (new NavigationObject {
-                        DestinationViewModel = typeof(AddCharacterPageModel),
-                        Modal = false
-                    }, true);
-                });
+            ChooseCharacterCommand = new Command (async () => await CoreMethods.PushPageModel<AddCharacterPageModel> ());
         }
     }
 }

@@ -21,13 +21,9 @@ namespace Heroes.PageModels
             var characterId = (int)initData;
             App.Mapper.Map (Repository.Get<Character> (characterId), this);
 
-            CancelCommand = new Command (async () => {
-                await CoreMethods.PopPageModel (null, true);
-            });
+            CancelCommand = new Command (async () => await CoreMethods.PopPageModel (null, true));
 
-            SaveCommand = new Command (async () => {
-                await CoreMethods.PopPageModel (this, true);
-            });
+            SaveCommand = new Command (async () => await CoreMethods.PopPageModel (this, true));
         }
     }
 }
