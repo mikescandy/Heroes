@@ -128,8 +128,8 @@
     </Compile>
     <Compile Include="Models\Alignment.cs" />
     <Compile Include="PageModels\ChoosePartyCharacterPageModel.cs" />
-    <Compile Include="Pages\ChoosePartyCharacterPageModel.xaml.cs">
-      <DependentUpon>ChoosePartyCharacterPageModel.xaml</DependentUpon>
+    <Compile Include="Pages\ChoosePartyCharacterPage.xaml.cs">
+      <DependentUpon>ChoosePartyCharacterPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ChoosePartyCharacterPageModel.xaml">
+    <EmbeddedResource Include="Pages\ChoosePartyCharacterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

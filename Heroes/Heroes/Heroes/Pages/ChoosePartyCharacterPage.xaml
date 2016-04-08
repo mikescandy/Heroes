@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Heroes.Pages.ChoosePartyCharacterPageModel">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes.Pages;assembly=Heroes" xmlns:converters="clr-namespace:Core.Converters;assembly=Core" xmlns:behaviors="clr-namespace:Core.Behaviors;assembly=Core" x:Class="Heroes.Pages.ChoosePartyCharacterPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
@@ -10,11 +15,17 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Aqua">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChoosePartyCommand}" />
+                </StackLayout.GestureRecognizers>
                 <Image Source="plus.png" VerticalOptions="Center" HorizontalOptions="Center" />
                 <Label Text="Add new party" VerticalOptions="Center" HorizontalOptions="Center">
                 </Label>
             </StackLayout>
             <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Blue">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChooseCharacterCommand}" />
+                </StackLayout.GestureRecognizers>
                 <Image Source="plus.png" VerticalOptions="Center" HorizontalOptions="Center" />
                 <Label Text="Add new character" VerticalOptions="Center" HorizontalOptions="Center">
                 </Label>

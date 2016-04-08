@@ -13,12 +13,12 @@ namespace Heroes.PageModels
 
         public Weapon SelectedWeapon { get; set; }
 
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public AddWeaponPageModel (IRepository repository)
         {
-            _repository = repository;
-            Weapons = _repository.GetAllWeapons ();
+            this.repository = repository;
+            Weapons = this.repository.GetAllWeapons ();
         }
     }
 }

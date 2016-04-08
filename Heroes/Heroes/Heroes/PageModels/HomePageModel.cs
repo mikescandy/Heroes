@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Core.Navigation;
 using Core.Pages;
 using Heroes.Models;
 using Heroes.PageModels;
@@ -40,7 +41,7 @@ namespace Heroes.PageModels
                     await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
                     break;
                 case ItemType.None:
-                    await CoreMethods.PushPageModel<AddCharacterPageModel> (SelectedItem.ID, true);
+                    await CoreMethods.PushPageModel<ChoosePartyCharacterPageModel> (null, true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException ();
@@ -56,13 +57,10 @@ namespace Heroes.PageModels
             var items = GetHomePageItems ();
             Items = new ObservableCollection<HomePageViewModel> (items);
 
-            try
+            var navigationObject = (NavigationObject)returndData;
+            if (navigationObject.DestinationViewModel != null)
             {
-                var id = (int)returndData;
-                await CoreMethods.PushPageModel<MainTabbedPageModel> (id);
-            }
-            catch (Exception ex)
-            {
+                await CoreMethods.PushPageModel (navigationObject.DestinationViewModel, navigationObject.PayLoad, navigationObject.Modal);
             }
         }
 
