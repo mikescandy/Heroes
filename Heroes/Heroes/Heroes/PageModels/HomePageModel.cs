@@ -13,19 +13,10 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class HomePageModel : BasePageModel
+    public class HomePageModel : BaseListItemsPageModel
     {
-        private readonly IRepository repository;
-
-        public ObservableCollection<HomePageViewModel> Items { get; set; }
-
-        public ICommand SelectItem { get; set; }
-
-        public HomePageViewModel SelectedItem { get; set; }
-
-        public HomePageModel (IRepository repository)
+        public HomePageModel (IRepository repository) : base (repository)
         {
-            this.repository = repository;
         }
 
         public override void Init (object initData)
@@ -35,6 +26,7 @@ namespace Heroes.PageModels
                 switch (SelectedItem.ItemType)
                 {
                 case ItemType.Party:
+                    await CoreMethods.PushPageModel<PartyPageModel> (SelectedItem.ID);
                     break;
                 case ItemType.Character:
                     await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
@@ -47,38 +39,27 @@ namespace Heroes.PageModels
                 }
             });
             
-            var items = GetHomePageItems ();
-            Items = new ObservableCollection<HomePageViewModel> (items);
+            var items = GetItems ();
+            Items = new ObservableCollection<ListItemViewModel> (items);
         }
 
         public override void ReverseInit (object returndData)
         {
-            var items = GetHomePageItems ();
-            Items = new ObservableCollection<HomePageViewModel> (items);
+            var items = GetItems ();
+            Items = new ObservableCollection<ListItemViewModel> (items);
         }
 
-        private List<HomePageViewModel> GetHomePageItems ()
+        protected override List<ListItemViewModel> GetItems ()
         {
-            var parties = repository.GetAll<Party> ();
-            var characters = repository.GetAllCharactersNotInParties ();
+            var parties = Repository.GetAll<Party> ();
+            var characters = Repository.GetAllCharactersNotInParties ();
 
-            var items = App.Mapper.Map<List<HomePageViewModel>> (parties);
-            var items2 = App.Mapper.Map<List<HomePageViewModel>> (characters);
+            var items = App.Mapper.Map<List<ListItemViewModel>> (parties);
+            var items2 = App.Mapper.Map<List<ListItemViewModel>> (characters);
 
             items = items.Union (items2).OrderByDescending (m => m.TimeStamp).ToList ();
             items.Add (GetAddItem ());
             return items;
-        }
-
-        private HomePageViewModel GetAddItem ()
-        {
-            return new HomePageViewModel {
-                Image = "plus.png",
-                IsAdd = true,
-                IsReal = false,
-                Name = "Add new",
-                ItemType = ItemType.None
-            };
         }
     }
 }

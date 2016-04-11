@@ -4,7 +4,7 @@ using PropertyChanged;
 namespace Heroes
 {
     [ImplementPropertyChanged]
-    public class HomePageViewModel
+    public class ListItemViewModel
     {
         public int ID { get; set; }
 
