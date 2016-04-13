@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows.Input;
 using Core.Pages;
-using Heroes;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;

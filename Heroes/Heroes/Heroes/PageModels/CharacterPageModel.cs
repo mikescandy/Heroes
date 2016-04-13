@@ -17,34 +17,35 @@ namespace Heroes.PageModels
 
         public ICommand EditCommand { get; set; }
 
-        public CharacterPageModel (IRepository repository)
+        public CharacterPageModel(IRepository repository)
         {
             this.repository = repository;
         }
 
-        public override void Init (object initData)
+        public override void Init(object initData)
         {
-            EditCommand = new Command (async () => await CoreMethods.PushPageModel<EditCharacterPageModel> (Character.ID, true));
+            EditCommand = new Command(async () => await CoreMethods.PushPageModel<EditCharacterPageModel>(Character.ID, true));
             try
             {
                 var characterId = (int)initData;
                 if (characterId > 0)
                 {
-                    Character = repository.Get<Character> (characterId);
+                    Character = repository.Get<Character>(characterId);
                 }
             }
             catch (InvalidCastException ex)
             {
+                System.Diagnostics.Debug.WriteLine("This should not happen.", ex.Message);
             }
         }
 
-        public override void ReverseInit (object returndData)
+        public override void ReverseInit(object returndData)
         {
             var character = returndData as Character;
             if (character != null)
             {
-                repository.Update (character);
-                Character = repository.Get<Character> (character.ID);
+                repository.Update(character);
+                Character = repository.Get<Character>(character.ID);
             }
         }
     }

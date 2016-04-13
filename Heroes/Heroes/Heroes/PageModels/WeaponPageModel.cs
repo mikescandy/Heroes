@@ -1,8 +1,10 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Core.Pages;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
@@ -11,6 +13,8 @@ namespace Heroes.PageModels
     {
         private readonly IRepository repository;
 
+        public ICommand AddWeaponCommand { get; set; }
+
         public WeaponPageModel (IRepository repository)
         {
             this.repository = repository;
@@ -18,6 +22,7 @@ namespace Heroes.PageModels
 
         public override void Init (object initData)
         {
+            AddWeaponCommand = new Command (async () => await CoreMethods.PushPageModel<AddWeaponPageModel> (null, true));
             Weapons = new ObservableCollection<Weapon> ();
         }
 

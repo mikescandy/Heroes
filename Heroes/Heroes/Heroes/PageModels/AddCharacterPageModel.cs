@@ -27,6 +27,7 @@ namespace Heroes.PageModels
                 }
                 catch (InvalidCastException ex)
                 {
+                    System.Diagnostics.Debug.WriteLine("This should not happen.", ex.Message);
                 }
             }
 

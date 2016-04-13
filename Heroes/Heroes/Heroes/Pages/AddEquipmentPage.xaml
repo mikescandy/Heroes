@@ -3,45 +3,46 @@
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Multiselect" Icon="multiselect.png" Command="{Binding MultiSelectCommand}" />
     <ToolbarItem Text="Ok" Icon="ok.png" Command="{Binding OkCommand}" />
-  </ContentPage.ToolbarItems> <StackLayout>
-        <Label Text="Equipment" Style="{StaticResource PageTitle}" />
-        <Label Text="{Binding TotalCost, StringFormat='Total Cost: {0} GP'}" IsVisible="{Binding MultiSelect}">
-        </Label>
-        <Label Text="{Binding TotalWeight, StringFormat='Total Weight: {0} lbs'}" IsVisible="{Binding MultiSelect}">
-        </Label>
-        <ListView ItemsSource="{Binding AdventuringGears}" SelectedItem="{Binding SelectedAdventuringGear}" Style="{StaticResource AdventuringGearsList}" RowHeight="57" SeparatorVisibility="Default" SeparatorColor="Aqua">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="0,2,2,2" VerticalOptions="Center" RowSpacing="2" ColumnSpacing="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="52" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="3*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <!--<Label Text="i" BackgroundColor="Maroon"
+  </ContentPage.ToolbarItems>
+  <StackLayout>
+    <Label Text="Equipment" Style="{StaticResource PageTitle}" />
+    <Label Text="{Binding TotalCost, StringFormat='Total Cost: {0} GP'}" IsVisible="{Binding MultiSelect}">
+    </Label>
+    <Label Text="{Binding TotalWeight, StringFormat='Total Weight: {0} lbs'}" IsVisible="{Binding MultiSelect}">
+    </Label>
+    <ListView ItemsSource="{Binding AdventuringGears}" SelectedItem="{Binding SelectedAdventuringGear}" Style="{StaticResource AdventuringGearsList}" RowHeight="57" SeparatorVisibility="Default" SeparatorColor="Aqua">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid Padding="0,2,2,2" VerticalOptions="Center" RowSpacing="2" ColumnSpacing="3">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="52" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <!--<Label Text="i" BackgroundColor="Maroon"
            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
            TextColor="White" FontSize="10"
             HorizontalTextAlignment="Center"
            VerticalTextAlignment="Center"
             />-->
-                            <!--<controls:CheckBox
+              <!--<controls:CheckBox
            Checked="{Binding IsSelected}" IsVisible="{Binding CheckboxVisible}"
                   HorizontalOptions="FillAndExpand"
                     Grid.Row="0" Grid.Column="0"
          TextColor="Green" FontSize="25"/>-->
-                            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
-                                <Label Text="{Binding Name}" TextColor="Maroon" FontSize="20" FontAttributes="Bold" />
-                                <Label Text="{Binding Weight, StringFormat='{0} lbs'}" BackgroundColor="#E3E3E3" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-                            </StackLayout>
-                            <Label Text="{Binding Cost, StringFormat='{0} GP'}" FontSize="20" Grid.Row="0" Grid.Column="2" TextColor="Black" BackgroundColor="#E3E3E3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+              <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                <Label Text="{Binding Name}" TextColor="Maroon" FontSize="20" FontAttributes="Bold" />
+                <Label Text="{Binding Weight, StringFormat='{0} lbs'}" BackgroundColor="#E3E3E3" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+              </StackLayout>
+              <Label Text="{Binding Cost, StringFormat='{0} GP'}" FontSize="20" Grid.Row="0" Grid.Column="2" TextColor="Black" BackgroundColor="#E3E3E3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
 </ContentPage>
