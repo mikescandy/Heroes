@@ -13,7 +13,7 @@ using PropertyChanged;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public abstract class BaseCharacterPageModel : BasePageModel
+    public abstract class BaseCharacterPageModel : TransientPageModel
     {
         protected readonly IRepository Repository;
         protected readonly CharacterValidator Validator;

@@ -10,10 +10,5 @@ namespace Core.Pages
         public string Title { get; set; }
 
         public string Image { get; set; }
-
-        protected virtual void RemoveFromStack ()
-        {
-            CurrentPage.Navigation.RemovePage (CurrentPage);
-        }
     }
 }

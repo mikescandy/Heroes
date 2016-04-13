@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
@@ -7,6 +8,7 @@ using Heroes;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
@@ -29,11 +31,14 @@ namespace Heroes.PageModels
 
         public override void Init (object initData)
         {
+            AddEquipmentCommand = new Command (async () => await CoreMethods.PushPageModel<AddEquipmentPageModel> (null, true));
             AdventuringGears = new ObservableCollection<AdventuringGear> ();
             AdventuringGears.CollectionChanged += AdventuringGearsOnCollectionChanged;
         }
 
         public ObservableCollection<AdventuringGear> AdventuringGears { get; set; }
+
+        public ICommand AddEquipmentCommand { get; set; }
 
         public override void ReverseInit (object returndData)
         {

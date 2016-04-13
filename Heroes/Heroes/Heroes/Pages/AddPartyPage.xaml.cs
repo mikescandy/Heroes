@@ -2,9 +2,9 @@
 
 namespace Heroes.Pages
 {
-    public partial class ChoosePartyCharacterPage : ContentPage
+    public partial class AddPartyPage : ContentPage
     {
-        public ChoosePartyCharacterPage ()
+        public AddPartyPage ()
         {
             InitializeComponent ();
         }

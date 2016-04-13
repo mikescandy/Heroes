@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Heroes.Pages.AddEquipmentPage" BackgroundColor="{StaticResource BackgroundColor}">
-    <StackLayout>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Multiselect" Icon="multiselect.png" Command="{Binding MultiSelectCommand}" />
+    <ToolbarItem Text="Ok" Icon="ok.png" Command="{Binding OkCommand}" />
+  </ContentPage.ToolbarItems> <StackLayout>
         <Label Text="Equipment" Style="{StaticResource PageTitle}" />
         <Label Text="{Binding TotalCost, StringFormat='Total Cost: {0} GP'}" IsVisible="{Binding MultiSelect}">
         </Label>

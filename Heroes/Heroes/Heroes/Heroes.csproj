@@ -69,6 +69,9 @@
     <Compile Include="Models\HomeMenuItem.cs" />
     <Compile Include="PageModels\MainTabbedPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />
+    <Compile Include="Pages\PartyPage.xaml.cs">
+      <DependentUpon>PartyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainTabbedPage.xaml.cs">
       <DependentUpon>MainTabbedPage.xaml</DependentUpon>
     </Compile>
@@ -131,11 +134,13 @@
     <Compile Include="Pages\ChoosePartyCharacterPage.xaml.cs">
       <DependentUpon>ChoosePartyCharacterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TransientPage.cs" />
     <Compile Include="PageModels\AddPartyPageModel.cs" />
     <Compile Include="Validators\PartyValidator.cs" />
     <Compile Include="PageModels\PartyPageModel.cs" />
     <Compile Include="PageModels\BaseListItemsPageModel.cs" />
+    <Compile Include="Pages\AddPartyPage.xaml.cs">
+      <DependentUpon>AddPartyPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
@@ -196,6 +201,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ChoosePartyCharacterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddPartyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -270,6 +278,13 @@
     <EmbeddedResource Include="Pages\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PartyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

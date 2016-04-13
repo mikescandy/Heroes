@@ -1,50 +1,58 @@
 ﻿using System;
-using PropertyChanged;
-using Core.Pages;
-using Heroes.Services;
-using Xamarin.Forms;
-using Heroes.Models;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Heroes.Models;
+using Heroes.Services;
+using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
     public class PartyPageModel : BaseListItemsPageModel
     {
-        public PartyPageModel (IRepository repository) : base (repository)
+        public int PartyId { get; set; }
+
+        public PartyPageModel(IRepository repository) : base(repository)
         {
         }
 
-        public override void Init (object initData)
+        public override void Init(object initData)
         {
-            base.Init (initData);
-            SelectItem = new Command (async () => {
+            base.Init(initData);
+            PartyId = (int)initData;
+            SelectItem = new Command(async () =>
+            {
                 switch (SelectedItem.ItemType)
                 {
-                case ItemType.Party:
-                    break;
-                case ItemType.None:
-                    await CoreMethods.PushPageModel<ChoosePartyCharacterPageModel> ();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException ();
+                    case ItemType.Party:
+                        break;
+                    case ItemType.None:
+                        await CoreMethods.PushPageModel<AddCharacterPageModel>(PartyId);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             });
 
-            var items = GetItems ();
-            Items = new ObservableCollection<ListItemViewModel> (items);
+            var items = GetItems();
+            Items = new ObservableCollection<ListItemViewModel>(items);
         }
 
-        protected override System.Collections.Generic.List<ListItemViewModel> GetItems ()
+        public override void ReverseInit(object returndData)
         {
-            var parties = Repository.GetAll<Party> ();
+            var items = GetItems();
+            Items = new ObservableCollection<ListItemViewModel>(items);
+        }
 
-            var items = App.Mapper.Map<List<ListItemViewModel>> (parties);
+        protected override List<ListItemViewModel> GetItems()
+        {
+            var parties = Repository.GetAll<Character>(c => c.PartyId == PartyId);
 
-            items.Add (GetAddItem ());
+            var items = App.Mapper.Map<List<ListItemViewModel>>(parties);
+
+            items.Add(GetAddItem());
             return items;
         }
     }
 }
-

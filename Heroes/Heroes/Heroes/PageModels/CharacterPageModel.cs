@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Windows.Input;
 using Core.Pages;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
@@ -13,6 +15,8 @@ namespace Heroes.PageModels
 
         public Character Character { get; set; }
 
+        public ICommand EditCommand { get; set; }
+
         public CharacterPageModel (IRepository repository)
         {
             this.repository = repository;
@@ -20,6 +24,7 @@ namespace Heroes.PageModels
 
         public override void Init (object initData)
         {
+            EditCommand = new Command (async () => await CoreMethods.PushPageModel<EditCharacterPageModel> (Character.ID, true));
             try
             {
                 var characterId = (int)initData;

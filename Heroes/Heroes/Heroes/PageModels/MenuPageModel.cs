@@ -20,11 +20,7 @@ namespace Heroes.PageModels
             Image = string.Empty;
             MenuItems = new ObservableCollection<HomeMenuItem> (new List<HomeMenuItem> {
                 new HomeMenuItem { Icon = string.Empty, Title = "Home", TargetViewModel = typeof(HomePageModel) },
-                new HomeMenuItem {
-                    Icon = string.Empty,
-                    Title = "Character",
-                    TargetViewModel = typeof(CharacterPageModel)
-                },
+                new HomeMenuItem { Icon = string.Empty, Title = "Character", TargetViewModel = typeof(CharacterPageModel)}
             });
         }
 

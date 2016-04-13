@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
-    public class ChoosePartyCharacterPageModel : BasePageModel
+    public class ChoosePartyCharacterPageModel : TransientPageModel
     {
         public ICommand CancelCommand { get; set; }
 
@@ -20,7 +20,7 @@ namespace Heroes.PageModels
         {
             CancelCommand = new Command (async () => await CoreMethods.PopPageModel ());
            
-            ChoosePartyCommand = new Command (async () => await CoreMethods.PushPageModel<AddCharacterPageModel> ());
+            ChoosePartyCommand = new Command (async () => await CoreMethods.PushPageModel<AddPartyPageModel>());
 
             ChooseCharacterCommand = new Command (async () => await CoreMethods.PushPageModel<AddCharacterPageModel> ());
         }

@@ -342,8 +342,6 @@
 //     Changed namespace
 // <copyright file="TrulyObservableCollection.cs" company="iajaja">Copyright (c) 2013 itajaja</copyright>
 
-
-
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
