@@ -15,7 +15,7 @@ namespace Core.Extensions
         public static ObservableCollection<T> ToObservable<T> (this IEnumerable<T> src)
         {
             if (src == null) {
-                throw new ArgumentNullException ("src");
+                return new ObservableCollection<T> ();
             }
             if (src is ObservableCollection<T>) {
                 return src as ObservableCollection<T>;

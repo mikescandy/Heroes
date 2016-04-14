@@ -7,10 +7,10 @@
         <Label Text="Equipment" Style="{StaticResource PageTitle}" />
         <Label Text="{Binding TotalWeight, StringFormat='Total Weight: {0} lbs'}">
         </Label>
-        <ListView ItemsSource="{Binding AdventuringGears}" Style="{StaticResource AdventuringGearsList}">
+        <ListView ItemsSource="{Binding CharacterAdventuringGears}" Style="{StaticResource AdventuringGearsList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
+                    <TextCell Text="{Binding AdventuringGear.Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class WeaponPageModel : BasePageModel
+    public sealed class WeaponPageModel : BasePageModel
     {
         private readonly IRepository repository;
 

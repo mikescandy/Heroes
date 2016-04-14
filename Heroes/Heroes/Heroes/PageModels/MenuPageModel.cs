@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class MenuPageModel : BasePageModel
+    public sealed class MenuPageModel : BasePageModel
     {
         public ObservableCollection<HomeMenuItem> MenuItems { get; set; }
 

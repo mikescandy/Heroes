@@ -12,7 +12,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class AddPartyPageModel : TransientPageModel
+    public sealed class AddPartyPageModel : TransientPageModel
     {
         protected readonly IRepository Repository;
         protected readonly PartyValidator Validator;

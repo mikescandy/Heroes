@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Heroes.PageModels
 {
-    public class ChoosePartyCharacterPageModel : TransientPageModel
+    public sealed class ChoosePartyCharacterPageModel : TransientPageModel
     {
         public ICommand CancelCommand { get; set; }
 

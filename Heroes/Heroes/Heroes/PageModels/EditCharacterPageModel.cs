@@ -9,7 +9,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class EditCharacterPageModel : BaseCharacterPageModel
+    public sealed class EditCharacterPageModel : BaseEditCharacterPageModel
     {
         public EditCharacterPageModel (IRepository repository) : base (repository)
         {

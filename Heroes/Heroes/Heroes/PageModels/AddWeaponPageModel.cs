@@ -9,7 +9,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class AddWeaponPageModel : BasePageModel
+    public sealed class AddWeaponPageModel : BasePageModel
     {
         public List<Weapon> Weapons { get; set; }
 

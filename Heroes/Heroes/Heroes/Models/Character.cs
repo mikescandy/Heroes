@@ -1,4 +1,5 @@
-﻿using Core.Models;
+﻿using System.Collections.Generic;
+using Core.Models;
 using Heroes.Models;
 using SQLiteNetExtensions.Attributes;
 
@@ -37,5 +38,8 @@ namespace Heroes.Models
         public int MaxHP { get; set; }
 
         public int CurrentHP { get; set; }
+
+        [OneToMany (CascadeOperations = CascadeOperation.All)]
+        public List<CharacterAdventuringGear> CharacterAdventuringGears { get; set; }
     }
 }

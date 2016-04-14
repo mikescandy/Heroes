@@ -8,34 +8,34 @@ using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
+using Core.Extensions;
 
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class EquipmentPageModel : BasePageModel
+    public sealed class EquipmentPageModel : BaseCharacterPageModel
     {
         public double TotalWeight
         { 
-            get { 
-                return AdventuringGears.Sum (m => m.Weight);
+            get {
+                if (CharacterAdventuringGears == null || !CharacterAdventuringGears.Any()) return 0;
+                return CharacterAdventuringGears.Sum (m => m.AdventuringGear.Weight * m.Quantity);
             } 
         }
 
-        private readonly IRepository repository;
-
-        public EquipmentPageModel (IRepository repository)
+        public EquipmentPageModel (IRepository repository) : base(repository)
         {
-            this.repository = repository;
         }
 
         public override void Init (object initData)
         {
+            base.Init (initData);
             AddEquipmentCommand = new Command (async () => await CoreMethods.PushPageModel<AddEquipmentPageModel> (null, true));
-            AdventuringGears = new ObservableCollection<AdventuringGear> ();
-            AdventuringGears.CollectionChanged += AdventuringGearsOnCollectionChanged;
+            CharacterAdventuringGears = Character.CharacterAdventuringGears.ToObservable ();
+            CharacterAdventuringGears.CollectionChanged += AdventuringGearsOnCollectionChanged;
         }
 
-        public ObservableCollection<AdventuringGear> AdventuringGears { get; set; }
+        public ObservableCollection<CharacterAdventuringGear> CharacterAdventuringGears { get; set; }
 
         public ICommand AddEquipmentCommand { get; set; }
 
@@ -44,7 +44,7 @@ namespace Heroes.PageModels
             var item = returndData as EquipmentViewModel;
             if (item != null)
             {
-                AdventuringGears.Add (repository.Get<AdventuringGear> (item.ID));
+                AddAdventuringGear (item.ID);
             }
             else
             {
@@ -52,15 +52,36 @@ namespace Heroes.PageModels
 
                 if (items != null)
                 {
-                    var gears = repository.GetMany<AdventuringGear> (items.Select (m => m.ID).ToList ());
-                    foreach (var adventuringGear in gears)
+                    
+                    foreach (var iitem in items)
                     {
-                        AdventuringGears.Add (adventuringGear);
+                        AddAdventuringGear (item.ID);
                     }
                 }
             }
-
+            Repository.Save<CharacterAdventuringGear> (Character.CharacterAdventuringGears);
+            Repository.Save (Character);
+            Character = Repository.Get<Character> (Character.ID);
             base.ReverseInit (returndData);
+        }
+
+        private void AddAdventuringGear(int id)
+        {
+            if (Character.CharacterAdventuringGears.Select (m => m.AdventuringGearId).Contains (id)) 
+            {
+                Character.CharacterAdventuringGears.First (m => m.AdventuringGearId == id).Quantity++;
+            } 
+            else 
+            {
+                Character.CharacterAdventuringGears.Add(new CharacterAdventuringGear
+                {
+                    AdventuringGear = Repository.Get<AdventuringGear>(id),
+                    AdventuringGearId = id,
+                    Character = Character,
+                    CharacterId = Character.ID,
+                    Quantity = 1
+                });
+            }
         }
 
         private void AdventuringGearsOnCollectionChanged (object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)

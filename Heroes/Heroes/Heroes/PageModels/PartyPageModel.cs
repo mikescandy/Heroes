@@ -9,7 +9,7 @@ using Core.Extensions;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class PartyPageModel : BaseListItemsPageModel
+    public sealed class PartyPageModel : BaseListItemsPageModel
     {
         public int PartyId { get; set; }
 

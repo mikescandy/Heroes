@@ -15,7 +15,13 @@ namespace Core.Services
 
         IList<T> GetAll<T> (Expression<Func<T, bool>> predicate) where T : Model, new();
 
-        void Update<T> (T model) where T : Model;
+        void Update<T> (T model) where T : Model; 
+
+        void Update<T>(IList<T> data) where T : Model;
+
+        void Save<T>(T model) where T : Model;
+
+        void Save<T>(IList<T> data) where T : Model;
 
         T GetLatest<T> () where T : Model, new();
 

@@ -9,7 +9,6 @@ namespace Heroes.Pages
         {
             Init ("Menu");
             AddPage<HomePageModel> ("Home"); 
-            AddPage<EquipmentPageModel> ("Eq");
             InvalidateMeasure ();
         }
     }

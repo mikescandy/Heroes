@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class MainTabbedPageModel : BasePageModel
+    public sealed class MainTabbedPageModel : BasePageModel
     {
         public ObservableCollection<Page> TabPageList { get; set; }
 

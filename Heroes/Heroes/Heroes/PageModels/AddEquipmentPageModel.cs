@@ -10,7 +10,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class AddEquipmentPageModel : BasePageModel
+    public sealed class AddEquipmentPageModel : BasePageModel
     {
         public TrulyObservableCollection<EquipmentViewModel> AdventuringGears { get; set; }
 

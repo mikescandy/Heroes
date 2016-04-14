@@ -21,10 +21,11 @@ namespace Heroes.Services
         {
             database = DependencyService.Get<ISqLite> ().GetConnection ();
             database.CreateTable<Party> ();
-            database.CreateTable<Character> ();
+            database.CreateTable<Character> (); 
             database.CreateTable<AdventuringGear> ();
             database.CreateTable<Weapon> ();
             database.CreateTable<Settings> ();
+            database.CreateTable<CharacterAdventuringGear> ();
             PopulateDatabase ();
         }
 
@@ -45,7 +46,7 @@ namespace Heroes.Services
 
         public T Get<T> (int id) where T : Model, new()
         {
-            return database.Get<T> (id);
+            return database.GetWithChildren<T> (id);
         }
 
         public IList<T> GetMany<T> (IList<int> ids) where T : Model, new()
@@ -66,8 +67,43 @@ namespace Heroes.Services
         public void Update<T> (T model) where T : Model
         {
             model.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            database.Update (model);
+            database.InsertOrReplaceWithChildren (model);
         }
+
+        public void Update<T>(IList<T> data) where T : Model
+        {
+            foreach (var item in data)
+            {
+                item.DateUpdated = DateTime.Now.ToUniversalTime().Ticks;
+            }
+            database.InsertOrReplaceAllWithChildren(data);
+        }
+
+        public void Save<T>(T model) where T : Model
+        {
+         var now =    DateTime.Now.ToUniversalTime().Ticks;
+            model.DateUpdated = now;
+            if (model.DateCreated == default(double))
+            {
+                model.DateCreated = now; ;
+            }
+            database.InsertOrReplaceWithChildren(model);
+        }
+
+        public void Save<T>(IList<T> data) where T : Model
+        {
+            var now = DateTime.Now.ToUniversalTime().Ticks;
+            foreach (var item in data)
+            {
+                item.DateUpdated = now;
+                if(item.DateCreated ==  default(double))
+                {
+                    item.DateCreated = now;
+                }
+            }
+            database.InsertOrReplaceAllWithChildren(data);
+        }
+
 
         public T GetLatest<T> () where T : Model, new()
         {
@@ -82,14 +118,14 @@ namespace Heroes.Services
                 item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
             }
 
-            database.InsertAll (data);
+            database.InsertOrReplaceAllWithChildren (data);
         }
 
         public void Add<T> (T item) where T : Model, new()
         {
             item.DateCreated = DateTime.Now.ToUniversalTime ().Ticks;
             item.DateUpdated = DateTime.Now.ToUniversalTime ().Ticks;
-            database.Insert (item);
+            database.InsertOrReplaceWithChildren (item);
         }
 
         private void PopulateDatabase ()

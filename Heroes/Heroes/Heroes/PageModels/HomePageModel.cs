@@ -11,7 +11,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class HomePageModel : BaseListItemsPageModel
+    public sealed class HomePageModel : BaseListItemsPageModel
     {
         public HomePageModel(IRepository repository) : base(repository)
         {

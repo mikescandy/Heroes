@@ -3,7 +3,7 @@ using Heroes.PageModels;
 
 namespace Heroes.Validators
 {
-    public class CharacterValidator : AbstractValidator<BaseCharacterPageModel>
+    public class CharacterValidator : AbstractValidator<BaseEditCharacterPageModel>
     {
         public CharacterValidator ()
         {

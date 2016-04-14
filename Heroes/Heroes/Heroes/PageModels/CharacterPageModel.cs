@@ -9,35 +9,18 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class CharacterPageModel : BasePageModel
+    public sealed class CharacterPageModel : BaseCharacterPageModel
     {
-        private readonly IRepository repository;
-
-        public Character Character { get; set; }
-
         public ICommand EditCommand { get; set; }
 
-        public CharacterPageModel(IRepository repository)
+        public CharacterPageModel(IRepository repository) : base(repository)
         {
-            this.repository = repository;
         }
 
         public override void Init(object initData)
         {
+            base.Init (initData);
             EditCommand = new Command(async () => await CoreMethods.PushPageModel<EditCharacterPageModel>(Character.ID, true));
-            try
-            {
-                var characterId = (int)initData;
-                if (characterId > 0)
-                {
-                    Character = repository.Get<Character>(characterId);
-                    Title = Character.Name;
-                }
-            }
-            catch (InvalidCastException ex)
-            {
-                System.Diagnostics.Debug.WriteLine("This should not happen.", ex.Message);
-            }
         }
 
         public override void ReverseInit(object returndData)
@@ -45,8 +28,8 @@ namespace Heroes.PageModels
             var character = returndData as Character;
             if (character != null)
             {
-                repository.Update(character);
-                Character = repository.Get<Character>(character.ID);
+                Repository.Update(character);
+                Character = Repository.Get<Character>(character.ID);
             }
         }
     }

@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace Heroes.PageModels
 {
     [ImplementPropertyChanged]
-    public class AddCharacterPageModel : BaseCharacterPageModel
+    public sealed class AddCharacterPageModel : BaseEditCharacterPageModel
     {
         public int PartyId { get; set; }
 
