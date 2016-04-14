@@ -5,7 +5,8 @@
   xmlns:local="clr-namespace:Heroes.Pages;assembly=Heroes" 
   xmlns:converters="clr-namespace:Core.Converters;assembly=Core" 
   xmlns:behaviors="clr-namespace:Core.Behaviors;assembly=Core" 
-  x:Class="Heroes.Pages.PartyPage">
+  x:Class="Heroes.Pages.PartyPage"
+		Title="{Binding Title}" >
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ItemTappedEventArgsToSelectedItemConverter x:Key="ItemTappedConverter" />

@@ -30,6 +30,7 @@ namespace Heroes.PageModels
         {
             Repository = repository;
             Validator = new PartyValidator();
+            Title = "New Party";
         }
 
         public bool IsValid

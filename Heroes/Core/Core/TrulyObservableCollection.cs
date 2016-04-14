@@ -16,7 +16,7 @@
 // Foundation's software and to any other program whose authors commit to
 // using it.  (Some other Free Software Foundation software is covered by
 // the GNU Lesser General Public License instead.)  You can apply it to
-// your programs, too.
+// your program s, too.
 // 
 //   When we speak of free software, we are referring to freedom, not
 // price.  Our General Public Licenses are designed to make sure that you
@@ -358,26 +358,21 @@ namespace Core
 
         public TrulyObservableCollection (IEnumerable<T> items) : this ()
         {
-            foreach (var item in items)
-            {
+            foreach (var item in items) {
                 this.Add (item);
             }
         }
 
         private void FullObservableCollectionCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems != null)
-            {
-                foreach (var item in e.NewItems)
-                {
+            if (e.NewItems != null) {
+                foreach (var item in e.NewItems) {
                     ((INotifyPropertyChanged)item).PropertyChanged += ItemPropertyChanged;
                 }
             }
 
-            if (e.OldItems != null)
-            {
-                foreach (var item in e.OldItems)
-                {
+            if (e.OldItems != null) {
+                foreach (var item in e.OldItems) {
                     ((INotifyPropertyChanged)item).PropertyChanged -= ItemPropertyChanged;
                 }
             }

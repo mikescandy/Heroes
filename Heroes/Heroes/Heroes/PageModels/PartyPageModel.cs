@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
 using Xamarin.Forms;
+using Core.Extensions;
 
 namespace Heroes.PageModels
 {
@@ -13,46 +13,60 @@ namespace Heroes.PageModels
     {
         public int PartyId { get; set; }
 
-        public PartyPageModel(IRepository repository) : base(repository)
+        public Party Party { get; set; }
+
+        public PartyPageModel (IRepository repository) : base (repository)
         {
         }
 
-        public override void Init(object initData)
+        public override void Init (object initData)
         {
-            base.Init(initData);
+            base.Init (initData);
             PartyId = (int)initData;
-            SelectItem = new Command(async () =>
-            {
-                switch (SelectedItem.ItemType)
-                {
-                    case ItemType.Party:
-                        break;
-                    case ItemType.None:
-                        await CoreMethods.PushPageModel<AddCharacterPageModel>(PartyId);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+            Party = Repository.Get<Party> (PartyId);
+            Title = Party.Name;
+            SelectItem = new Command (async () => {
+                switch (SelectedItem.ItemType) {
+                case ItemType.Character:
+                    await CoreMethods.PushPageModel<MainTabbedPageModel> (SelectedItem.ID);
+                    break;
+                case ItemType.None:
+                    await CoreMethods.PushPageModel<AddCharacterPageModel> (PartyId);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException ();
                 }
             });
 
-            var items = GetItems();
-            Items = new ObservableCollection<ListItemViewModel>(items);
+            Refresh ();
         }
 
-        public override void ReverseInit(object returndData)
+        public override void ReverseInit (object returndData)
         {
-            var items = GetItems();
-            Items = new ObservableCollection<ListItemViewModel>(items);
+            Refresh ();
+            base.ReverseInit (returndData);
         }
 
-        protected override List<ListItemViewModel> GetItems()
+        protected override void ViewIsAppearing (object sender, EventArgs e)
         {
-            var parties = Repository.GetAll<Character>(c => c.PartyId == PartyId);
+            Refresh ();
+            base.ViewIsAppearing (sender, e);
+        }
 
-            var items = App.Mapper.Map<List<ListItemViewModel>>(parties);
+        protected override List<ListItemViewModel> GetItems ()
+        {
+            var parties = Repository.GetAll<Character> (c => c.PartyId == PartyId);
 
-            items.Add(GetAddItem());
+            var items = App.Mapper.Map<List<ListItemViewModel>> (parties);
+
+            items.Add (GetAddItem ());
             return items;
+        }
+
+        private void Refresh()
+        {
+            var items = GetItems ();
+            Items = items.ToObservable ();
         }
     }
 }

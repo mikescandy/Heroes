@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Core.Extensions;
 using Heroes.Models;
 using Heroes.Services;
 using PropertyChanged;
@@ -14,6 +15,7 @@ namespace Heroes.PageModels
     {
         public HomePageModel(IRepository repository) : base(repository)
         {
+            Title = "Heroes";
         }
 
         public override void Init(object initData)
@@ -37,14 +39,19 @@ namespace Heroes.PageModels
                 }
             });
 
-            var items = GetItems();
-            Items = new ObservableCollection<ListItemViewModel>(items);
+            Refresh ();
         }
 
         public override void ReverseInit(object returndData)
         {
-            var items = GetItems();
-            Items = new ObservableCollection<ListItemViewModel>(items);
+            Refresh ();
+            base.ReverseInit (returndData);
+        }
+
+        protected override void ViewIsAppearing (object sender, EventArgs e)
+        {
+            Refresh ();
+            base.ViewIsAppearing (sender, e);
         }
 
         protected override List<ListItemViewModel> GetItems()
@@ -58,6 +65,12 @@ namespace Heroes.PageModels
             items = items.Union(items2).OrderByDescending(m => m.TimeStamp).ToList();
             items.Add(GetAddItem());
             return items;
+        }
+
+        private void Refresh ()
+        {
+            var items = GetItems ();
+            Items = items.ToObservable ();
         }
     }
 }
