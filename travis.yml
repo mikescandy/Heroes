@@ -1,0 +1,6 @@
+language: csharp
+solution: Heroes\Heroes.sln
+install:
+    - nuget restore Heroes\Heroes.sln
+script:
+    - xbuild /p:Configuration=Release Heroes\Heroes.sln
