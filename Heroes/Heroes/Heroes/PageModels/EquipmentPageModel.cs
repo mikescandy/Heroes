@@ -18,8 +18,8 @@ namespace Heroes.PageModels
         public double TotalWeight
         { 
             get {
-                if (CharacterAdventuringGears == null || !CharacterAdventuringGears.Any()) return 0;
-                return CharacterAdventuringGears.Sum (m => m.AdventuringGear.Weight * m.Quantity);
+                //Repository.GetAll<AdventuringGear>(Character.CharacterAdventuringGears.Select(m=>m.AdventuringGearId)).Sum(m=>m.);
+                return 0;
             } 
         }
 
@@ -31,11 +31,11 @@ namespace Heroes.PageModels
         {
             base.Init (initData);
             AddEquipmentCommand = new Command (async () => await CoreMethods.PushPageModel<AddEquipmentPageModel> (null, true));
-            CharacterAdventuringGears = Character.CharacterAdventuringGears.ToObservable ();
+            CharacterAdventuringGears = Character.AdventuringGears.ToObservable ();
             CharacterAdventuringGears.CollectionChanged += AdventuringGearsOnCollectionChanged;
         }
 
-        public ObservableCollection<CharacterAdventuringGear> CharacterAdventuringGears { get; set; }
+        public ObservableCollection<AdventuringGear> CharacterAdventuringGears { get; set; }
 
         public ICommand AddEquipmentCommand { get; set; }
 
@@ -59,7 +59,7 @@ namespace Heroes.PageModels
                     }
                 }
             }
-            Repository.Save<CharacterAdventuringGear> (Character.CharacterAdventuringGears);
+
             Repository.Save (Character);
             Character = Repository.Get<Character> (Character.ID);
             base.ReverseInit (returndData);
@@ -67,21 +67,20 @@ namespace Heroes.PageModels
 
         private void AddAdventuringGear(int id)
         {
-            if (Character.CharacterAdventuringGears.Select (m => m.AdventuringGearId).Contains (id)) 
-            {
-                Character.CharacterAdventuringGears.First (m => m.AdventuringGearId == id).Quantity++;
-            } 
-            else 
-            {
-                Character.CharacterAdventuringGears.Add(new CharacterAdventuringGear
-                {
-                    AdventuringGear = Repository.Get<AdventuringGear>(id),
-                    AdventuringGearId = id,
-                    Character = Character,
-                    CharacterId = Character.ID,
-                    Quantity = 1
-                });
-            }
+            Character.AdventuringGears.Add(Repository.Get<AdventuringGear>(id));
+            //if (Character.AdventuringGears.Select (m => m.AdventuringGearId).Contains (id)) 
+            //{
+            //    Character.AdventuringGears.First (m => m.AdventuringGearId == id).Quantity++;
+            //} 
+            //else 
+            //{
+            //    Character.AdventuringGears.Add(new CharacterAdventuringGear
+            //    {
+            //        AdventuringGearId = id,
+            //        CharacterId = Character.ID,
+            //        Quantity = 1
+            //    });
+            //}
         }
 
         private void AdventuringGearsOnCollectionChanged (object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
