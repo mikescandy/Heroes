@@ -46,7 +46,9 @@ namespace Heroes.Services
 
         public T Get<T> (int id) where T : Model, new()
         {
-            return database.GetWithChildren<T> (id);
+            var res = database.GetWithChildren<T> (id, true);
+            database.GetChildren(res, true);
+            return res;
         }
 
         public IList<T> GetMany<T> (IList<int> ids) where T : Model, new()
