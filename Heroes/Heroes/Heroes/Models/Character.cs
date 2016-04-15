@@ -39,7 +39,7 @@ namespace Heroes.Models
 
         public int CurrentHP { get; set; }
 
-        [ManyToMany (typeof(CharacterAdventuringGear))]
-        public List<AdventuringGear> AdventuringGears { get; set; }
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<CharacterAdventuringGear> CharacterAdventuringGears { get; set; }
     }
 }
