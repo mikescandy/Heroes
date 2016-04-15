@@ -7,17 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.Droid", "Heroes\Hero
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.iOS", "Heroes\Heroes.iOS\Heroes.iOS.csproj", "{74480E02-3ED4-45AF-898C-23F05C4EA848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.WinPhone", "Heroes\Heroes.WinPhone\Heroes.WinPhone.csproj", "{EDD297BA-E8D0-423C-A447-3A1278E5A895}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.Windows", "Heroes\Heroes.Windows\Heroes.Windows.csproj", "{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes", "Heroes\Heroes\Heroes.csproj", "{CD8A647F-6056-49B0-B093-98150D4E2F94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core\Core.csproj", "{BA4A8B99-EC5A-42D1-8FC0-8A305800655A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Droid", "Core\Core.Droid\Core.Droid.csproj", "{7B40190B-5FA5-4708-B459-B967831C7592}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.UWP", "Heroes\Heroes.UWP\Heroes.UWP.csproj", "{882793B3-AC47-42F7-893D-15B2A6A86D18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
