@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using SQLiteNetExtensions.Attributes;
+using Core.Models;
 
 namespace Heroes.Models
 {
     public class AdventuringGear : Equipment
     {
-        [ManyToMany(typeof(CharacterAdventuringGear))]
-        public List<Character> Characters { get; set; }
+        [OneToMany]
+        public List<CharacterAdventuringGear> CharacterAdventuringGears { get; set; }
     }
 }
