@@ -12,8 +12,6 @@ environment:
 
 install:
 - cmd: >-
-    install:
-
     nuget install secure-file -ExcludeVersion
 
     secure-file\tools\secure-file -decrypt Secrets\com.scandysoft.keystore.enc -secret %my_secret%
