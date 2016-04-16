@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.Droid", "Heroes\Heroes.Droid\Heroes.Droid.csproj", "{0254BC48-1877-423D-9853-02BE4C44C655}"
 EndProject
@@ -288,8 +288,6 @@ Global
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.GorillaPlayerDebug|x64.ActiveCfg = Debug|Any CPU
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.GorillaPlayerDebug|x86.ActiveCfg = Debug|x86
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|ARM.ActiveCfg = Release|ARM
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|ARM.Build.0 = Release|ARM
 		{EDD297BA-E8D0-423C-A447-3A1278E5A895}.Release|ARM.Deploy.0 = Release|ARM
@@ -382,8 +380,6 @@ Global
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.GorillaPlayerDebug|x64.ActiveCfg = Debug|x64
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.GorillaPlayerDebug|x86.ActiveCfg = Debug|x86
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|ARM.ActiveCfg = Release|ARM
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|ARM.Build.0 = Release|ARM
 		{736CC905-FFC7-4C9D-9A2D-F4CC11F14DF6}.Release|ARM.Deploy.0 = Release|ARM
