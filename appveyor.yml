@@ -23,13 +23,13 @@ xamarin:
   ios: true
 build_script:
 - cmd: >-
-    nuget restore "c:\projects\heroes\Heroes\Core\Core\Core.csproj"
+    nuget restore "c:\projects\heroes\Heroes\Core\Core\packages.config" -PackagesDirectory "c:\projects\heroes\Heroes\packages"
     
-    nuget restore "c:\projects\heroes\Heroes\Core\Core.Droid\Core.Droid.csproj"
+    nuget restore "c:\projects\heroes\Heroes\Core\Core.Droid\packages.config" -PackagesDirectory "c:\projects\heroes\Heroes\packages"
     
-    nuget restore "c:\projects\heroes\Heroes\Heroes\Heroes\Heroes.csproj"
+    nuget restore "c:\projects\heroes\Heroes\Heroes\Heroes\packages.config" -PackagesDirectory "c:\projects\heroes\Heroes\packages"
     
-    nuget restore "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj"
+    nuget restore "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\packages.config" -PackagesDirectory "c:\projects\heroes\Heroes\packages"
 
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Clean
     
