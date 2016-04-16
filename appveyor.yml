@@ -23,9 +23,9 @@ xamarin:
   ios: true
 build_script:
 - cmd: >-
-    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /t:Clean
+    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Clean
     
-    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /t:UpdateAndroidResources
+    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:UpdateAndroidResources
     
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:PackageForAndroid
 
