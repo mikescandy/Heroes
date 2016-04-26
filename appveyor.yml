@@ -9,6 +9,8 @@ environment:
         secure: A30P+NAbb+SCkjRPmXIUXhNur2tQdjlb+HUSVy/mxzjsUoS2o7tdKy+6M9/Vj+Da2e5PXS88cFddfqJ0gdEYbr/VVqY6rgK8+kKUNToRvv8=
     keystore:
         secure: 8GOpI38BADJ9fibFJdvWLj1/ZMzofzr6cGJTNWgWdqpl3WZua1oIw3HzZXmol768kfDqEJSKUF+wsAqn5N8PvFc1AhcrKvQEIZABElZni7U=
+    alias:
+        secure: oIlX+3JxAPyl6OsUXdH0qbwIDNm4JT1yncRVvvxhae8nqh2/ATFhNUwz0EcnBkQQG7JnMHhaP7naNeesL9F+DEEQGoJtwUSWeZ58sMeo1pA=
 
 install:
 - cmd: >-
@@ -49,8 +51,8 @@ build_script:
     
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:PackageForAndroid
     
-    jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1  -keystore Secrets\com.scandysoft.keystore -signedjar Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk publishingdoc -storepass %keystore%
-
+    jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1  -keystore Secrets\com.scandysoft.keystore -signedjar Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk Heroes -storepass %keystore% -keypass %alias%
+    
     zipalign.exe' -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
 artifacts:
 - path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk
