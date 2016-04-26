@@ -56,7 +56,7 @@ build_script:
     
     jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1  -keystore Secrets\com.scandysoft.keystore -signedjar Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk Heroes -storepass %keystore% -keypass %alias%
     
-    zipalign.exe -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
+    %LocalAppData%\Android\android-sdk\build-tools\22.0.1\zipalign.exe -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
 artifacts:
 - path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk
   name: APK
