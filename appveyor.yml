@@ -21,7 +21,7 @@ environment:
     alias:
         secure: oIlX+3JxAPyl6OsUXdH0qbwIDNm4JT1yncRVvvxhae8nqh2/ATFhNUwz0EcnBkQQG7JnMHhaP7naNeesL9F+DEEQGoJtwUSWeZ58sMeo1pA=
     hockeyapptoken:
-        secure: K6rb/k6JxRVy1IW6aII7ErAsOjkawr43yqDjirSiPXiYcpaXyYVH+IOFMCOCajti
+        secure: kaH6h9i5qQvAmrnBwfJWhTGNyS38QKhXAm8jWO05T486oD1n/+mA6pDNWiHWDwvK
     hockeyappid:
         secure: 5MsriAk2pQXYG1LyHMUz8F0+7sJzgPR3ijduw13CBlYy8VQMDcfhd4DDrGamEmov
 install:
