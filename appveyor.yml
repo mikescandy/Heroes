@@ -7,11 +7,11 @@ configuration: Release
 
 platform: Any CPU
 
-#init:
-#- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))#
-#
-#on_finish:
-#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+init:
+- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))#
+
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 environment:
     my_secret:
@@ -20,7 +20,10 @@ environment:
         secure: 8GOpI38BADJ9fibFJdvWLj1/ZMzofzr6cGJTNWgWdqpl3WZua1oIw3HzZXmol768kfDqEJSKUF+wsAqn5N8PvFc1AhcrKvQEIZABElZni7U=
     alias:
         secure: oIlX+3JxAPyl6OsUXdH0qbwIDNm4JT1yncRVvvxhae8nqh2/ATFhNUwz0EcnBkQQG7JnMHhaP7naNeesL9F+DEEQGoJtwUSWeZ58sMeo1pA=
-
+    hockeyapptoken:
+        secure: K6rb/k6JxRVy1IW6aII7ErAsOjkawr43yqDjirSiPXiYcpaXyYVH+IOFMCOCajti
+    hockeyappid:
+        secure: 5MsriAk2pQXYG1LyHMUz8F0+7sJzgPR3ijduw13CBlYy8VQMDcfhd4DDrGamEmov
 install:
 - cmd: >-
     nuget install secure-file -ExcludeVersion
@@ -66,3 +69,14 @@ build_script:
 artifacts:
 - path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
   name: APK
+ 
+ deploy_script:
+  cmd: >-
+    curl \
+      -F "status=2" \
+      -F "notify=1" \
+      -F "notes_type=0" \
+      -F "ipa=@Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk" \
+      -H "X-HockeyAppToken: %hockeyapptoken%" \
+      https://rink.hockeyapp.net/api/2/apps/%hockeyappid%/app_versions/upload
+    
