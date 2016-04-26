@@ -31,12 +31,24 @@ build_script:
     
     nuget restore "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\packages.config" -PackagesDirectory "c:\projects\heroes\Heroes\packages"
 
+    msbuild.exe "c:\projects\heroes\Heroes\Core\Core.Droid\Core.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Clean
+    
+    msbuild.exe "c:\projects\heroes\Heroes\Core\Core.Droid\Core.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Build
+    
+    msbuild.exe "c:\projects\heroes\Heroes\Core\Core.Droid\Core.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:UpdateAndroidResources
+    
+    msbuild.exe "c:\projects\heroes\Heroes\Core\Core.Droid\Core.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Build
+    
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Clean
+    
+    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Build
     
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:UpdateAndroidResources
     
+    msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:Build
+    
     msbuild.exe "c:\projects\heroes\Heroes\Heroes\Heroes.Droid\Heroes.Droid.csproj" /p:Configuration=Release /p:Platform=AnyCPU /t:PackageForAndroid
-
+    
     jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1  -keystore Secrets\com.scandysoft.keystore -signedjar Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk publishingdoc -storepass %keystore%
 
     zipalign.exe' -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
