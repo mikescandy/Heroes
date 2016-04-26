@@ -7,6 +7,12 @@ configuration: Release
 
 platform: Any CPU
 
+init:
+- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 environment:
     my_secret:
         secure: A30P+NAbb+SCkjRPmXIUXhNur2tQdjlb+HUSVy/mxzjsUoS2o7tdKy+6M9/Vj+Da2e5PXS88cFddfqJ0gdEYbr/VVqY6rgK8+kKUNToRvv8=
