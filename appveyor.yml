@@ -70,7 +70,7 @@ artifacts:
 - path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
   name: APK
  
- deploy_script:
+deploy_script:
  - cmd: >-
     curl -F "status=2" -F "notify=1" -F "notes_type=0" -F "ipa=@Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk" -H "X-HockeyAppToken: %hockeyapptoken%" https://rink.hockeyapp.net/api/2/apps/%hockeyappid%/app_versions/upload
     
