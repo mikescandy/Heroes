@@ -7,11 +7,11 @@ configuration: Release
 
 platform: Any CPU
 
-init:
-- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init:
+#- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))#
+#
+#on_finish:
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 environment:
     my_secret:
@@ -62,7 +62,7 @@ build_script:
     
     jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1  -keystore Secrets\com.scandysoft.keystore -signedjar Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk Heroes -storepass %keystore% -keypass %alias%
     
-    %LocalAppData%\Android\android-sdk\build-tools\22.0.1\zipalign.exe -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
+    "C:\Program Files (x86)\Android\android-sdk\build-tools\23.0.1\zipalign.exe" -f -v 4 Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.apk Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
 artifacts:
-- path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.apk
+- path: Heroes\Heroes\Heroes.Droid\bin\release\com.scandysoft.heroes.signed.aligned.apk
   name: APK
