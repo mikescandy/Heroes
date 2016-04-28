@@ -32,7 +32,11 @@
           <x:String>#581A0F</x:String>
         </x:Arguments>
       </Color>
-      
+         <Color x:FactoryMethod="FromHex" x:Key="Red">
+        <x:Arguments>
+          <x:String>#FF0000</x:String>
+        </x:Arguments>
+      </Color>
       <Style x:Key="SmallButton" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
         <Setter Property="HeightRequest" Value="40" />
@@ -248,23 +252,24 @@
       </Style>
 
       <Style x:Key="SmallCircle" TargetType="controls:Circle">
-        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
-        <Setter Property="HeightRequest" Value="40" />
+              <Setter Property="FillColor" Value="{StaticResource Red}" />     
+        <Setter Property="StrokeColor" Value="{StaticResource DarkRed}" />
+				<Setter Property="HeightRequest" Value="40" />
         <Setter Property="WidthRequest" Value="40" />
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=85}" />
 
       </Style>
 
       <Style x:Key="SmallCircleBackground" TargetType="controls:Circle">
-        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
-        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="FillColor" Value="{StaticResource DarkRed}" />     
+        <Setter Property="StrokeColor" Value="{StaticResource DarkRed}" />
+		<Setter Property="HeightRequest" Value="50" />
         <Setter Property="WidthRequest" Value="50" />
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=80}" />
-
       </Style>
 
       <Style x:Key="SmallCircleBackgroundMinus" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircleBackground}">
-        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -95}" />
+          <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -95}" />
       </Style>
 
       <Style x:Key="SmallCircleBackgroundPlus" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircleBackground}">
@@ -272,7 +277,8 @@
       </Style>
 
       <Style x:Key="LeftCircle" TargetType="controls:Circle" BasedOn="{StaticResource SmallCircle}">
-        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
+        <Setter Property="FillColor" Value="{StaticResource SecondaryShade2}" />     
+        <Setter Property="StrokeColor" Value="{StaticResource DarkRed}" />
         <Setter Property="HeightRequest" Value="60" />
         <Setter Property="WidthRequest" Value="60" />
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />
@@ -280,7 +286,9 @@
       </Style>
 
       <Style x:Key="CentralCircle" TargetType="controls:Circle">
-        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryShade2}" />
+        <Setter Property="FillColor" Value="{StaticResource SecondaryShade2}" />     
+        <Setter Property="StrokeColor" Value="{StaticResource DarkRed}" />
+      <!--  <Setter Property="StrokeThickness" Value="1" /> -->  
         <Setter Property="HeightRequest" Value="60" />
         <Setter Property="WidthRequest" Value="60" />
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />
@@ -288,13 +296,14 @@
       </Style>
 
       <Style x:Key="CentralCircleBackground" BasedOn="{StaticResource CentralCircle}" TargetType="controls:Circle">
-        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+        <Setter Property="FillColor" Value="{StaticResource DarkRed}" />     
+		<Setter Property="StrokeColor" Value="{StaticResource DarkRed}" />
+       <!-- <Setter Property="StrokeThickness" Value="1" />     -->
         <Setter Property="HeightRequest" Value="70" />
         <Setter Property="WidthRequest" Value="70" />
         <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" />
         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}" />
-
-      </Style>
+       </Style>
 
     </ResourceDictionary>
   </Application.Resources>
