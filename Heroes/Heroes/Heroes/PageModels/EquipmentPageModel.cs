@@ -18,8 +18,7 @@ namespace Heroes.PageModels
         public double TotalWeight
         { 
             get {
-                //Repository.GetAll<AdventuringGear>(Character.CharacterAdventuringGears.Select(m=>m.AdventuringGearId)).Sum(m=>m.);
-                return 0;
+                return CharacterAdventuringGears.Sum(m=>m.Weight);
             } 
         }
 
@@ -55,13 +54,14 @@ namespace Heroes.PageModels
                     
                     foreach (var iitem in items)
                     {
-                        AddAdventuringGear (item.ID);
+                        AddAdventuringGear (iitem.ID);
                     }
                 }
             }
 
             Repository.Save (Character);
             Character = Repository.Get<Character> (Character.ID);
+            CharacterAdventuringGears = Character.AdventuringGears.ToObservable();
             base.ReverseInit (returndData);
         }
 
