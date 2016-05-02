@@ -15,6 +15,7 @@ namespace Heroes.PageModels
         public AddCharacterPageModel(IRepository repository) : base(repository)
         {
             Title = "New Character";
+            Transient = true;
         }
 
         public override void Init(object initData)

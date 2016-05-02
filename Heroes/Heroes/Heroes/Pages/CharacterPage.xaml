@@ -29,31 +29,22 @@
                         <Label Text="{Binding Character.Experience}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="4" />
                     </Grid>
                 </StackLayout>
-                <!--<controls:Circle x:Name="imageCircleBack"
-          FillColor="Maroon"  
-          StrokeColor="Maroon" 
-          StrokeThickness="1"
-          HeightRequest="70" 
-          WidthRequest="70" 
-          RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant = -35}" 
-          RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}"/>
-      
- <controls:Circle FillColor="Red"   
-        StrokeColor="Maroon" 
-        StrokeThickness="1" 
-        HeightRequest="60" 
-        WidthRequest="60" 
-        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1, Constant=5}" 
-        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}"/>-->
                 <controls:Circle x:Name="ImageCircleBack" Style="{StaticResource CentralCircleBackground}" />
                 <controls:Circle x:Name="ImageCircleBackMinus" Style="{StaticResource SmallCircleBackgroundMinus}" />
                 <controls:Circle x:Name="ImageCircleBackPlus" Style="{StaticResource SmallCircleBackgroundPlus}" />
+				
                 <controls:Circle Style="{StaticResource CentralCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBack, Property=X, Factor=1,Constant=5}" />
-                <!-- MISSING TEXT + -->
+
+
+				
+				<!-- MISSING TEXT + -->
+				 
                 <controls:Circle Style="{StaticResource SmallCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}" />
                 <!-- MISSING TEXT - -->
                 <controls:Circle Style="{StaticResource SmallCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackPlus, Property=X, Factor=1,Constant=5}" />
-                <StackLayout Style="{StaticResource HPLabelContainer}">
+                <Label Text="+" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}" />
+               
+				<StackLayout Style="{StaticResource HPLabelContainer}">
                     <Label Text="{Binding Character.HP}" Style="{StaticResource HPLabel}" />
                     <Label Text="HP" Style="{StaticResource HPLabelSmall}" />
                 </StackLayout>

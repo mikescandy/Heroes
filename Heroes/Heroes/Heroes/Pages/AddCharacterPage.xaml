@@ -1,8 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Heroes.Pages;assembly=Heroes" xmlns:controls="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls" xmlns:corecontrols="clr-namespace:Core.Controls;assembly=Core" x:Class="Heroes.Pages.AddCharacterPage" BackgroundColor="{StaticResource BackgroundColor}" Title="{Binding Title}" >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Icon="cancel.png" Command="{Binding CancelCommand}" />
-        <ToolbarItem Text="Save" Icon="save.png" Command="{Binding SaveCommand}" />
+        <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" >
+        <ToolbarItem.Icon>
+          <OnPlatform x:TypeArguments="x:String"
+                      Android="cancel.png"
+					  WinPhone="cancel.png"/>
+        </ToolbarItem.Icon>
+		</ToolbarItem>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}">
+        <ToolbarItem.Icon>
+          <OnPlatform x:TypeArguments="x:String"
+                      Android="save.png"
+					  WinPhone="save.png"/>
+        </ToolbarItem.Icon>
+		</ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>

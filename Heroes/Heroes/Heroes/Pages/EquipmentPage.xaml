@@ -10,7 +10,7 @@
         <ListView ItemsSource="{Binding CharacterAdventuringGears}" Style="{StaticResource AdventuringGearsList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding AdventuringGear.Name}" />
+                    <TextCell Text="{Binding Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
