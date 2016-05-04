@@ -17,15 +17,15 @@ namespace Heroes.PageModels
             base.Init (initData);
 
             var characterPage = FreshPageModelResolver.ResolvePageModel<CharacterPageModel> (initData);
-            characterPage.Title = "q";
+            //characterPage.Title = "q";
             characterPage.Icon = "user.png";
 
             var equipmentPage = FreshPageModelResolver.ResolvePageModel<EquipmentPageModel> (initData);
-            equipmentPage.Title = "q";
+            //equipmentPage.Title = "q";
             equipmentPage.Icon = "bag.png";
 
             var weaponPage = FreshPageModelResolver.ResolvePageModel<WeaponPageModel> (initData);
-            weaponPage.Title = "q";
+            //weaponPage.Title = "q";
             weaponPage.Icon = "sword.png";
 
             var pageList = new List<Page> { 

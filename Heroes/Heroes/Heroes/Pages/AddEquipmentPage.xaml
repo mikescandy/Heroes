@@ -3,8 +3,8 @@
 		xmlns="http://xamarin.com/schemas/2014/forms"
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		x:Class="Heroes.Pages.AddEquipmentPage"
-		xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
-        BackgroundColor="{StaticResource BackgroundColor}">
+		xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Core"
+		BackgroundColor="{StaticResource BackgroundColor}">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Multiselect" Icon="multiselect.png" Command="{Binding MultiSelectCommand}" />
     <ToolbarItem Text="Ok" Icon="ok.png" Command="{Binding OkCommand}" />

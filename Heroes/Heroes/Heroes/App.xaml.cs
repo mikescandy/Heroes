@@ -7,7 +7,9 @@ using Heroes.Pages;
 using Heroes.Services;
 using Heroes.Validators;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+//[assembly:XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Heroes
 {
     public partial class App : Application
