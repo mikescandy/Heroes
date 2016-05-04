@@ -27,7 +27,7 @@ namespace Heroes.Droid
 #if _GORILLA_
             LoadApplication (UXDivers.Gorilla.Droid.Player.CreateApplication(ApplicationContext, new UXDivers.Gorilla.Config("Good Gorilla")));
 #else
-            LoadApplication (new App ());
+            LoadApplication (new Xamarin.Forms.Player.App(new App ()));
 #endif
         }
     }
