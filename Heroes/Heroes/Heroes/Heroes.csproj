@@ -34,7 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GorillaPlayerDebug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'FormsPlayerDebug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\GorillaPlayerDebug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -218,7 +218,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Data\Armor.json" />
     <EmbeddedResource Include="Data\Weapons.json" />
-    <None Include="Gorilla.json" />
     <None Include="packages.config" />
     <None Include="SampleData.json" />
     <EmbeddedResource Include="Pages\HomePage.xaml">

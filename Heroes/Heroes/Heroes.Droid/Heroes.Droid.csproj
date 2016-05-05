@@ -52,7 +52,7 @@
     <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GorillaPlayerDebug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'FormsPlayerDebug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
     <OutputPath>bin\GorillaPlayerDebug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;_GORILLA_</DefineConstants>
