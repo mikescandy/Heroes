@@ -53,9 +53,9 @@
                     <Label Text="HP" Style="{StaticResource HPLabelSmall}" />
                 </StackLayout>
                 <Label Text="{Binding Character.Name}" Style="{StaticResource CharacterName}" />
-                <Label Text="Abilities" Style="{StaticResource AbilitiesHeader}" />
-                <Label Text="Saving Throws" Style="{StaticResource SavingsHeader}" />
-                <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
+                <!--<Label Text="Abilities" Style="{StaticResource AbilitiesHeader}" />
+                <Label Text="Saving Throws" Style="{StaticResource SavingsHeader}" />-->
+                <!--<RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
                     <StackLayout Style="{StaticResource AttributesSL}">
                         <Label Text="{Binding Character.Strength}" Style="{StaticResource AttributeValue}" />
                         <Label Text="Strength" Style="{StaticResource AttributeLabel}" />
@@ -65,8 +65,32 @@
                             <Label Text="{Binding Character.ToHit,StringFormat='Open Doors: {0}'}" Style="{StaticResource ModifierLable}" />
                         </StackLayout>
                     </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
+                </RelativeLayout>-->
+              <Grid  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=200}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="hexagon_small"></Image>
+                <Label Text="STR" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="0" Grid.Column="1" />
+                <Label Text="DEX" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="1" Grid.Column="1" />
+                <Label Text="CON" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="2" Grid.Column="1" />
+                <Label Text="INT" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="3" Grid.Column="1" />
+                <Label Text="WIS" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="4" Grid.Column="1" />
+                <Label Text="CHA" Style="{StaticResource CharacterLabel}" Margin="10" FontSize="20" Grid.Row="5" Grid.Column="1" />
+                <Label Text="{Binding Character.Alignment}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="1" />
+                <Label Text="{Binding Character.Experience}" Style="{StaticResource CharacterLabelValue}" Grid.Row="1" Grid.Column="4" />
+              </Grid>
+                <!--<RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
                     <StackLayout Style="{StaticResource AttributesSL}">
                         <Label Text="{Binding Character.Dexterity}" Style="{StaticResource AttributeValue}" />
                         <Label Text="Dexterity" Style="{StaticResource AttributeLabel}" />
@@ -115,58 +139,8 @@
                             <Label Text="{Binding Character.ToHit,StringFormat='Retainers Morale: {0}'}" Style="{StaticResource ModifierLable}" />
                         </StackLayout>
                     </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
-                    <StackLayout Style="{StaticResource SavingThrowSL}">
-                        <Label Text="{Binding Character.Breath}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Breath Attacks" Style="{StaticResource SavingThrowLabel}" />
-                    </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
-                    <StackLayout Style="{StaticResource SavingThrowSL}">
-                        <Label Text="{Binding Character.Poison}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Poison or Death" Style="{StaticResource SavingThrowLabel}" />
-                    </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=320}">
-                    <StackLayout Style="{StaticResource SavingThrowSL}">
-                        <Label Text="{Binding Character.Petrify}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Petrify or Paralyze" Style="{StaticResource SavingThrowLabel}" />
-                    </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=370}">
-                    <StackLayout Style="{StaticResource SavingThrowSL}">
-                        <Label Text="{Binding Character.Wands}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Wands" Style="{StaticResource SavingThrowLabel}" />
-                    </StackLayout>
-                </RelativeLayout>
-                <RelativeLayout Style="{StaticResource SavingThrowContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}">
-                    <StackLayout Style="{StaticResource SavingThrowSL}">
-                        <Label Text="{Binding Character.Spells}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Spells or Spell-like Devices" Style="{StaticResource SavingThrowLabel}" />
-                    </StackLayout>
-                </RelativeLayout>
-                <!--<RelativeLayout BackgroundColor="White"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}"
-            HeightRequest="45"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant=-10}"
-              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5}">
-     <StackLayout
-       BackgroundColor="Green"
-       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-       Orientation="Horizontal"
-       HeightRequest="40"
-       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}"
-       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=5}" >
-       <Label Text="9" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
-       <Label Text="Strength" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
-       <StackLayout Orientation="Vertical">
-         <Label Text="To Hit: 0" Style="{StaticResource ModifierLable}" ></Label>
-         <Label Text="To Dam: 0" Style="{StaticResource ModifierLable}" ></Label>
-         <Label Text="Open Doors: 0" Style="{StaticResource ModifierLable}" ></Label>
-       </StackLayout>
-     </StackLayout>
-        </RelativeLayout>-->
+                </RelativeLayout>-->
+                
             </RelativeLayout>
         </ScrollView>
     </ContentPage.Content>
