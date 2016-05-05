@@ -1,130 +1,158 @@
 ﻿{
-  "CharacterPage.xaml": {
-    "Character": {
+  "Pages": {
+    "CharacterPage.xaml": {
+      "Character": {
+        "Name": "Scypia the Acolyte",
+        "CharacterClass": "Cleric",
+        "Alignment": "Neutral",
+        "Level": 1,
+        "Experience": 0,
+        "MaxHP": 7,
+        "CurrentHP": 7,
+        "HP": "7/7",
+
+        "Strength": 9,
+        "Dexterity": 9,
+        "Constitution": 14,
+        "Intelligence": 14,
+        "Wisdom": 14,
+        "Charisma": 18,
+
+        "Breath": 16,
+        "Poison": 11,
+        "Petrify": 14,
+        "Wands": 12,
+        "Spells": 15,
+
+        "ToHit": 1,
+        "Visible": false
+      }
+    },
+    "EditCharacterPage.xaml": {
       "Name": "Scypia the Acolyte",
       "CharacterClass": "Cleric",
+      "Alignments": [ "Law", "Neutrality", "Chaos" ],
       "Alignment": "Neutral",
       "Level": 1,
       "Experience": 0,
       "MaxHP": 7,
-      "CurrentHP": 7,
-      "HP": "7/7",
-
       "Strength": 9,
       "Dexterity": 9,
       "Constitution": 14,
       "Intelligence": 14,
       "Wisdom": 14,
-      "Charisma": 18,
+      "Charisma": 18
+    },
 
-      "Breath": 16,
-      "Poison": 11,
-      "Petrify": 14,
-      "Wands": 12,
-      "Spells": 15,
-
-      "ToHit": 1,
-      "Visible": false
+    "EquipmentPage.xaml": {
+      "AdventuringGears": [
+        {
+          "ID": 1,
+          "Name": "Backpack (empty)",
+          "Cost": 2,
+          "Weight": 2
+        },
+        {
+          "ID": 2,
+          "Name": "Bedroll",
+          "Cost": ".1",
+          "Weight": 5
+        }
+      ]
+    },
+    "AddEquipmentPage.xaml": {
+      "AdventuringGears": [
+        {
+          "ID": 1,
+          "Name": "Backpack (empty)",
+          "Cost": 2,
+          "Weight": 2
+        },
+        {
+          "ID": 2,
+          "Name": "Bedroll",
+          "Cost": ".1",
+          "Weight": 5
+        }
+      ]
+    },
+    "HomePage.xaml": {
+      "Items": [
+        {
+          "ID": 1,
+          "Name": "Gandalf the Wizard",
+          "LineOne": "Character",
+          "LineTwo": "Character",
+          "LineThree": "Character",
+          "Image": "user.png",
+          "IsReal": true,
+          "IsAdd": false
+        },
+        {
+          "ID": 2,
+          "Name": "Fellowship of the Ring",
+          "LineOne": "Character",
+          "LineTwo": "Character",
+          "LineThree": "Character",
+          "Image": "people.png",
+          "IsReal": true,
+          "IsAdd": false
+        },
+        {
+          "ID": 3,
+          "Name": "Amici miei",
+          "LineOne": "Character",
+          "LineTwo": "Character",
+          "LineThree": "Character",
+          "Image": "people.png",
+          "IsReal": true,
+          "IsAdd": false
+        },
+        {
+          "ID": 3,
+          "Name": "Fellowship of the Ring",
+          "LineOne": "Character",
+          "LineTwo": "Character",
+          "LineThree": "Character",
+          "Image": "people.png",
+          "IsReal": true,
+          "IsAdd": false
+        },
+        {
+          "ID": -1,
+          "Name": "Add new",
+          "Type": "None",
+          "Image": "plus.png",
+          "IsReal": false,
+          "IsAdd": true
+        }
+      ]
     }
   },
-  "EditCharacterPage.xaml": {
+  "Character": {
     "Name": "Scypia the Acolyte",
     "CharacterClass": "Cleric",
-    "Alignments": [ "Law", "Neutrality", "Chaos" ],
     "Alignment": "Neutral",
     "Level": 1,
     "Experience": 0,
     "MaxHP": 7,
+    "CurrentHP": 7,
+    "HP": "7/7",
+
     "Strength": 9,
     "Dexterity": 9,
     "Constitution": 14,
     "Intelligence": 14,
     "Wisdom": 14,
-    "Charisma": 18
-  },
+    "Charisma": 18,
 
-  "EquipmentPage.xaml": {
-    "AdventuringGears": [
-      {
-        "ID": 1,
-        "Name": "Backpack (empty)",
-        "Cost": 2,
-        "Weight": 2
-      },
-      {
-        "ID": 2,
-        "Name": "Bedroll",
-        "Cost": ".1",
-        "Weight": 5
-      }
-    ]
-  },
-  "AddEquipmentPage.xaml": {
-    "AdventuringGears": [
-      {
-        "ID": 1,
-        "Name": "Backpack (empty)",
-        "Cost": 2,
-        "Weight": 2
-      },
-      {
-        "ID": 2,
-        "Name": "Bedroll",
-        "Cost": ".1",
-        "Weight": 5
-      }
-    ]
-  },
-  "HomePage.xaml": {
-    "Items": [
-      {
-        "ID": 1,
-        "Name": "Gandalf the Wizard",
-        "LineOne": "Character",
-        "LineTwo": "Character",
-        "LineThree": "Character",
-        "Image": "user.png",
-        "IsReal": true,
-        "IsAdd": false
-      },
-      {
-        "ID": 2,
-        "Name": "Fellowship of the Ring",
-        "LineOne": "Character",
-        "LineTwo": "Character",
-        "LineThree": "Character",
-        "Image": "people.png",
-        "IsReal": true,
-        "IsAdd": false
-      },
-      {
-        "ID": 3,
-        "Name": "Amici miei",
-        "LineOne": "Character",
-        "LineTwo": "Character",
-        "LineThree": "Character",
-        "Image": "people.png",
-        "IsReal": true,
-        "IsAdd": false
-      },
-      {
-        "ID": 3,
-        "Name": "Fellowship of the Ring",
-        "LineOne": "Character",
-        "LineTwo": "Character",
-        "LineThree": "Character",
-        "Image": "people.png",
-        "IsReal": true,
-        "IsAdd": false
-      },
-      {
-        "ID": -1,
-        "Name": "Add new",
-        "Type": "None",
-        "Image": "plus.png",
-        "IsReal": false,
-        "IsAdd": true
-      }
-    ]
+    "Breath": 16,
+    "Poison": 11,
+    "Petrify": 14,
+    "Wands": 12,
+    "Spells": 15,
+
+    "ToHit": 1,
+    "Visible": false
   }
 }

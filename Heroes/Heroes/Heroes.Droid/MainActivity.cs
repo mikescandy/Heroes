@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.Android;
 namespace Heroes.Droid
 {
     /// <inheritdoc/>
-    [Activity (Label = "Heroes",
+    [Activity(Label = "Heroes",
         Icon = "@drawable/icon",
         MainLauncher = true,
         ScreenOrientation = ScreenOrientation.Portrait,
@@ -16,21 +16,18 @@ namespace Heroes.Droid
     public class MainActivity : FormsAppCompatActivity
     {
         /// <inheritdoc/>
-        protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             ToolbarResource = Resource.Layout.toolbar;
             TabLayoutResource = Resource.Layout.tabs;
-            base.OnCreate (bundle);
-            Forms.Init (this, bundle);
-            SvgImageRenderer.Init ();
+            base.OnCreate(bundle);
+            Forms.Init(this, bundle);
+            SvgImageRenderer.Init();
 
 #if _GORILLA_
-             var a = new App();
-           LoadApplication(new Xamarin.Forms.Player.App(a));
+           LoadApplication(new Xamarin.Forms.Player.App(new App()));
 #else
-
- LoadApplication (new App ());
-
+           LoadApplication(new App());
 #endif
         }
     }
