@@ -12,6 +12,7 @@ using Xamarin.Forms.Xaml;
 //[assembly:XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Heroes
 {
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         public static IMapper Mapper { get; set; }
