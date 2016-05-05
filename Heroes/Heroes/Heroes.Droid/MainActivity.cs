@@ -25,11 +25,12 @@ namespace Heroes.Droid
             SvgImageRenderer.Init ();
 
 #if _GORILLA_
-            LoadApplication (UXDivers.Gorilla.Droid.Player.CreateApplication(ApplicationContext, new UXDivers.Gorilla.Config("Good Gorilla")));
-#else
-           // LoadApplication (new App ());
-            var a = new App();
+             var a = new App();
            LoadApplication(new Xamarin.Forms.Player.App(a));
+#else
+
+ LoadApplication (new App ());
+
 #endif
         }
     }
