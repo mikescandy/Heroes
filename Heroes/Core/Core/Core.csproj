@@ -66,6 +66,7 @@
     <Compile Include="Services\FluentValidationService.cs" />
     <Compile Include="Interfaces\ISqlLite.cs" />
     <Compile Include="Interfaces\IValidationService.cs" />
+    <Compile Include="Services\GenericRepository.cs" />
     <Compile Include="TrulyObservableCollection.cs" />
     <Compile Include="Controls\CustomTabbedPage.cs" />
     <Compile Include="Interfaces\IValidatableControl.cs" />
