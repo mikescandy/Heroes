@@ -88,7 +88,7 @@
 
       <Style x:Key="HeaderContainer" TargetType="StackLayout">
         <Setter Property="BackgroundColor" Value="{StaticResource DarkRed}" />
-        <Setter Property="HeightRequest" Value="100" />
+        <Setter Property="HeightRequest" Value="80" />
         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
       </Style>
 
