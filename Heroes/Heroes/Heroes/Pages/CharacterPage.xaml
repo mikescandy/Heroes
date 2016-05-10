@@ -10,7 +10,7 @@
   <ContentPage.Content>
     <ScrollView>
       <StackLayout Orientation="Vertical">
-        <RelativeLayout  >
+        <RelativeLayout Margin="0" Padding="0" VerticalOptions="Start">
           <StackLayout Style="{StaticResource HeaderContainer}" HeightRequest="105">
             <Grid Padding="10">
               <Grid.RowDefinitions>
@@ -39,38 +39,18 @@
           <controls:Circle x:Name="ImageCircleBackPlus" Style="{StaticResource SmallCircleBackgroundPlus}" />
 
           <controls:Circle Style="{StaticResource CentralCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBack, Property=X, Factor=1,Constant=5}" />
-
-
-
-          <!-- MISSING TEXT + -->
-
           <controls:Circle Style="{StaticResource SmallCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}" />
-          <!-- MISSING TEXT - -->
           <controls:Circle Style="{StaticResource SmallCircle}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackPlus, Property=X, Factor=1,Constant=5}" />
-          <Label Text="+" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageCircleBackMinus, Property=X, Factor=1,Constant=5}" />
+
 
           <StackLayout Style="{StaticResource HPLabelContainer}">
             <Label Text="{Binding Character.HP}" Style="{StaticResource HPLabel}" />
             <Label Text="HP" Style="{StaticResource HPLabelSmall}" />
           </StackLayout>
           <!--<Label Text="{Binding Character.Name}" Style="{StaticResource CharacterName}" />-->
-          <Label Text="AAAAAAAAAA AAAAAAAA" Style="{StaticResource CharacterName}" />
         </RelativeLayout>
 
-        <!--<Label Text="Abilities" Style="{StaticResource AbilitiesHeader}" />
-                <Label Text="Saving Throws" Style="{StaticResource SavingsHeader}" />-->
-        <!--<RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}">
-                    <StackLayout Style="{StaticResource AttributesSL}">
-                        <Label Text="{Binding Character.Strength}" Style="{StaticResource AttributeValue}" />
-                        <Label Text="Strength" Style="{StaticResource AttributeLabel}" />
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="{Binding Character.ToHit,StringFormat='To Hit: {0}'}" Style="{StaticResource ModifierLable}" />
-                            <Label Text="{Binding Character.ToHit,StringFormat='To Dam: {0}'}" Style="{StaticResource ModifierLable}" />
-                            <Label Text="{Binding Character.ToHit,StringFormat='Open Doors: {0}'}" Style="{StaticResource ModifierLable}" />
-                        </StackLayout>
-                    </StackLayout>
-                </RelativeLayout>-->
-        <Grid RowSpacing="0">
+        <Grid RowSpacing="0" Margin="0">
           <Grid.RowDefinitions>
             <RowDefinition Height="*"  />
             <RowDefinition Height="*" />
@@ -84,58 +64,57 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2*" />
           </Grid.ColumnDefinitions>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"  HeightRequest="40"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"  HeightRequest="40"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="0"  HeightRequest="40"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="3" Grid.Column="0"  HeightRequest="40"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="4" Grid.Column="0"  HeightRequest="40"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="5" Grid.Column="0"  HeightRequest="40"></Image>
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="0" Grid.Column="0" />
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="1" Grid.Column="0" />
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="2" Grid.Column="0" />
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="3" Grid.Column="0" />
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="4" Grid.Column="0" />
-          <Label Text="16" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="5" Grid.Column="0" />
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="0"  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="3" Grid.Column="0"  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="4" Grid.Column="0"  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="5" Grid.Column="0"  HeightRequest="35"></Image>
+          <Label Text="{Binding Strength}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="0" Grid.Column="0" />
+          <Label Text="{Binding Dexterity}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="1" Grid.Column="0" />
+          <Label Text="{Binding Constitution}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="2" Grid.Column="0" />
+          <Label Text="{Binding Intelligence}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="3" Grid.Column="0" />
+          <Label Text="{Binding Wisdom}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="4" Grid.Column="0" />
+          <Label Text="{Binding Charisma}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="5" Grid.Column="0" />
           <Label Text="STR" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="0" Grid.Column="1" />
           <Label Text="DEX" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="1" Grid.Column="1" />
           <Label Text="CON" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="2" Grid.Column="1" />
           <Label Text="INT" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="3" Grid.Column="1" />
           <Label Text="WIS" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="4" Grid.Column="1" />
           <Label Text="CHA" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="5" Grid.Column="1" />
-          <StackLayout Orientation="Vertical"  Grid.Row="0" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="15"></Label>
+          <StackLayout Orientation="Vertical"  Grid.Row="0" Grid.Column="2" Padding="0" Margin="0">
+            <Label Text="{Binding StrengthModifier}" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
-
           </StackLayout>
 
 
           <StackLayout Orientation="Vertical"  Grid.Row="1" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="12"></Label>
+            <Label Text="{Binding DexterityModifier}" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
 
           </StackLayout>
           <StackLayout Orientation="Vertical"  Grid.Row="2" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="12"></Label>
+            <Label Text="{Binding ConstitutionModifier}" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
 
           </StackLayout>
           <StackLayout Orientation="Vertical"  Grid.Row="3" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="12"></Label>
+            <Label Text="" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
 
           </StackLayout>
           <StackLayout Orientation="Vertical"  Grid.Row="4" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="12"></Label>
+            <Label Text="{Binding WisdomModifier}" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
 
           </StackLayout>
           <StackLayout Orientation="Vertical"  Grid.Row="5" Grid.Column="2">
-            <Label Text="+2" HorizontalOptions="Center" FontSize="12"></Label>
+            <Label Text="" HorizontalOptions="Center" FontSize="12"></Label>
             <BoxView Color="Black" HeightRequest="2" />
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
 
@@ -228,16 +207,16 @@
             <Label HorizontalOptions="Center" Text="8" Grid.Row="0" Grid.Column="8" FontSize="15"></Label>
             <Label HorizontalOptions="Center" Text="9" Grid.Row="0" Grid.Column="9" FontSize="15"></Label>
 
-            <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="99" Grid.Row="1" Grid.Column="0" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="1" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="2" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="3" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="4" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="5" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="6" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="7" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="8" FontSize="15"></Label>
-            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="99" Grid.Row="1" Grid.Column="9" FontSize="15"></Label>
+            <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding RollToHit[0]}" Grid.Row="1" Grid.Column="0" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[1]}" Grid.Row="1" Grid.Column="1" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[2]}" Grid.Row="1" Grid.Column="2" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[3]}" Grid.Row="1" Grid.Column="3" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[4]}" Grid.Row="1" Grid.Column="4" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[5]}" Grid.Row="1" Grid.Column="5" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[6]}" Grid.Row="1" Grid.Column="6" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[7]}" Grid.Row="1" Grid.Column="7" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[8]}" Grid.Row="1" Grid.Column="8" FontSize="15"></Label>
+            <Label HorizontalOptions="Center" VerticalOptions="Center"  Text="{Binding RollToHit[9]}" Grid.Row="1" Grid.Column="9" FontSize="15"></Label>
 
             <Frame Padding="19" HorizontalOptions="Center" VerticalOptions="Center" OutlineColor="Black" Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent"  ></Frame>
             <Frame Padding="19" HorizontalOptions="Center" VerticalOptions="Center" OutlineColor="Black" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" ></Frame>
