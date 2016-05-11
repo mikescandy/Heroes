@@ -23,24 +23,32 @@ namespace Heroes.PageModels
 
         public string NameValidationError { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public CharacterClass CharacterClass { get; set; }
 
-        public Alignment Alignment { get; set; }
+        [AlsoNotifyFor ("IsValid")]
+        public string Alignment { get; set; }
 
         public uint Level { get; set; }
 
         public uint Experience { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Strength { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Dexterity { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Constitution { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Intelligence { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Wisdom { get; set; }
 
+        [AlsoNotifyFor ("IsValid")]
         public uint Charisma { get; set; }
 
         public int MaxHP { get; set; }

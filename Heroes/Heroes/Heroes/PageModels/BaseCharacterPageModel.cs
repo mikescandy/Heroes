@@ -26,7 +26,7 @@ namespace Heroes.PageModels
                 var characterId = (int)initData;
                 if (characterId > 0) {
                     Character = Repository.Get<Character> (characterId);
-                    Title = Character.Name;
+                    //Title = Character.Name;
                 }
             } catch (InvalidCastException ex) {
                 System.Diagnostics.Debug.WriteLine ("This should not happen.", ex.Message);

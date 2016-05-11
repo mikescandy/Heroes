@@ -40,7 +40,7 @@ namespace Heroes.PageModels
                 {
                     var character = new Character
                     {
-                        Alignment = Alignment,
+                        Alignment = (Alignment)Enum.Parse(typeof(Alignment),Alignment),
                         CharacterClass = CharacterClass,
                         Charisma = Charisma,
                         Constitution = Constitution,

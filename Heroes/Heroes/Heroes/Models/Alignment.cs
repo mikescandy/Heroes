@@ -2,8 +2,9 @@
 {
     public enum Alignment
     {
-        Law,
-        Neutrality,
-        Chaos
+        None = 0,
+        Law = 1,
+        Neutrality = 2,
+        Chaos = 3
     }
 }

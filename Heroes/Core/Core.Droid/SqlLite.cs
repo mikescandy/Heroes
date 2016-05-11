@@ -22,7 +22,7 @@ namespace Core.Droid
             // Create the connection
             var conn = new SQLiteConnection (new SQLitePlatformAndroid (), path);
 
-            // Return the database connection
+            // Return the Database connection
             return conn;
         }
     }

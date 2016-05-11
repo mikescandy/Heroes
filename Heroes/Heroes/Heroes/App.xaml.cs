@@ -7,9 +7,12 @@ using Heroes.Pages;
 using Heroes.Services;
 using Heroes.Validators;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+//[assembly:XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Heroes
 {
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         public static IMapper Mapper { get; set; }
