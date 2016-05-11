@@ -23,7 +23,7 @@
                 </corecontrols:ValidationEntry>
                 <Label Text="Alignment" TextColor="Maroon">
                 </Label>
-                <corecontrols:BindablePicker ItemsSource="{Binding Alignments}">
+                <corecontrols:BindablePicker ItemsSource="{Binding Alignments}" SelectedItem="{Binding Alignment}">
                 </corecontrols:BindablePicker>
                 <Label Text="Level" TextColor="Maroon">
                 </Label>

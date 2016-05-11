@@ -24,6 +24,9 @@ namespace Heroes.PageModels
         public string DexterityModifier { get; set; }
         public string ConstitutionModifier { get; set; }
         public string WisdomModifier { get; set; }
+        public string IntelligenceModifer { get; set; }
+        
+        public string CharismaModifer { get; set; }
         public int[] RollToHit { get; set; }
 
         public ICommand EditCommand { get; set; }
@@ -40,6 +43,7 @@ namespace Heroes.PageModels
             App.Mapper.Map(Character, this);
             CalculateBonuses();
             CalculateHitModifiers();
+            
             EditCommand = new Command(async () => await CoreMethods.PushPageModel<EditCharacterPageModel>(Character.ID, true));
         }
 
@@ -55,9 +59,35 @@ namespace Heroes.PageModels
 
         private void CalculateBonuses()
         {
-            StrengthModifier = Tables.ModifierTable[Character.Strength].ToString();
-            DexterityModifier = Tables.ModifierTable[Character.Dexterity].ToString();
-            ConstitutionModifier = Tables.ModifierTable[Character.Constitution].ToString();
+            StrengthModifier = Tables.ModifierTable[Character.Strength];
+            DexterityModifier = Tables.ModifierTable[Character.Dexterity];
+            ConstitutionModifier = Tables.ModifierTable[Character.Constitution];
+            CharismaModifer = Tables.CharismaTable[Character.Charisma];
+            WisdomModifier = Tables.ModifierTable[Character.Wisdom];
+            CalculateIntelligenceModifier();
+
+        }
+
+        private void CalculateIntelligenceModifier()
+        {
+            switch (Character.Intelligence)
+            {
+                case 13:
+                case 14:
+                case 15:
+                    IntelligenceModifer = "+1";
+                    break;
+                case 16:
+                case 17:
+                    IntelligenceModifer = "+2";
+                    break;
+                case 18:
+                    IntelligenceModifer = "+3";
+                    break;
+                default:
+                    break;
+
+            }
         }
 
         private void CalculateHitModifiers()

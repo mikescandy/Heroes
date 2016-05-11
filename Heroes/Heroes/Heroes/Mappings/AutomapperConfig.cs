@@ -35,6 +35,9 @@ namespace Heroes.Mappings
                     .ForMember(m => m.DexterityModifier, opt => opt.Ignore())
                     .ForMember(m => m.ConstitutionModifier, opt => opt.Ignore())
                     .ForMember(m => m.WisdomModifier, opt => opt.Ignore())
+                    .ForMember(m => m.IntelligenceModifer, opt => opt.Ignore())
+                    .ForMember(m => m.CharismaModifer, opt => opt.Ignore())
+                    .ForMember(m => m.WisdomModifier, opt => opt.Ignore())
                     .ForMember(m => m.RollToHit, opt => opt.Ignore());
 
             });
