@@ -67,65 +67,69 @@
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"  HeightRequest="35"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"  HeightRequest="35"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="0"  HeightRequest="35"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="3" Grid.Column="0"  HeightRequest="35"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="4" Grid.Column="0"  HeightRequest="35"></Image>
-          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="5" Grid.Column="0"  HeightRequest="35"></Image>
-          <Label TextColor="Black" Text="{Binding Strength}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="0" Grid.Column="0" />
-          <Label TextColor="Black" Text="{Binding Dexterity}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="1" Grid.Column="0" />
-          <Label TextColor="Black" Text="{Binding Constitution}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="2" Grid.Column="0" />
-          <Label TextColor="Black" Text="{Binding Intelligence}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="3" Grid.Column="0" />
-          <Label TextColor="Black" Text="{Binding Wisdom}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="4" Grid.Column="0" />
-          <Label TextColor="Black" Text="{Binding Charisma}" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="5" Grid.Column="0" />
-          <Label Text="STR" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="0" Grid.Column="1" />
-          <Label Text="DEX" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="1" Grid.Column="1" />
-          <Label Text="CON" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="2" Grid.Column="1" />
-          <Label Text="INT" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="3" Grid.Column="1" />
-          <Label Text="WIS" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="4" Grid.Column="1" />
-          <Label Text="CHA" VerticalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Row="5" Grid.Column="1" />
-          <StackLayout Orientation="Vertical"  Grid.Row="0" Grid.Column="2" Padding="10,0,10,0" Margin="0">
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="4" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Image Source="hexagon_small" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="1  "  HeightRequest="35"></Image>
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="0" Grid.Row="1"  Text="{Binding Strength}"     />
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="1" Grid.Row="1"  Text="{Binding Dexterity}"    />
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="2" Grid.Row="1"  Text="{Binding Constitution}" />
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="3" Grid.Row="1"  Text="{Binding Intelligence}" />
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="4" Grid.Row="1"  Text="{Binding Wisdom}"       />
+          <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="5" Grid.Row="1"  Text="{Binding Charisma}"     />
+          <Label Text="STR" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="0" Grid.Row="0" />
+          <Label Text="DEX" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="1" Grid.Row="0" />
+          <Label Text="CON" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="2" Grid.Row="0" />
+          <Label Text="INT" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="3" Grid.Row="0" />
+          <Label Text="WIS" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="4" Grid.Row="0" />
+          <Label Text="CHA" HorizontalOptions="Center" Style="{StaticResource CharacterLabel}" Margin="0" FontSize="20" Grid.Column="5" Grid.Row="0" />
+        </Grid>
+
+        <StackLayout Orientation="Horizontal"  Grid.Row="0" Grid.Column="2" Padding="10,0,10,0" Margin="0">
             <Label Text="{Binding StrengthModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="Modifier to hit, dmg, forcing doors" FontSize="10"></Label>
           </StackLayout>
 
 
-          <StackLayout Orientation="Vertical"  Grid.Row="1" Grid.Column="2" Padding="10,0,10,0" >
+          <StackLayout Orientation="Horizontal"  Grid.Row="1" Grid.Column="2" Padding="10,0,10,0" >
             <Label Text="{Binding DexterityModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="AC/Missile/Initiative" FontSize="10"></Label>
 
           </StackLayout>
-          <StackLayout Orientation="Vertical"  Grid.Row="2" Grid.Column="2" Padding="10,0,10,0" >
+          <StackLayout Orientation="Horizontal"  Grid.Row="2" Grid.Column="2" Padding="10,0,10,0" >
             <Label Text="{Binding ConstitutionModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="hp/Poison/Res./Shock" FontSize="10"></Label>
 
           </StackLayout>
-          <StackLayout Orientation="Vertical"  Grid.Row="3" Grid.Column="2" Padding="10,0,10,0" >
+          <StackLayout Orientation="Horizontal"  Grid.Row="3" Grid.Column="2" Padding="10,0,10,0" >
             <Label Text="{Binding IntelligenceModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="Lang/Spell Prob/Min/Msx" FontSize="10"></Label>
 
           </StackLayout>
-          <StackLayout Orientation="Vertical"  Grid.Row="4" Grid.Column="2" Padding="10,0,10,0" >
+          <StackLayout Orientation="Horizontal"  Grid.Row="4" Grid.Column="2" Padding="10,0,10,0" >
             <Label Text="{Binding WisdomModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="Save/Spell fail/Add spells" FontSize="10"></Label>
 
           </StackLayout>
-          <StackLayout Orientation="Vertical"  Grid.Row="5" Grid.Column="2" Padding="10,0,10,0" >
+          <StackLayout Orientation="Horizontal"  Grid.Row="5" Grid.Column="2" Padding="10,0,10,0" >
             <Label Text="{Binding CharismaModifier}" HorizontalOptions="Center" FontSize="12"></Label>
-            <BoxView Color="Black" HeightRequest="2" />
+            <!--<BoxView Color="Black" HeightRequest="2" />-->
             <Label HorizontalOptions="Center"  Text="Reac Adj/Ret/Ret morale" FontSize="10"></Label>
 
           </StackLayout>
 
-        </Grid>
 
         <!--<RelativeLayout Style="{StaticResource AttributesContainer}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=270}">
                     <StackLayout Style="{StaticResource AttributesSL}">

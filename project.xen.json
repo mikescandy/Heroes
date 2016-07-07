@@ -1,0 +1,38 @@
+{
+  "schema": "https://schemas.xenforms.com/xenproject/v1/",
+  "assemblies": [
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core.Droid\\bin\\Debug\\Core.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core.Droid\\bin\\Debug\\Core.Droid.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core.Droid\\bin\\Debug\\FormsViewGroup.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core.Droid\\bin\\Debug\\FreshMvvm.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core\\bin\\Debug\\Core.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Core\\Core\\bin\\Debug\\FreshMvvm.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Heroes\\Heroes.Droid\\bin\\GorillaPlayerDebug\\Heroes.dll"
+    },
+    {
+      "include": true,
+      "relativePath": "\\Heroes\\Heroes\\Heroes.Droid\\bin\\GorillaPlayerDebug\\AutoMapper.dll"
+    }
+  ],
+  "views": null
+}
