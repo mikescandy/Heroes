@@ -15,7 +15,7 @@
   <ContentPage.Content>
     <ScrollView>
       <StackLayout Orientation="Vertical">
-        <RelativeLayout Margin="0" Padding="0" VerticalOptions="Start">
+        <RelativeLayout Margin="1" Padding="0" VerticalOptions="Start">
           <StackLayout Style="{StaticResource HeaderContainer}" HeightRequest="90">
             <Grid Padding="10">
               <Grid.RowDefinitions>
